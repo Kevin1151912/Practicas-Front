@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+  <script>
+    function mostrarFormulario(formularioVisible, formularioOculto) {
+      $("#" + formularioVisible).show();
+      $("#" + formularioOculto).hide();
+    }
+
+    function mostrarSeccion(seccion) {
+      $(".content-section").hide();
+      $("#" + seccion).show();
+
+      if (seccion === "estudiante-section" || seccion === "director-section") {
+        $("#metodoInicioSesion").show();
+        $("#formEstudianteCredenciales, #formEstudianteCorreo, #formDirectorCredenciales, #formDirectorCorreo").hide();
+      } else {
+        $("#metodoInicioSesion").hide();
+      }
+    }
+
+    function iniciarSesion(tipo, metodo) {
+      console.log("Iniciar sesión como " + tipo + " con método " + metodo);
+    }
+
+    function cambiarMetodo(tipoUsuario) {
+      var metodoSeleccionado;
+      if (tipoUsuario === 'estudiante') {
+        metodoSeleccionado = $("#selectorMetodoEstudiante").val();
+      } else if (tipoUsuario === 'director') {
+        metodoSeleccionado = $("#selectorMetodoDirector").val();
+      }
+
+      if (metodoSeleccionado === "credenciales") {
+        if (tipoUsuario === 'estudiante') {
+          mostrarFormulario("formEstudianteCredenciales", "formEstudianteCorreo");
+        } else if (tipoUsuario === 'director') {
+          mostrarFormulario("formDirectorCredenciales", "formDirectorCorreo");
+        }
+      } else {
+        if (tipoUsuario === 'estudiante') {
+          mostrarFormulario("formEstudianteCorreo", "formEstudianteCredenciales");
+        } else if (tipoUsuario === 'director') {
+          mostrarFormulario("formDirectorCorreo", "formDirectorCredenciales");
+        }
+      }
+    }
+  </script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <link rel="apple-touch-icon" sizes="76x76" href="" />
+  <link rel="icon" href="https://divisist2.ufps.edu.co/assets/img/ufps/favicon.ico" />
+  <title>Practicas UFPS</title>
+  <link rel="stylesheet" type="text/css"
+    href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900|Roboto+Slab:400,700" />
+  <link rel="stylesheet" href="/assets/css/index.css" />
+  <link href="../assets/css/nucleo-icons.css" rel="stylesheet" />
+  <link href="../assets/css/nucleo-svg.css" rel="stylesheet" />
+  <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet" />
+  <link id="pagestyle" href="../assets/css/material-dashboard.css?v=3.1.0" rel="stylesheet" />
+  <script defer data-site="YOUR_DOMAIN_HERE" src="https://api.nepcha.com/js/nepcha-analytics.js"></script>
+</head>
+
+<body class="bg-gray-200">
+  <div class="container position-sticky z-index-sticky top-0">
+    <div class="row">
+      <div class="col-12">
+        <nav
+          class="navbar navbar-expand-lg blur border-radius-xl top-0 z-index-3 shadow position-absolute my-3 py-2 start-0 end-0 mx-4">
+          <div class="container-fluid ps-2 pe-0">
+            <a class="navbar-brand font-weight-bolder ms-lg-0 ms-3">Modulos Disponibles</a>
+            <button class="navbar-toggler shadow-none ms-2" type="button" data-bs-toggle="collapse"
+              data-bs-target="#navigation" aria-controls="navigation" aria-expanded="false"
+              aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon mt-2">
+                <span class="navbar-toggler-bar bar1"></span>
+                <span class="navbar-toggler-bar bar2"></span>
+                <span class="navbar-toggler-bar bar3"></span>
+              </span>
+            </button>
+            <div class="collapse navbar-collapse" id="navigation">
+              <ul class="navbar-nav mx-auto">
+                <li class="nav-item">
+                  <a class="nav-link d-flex align-items-center me-2 active" aria-current="page" href="#"
+                    data-bs-toggle="collapse" data-bs-target="#estudiante-section"
+                    onclick="mostrarSeccion('estudiante-section')">
+                    <i class="fa fa-chart-pie opacity-6 text-dark me-1"></i>
+                    Estudiante
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link me-2" href="#" data-bs-toggle="collapse" data-bs-target="#director-section"
+                    onclick="mostrarSeccion('director-section')">
+                    <i class="fa fa-user opacity-6 text-dark me-1"></i>
+                    Director
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link me-2" href="#" data-bs-toggle="collapse" data-bs-target="#empresa-section"
+                    onclick="mostrarSeccion('empresa-section')">
+                    <i class="fas fa-user-circle opacity-6 text-dark me-1"></i>
+                    Empresa
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link me-2" href="#" data-bs-toggle="collapse" data-bs-target="#tutor-section"
+                    onclick="mostrarSeccion('tutor-section')">
+                    <i class="fas fa-key opacity-6 text-dark me-1"></i>
+                    Tutor
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link me-2" href="#" data-bs-toggle="collapse" data-bs-target="#coordinador-section"
+                    onclick="mostrarSeccion('coordinador-section')">
+                    <i class="fas fa-key opacity-6 text-dark me-1"></i>
+                    Coordinador
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link me-2" href="#" data-bs-toggle="collapse"
+                    data-bs-target="#comite-curricular-section" onclick="mostrarSeccion('comite-curricular-section')">
+                    <i class="fas fa-key opacity-6 text-dark me-1"></i>
+                    Comite Curricular
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </div>
+  </div>
+  <main class="main-content mt-0">
+    <div class="page-header align-items-start min-vh-100 background-images">
+      <span class="mask bg-gradient-dark opacity-6"></span>
+      <div class="container my-auto">
+        <div class="row">
+          <div class="col-lg-4 col-md-8 col-12 mx-auto">
+            <div class="card z-index-0 fadeIn3 fadeInBottom">
+              <div class="card-header p-0 position-relative mt-n4 mx-5 z-index-2">
+                <div class="bg-gradient-primary shadow-primary border-radius-lg py-3 pe-1">
+                  <h4 class="text-white font-weight-bolder text-center mt-2 mb-0">
+                    Practicas UFPS
+                  </h4>
+                </div>
+              </div>
+              <div class="card-body">
+                <!-- Sección de Estudiante -->
+                <div id="estudiante-section" class="content-section" style="display: none">
+                  <h2 style="text-align: center;">Estudiante</h2>
+
+                  <!-- Selector de método de inicio de sesión -->
+                  <div id="metodoInicioSesionEstudiante">
+                    <label for="selectorMetodoEstudiante">Seleccione el método de inicio de sesión:</label>
+                    <select id="selectorMetodoEstudiante" onchange="cambiarMetodo('estudiante')">
+                      <option value=""></option>
+                      <option value="credenciales">Credenciales</option>
+                      <option value="correo">Correo</option>
+                    </select>
+                  </div>
+
+                  <!-- Formulario de inicio de sesión por credenciales -->
+                  <div class="card z-index-0 fadeIn3 fadeInBottom">
+                    <div class="card-body">
+                      <form role="form" class="text-start" id="formEstudianteCredenciales">
+                        <div class="input-group input-group-outline my-3">
+                          <input type="text" class="form-control" placeholder="Codigo" id="codigoEstudianteCredenciales" />
+                        </div>
+                        <div class="input-group input-group-outline my-3">
+                          <input type="text" class="form-control" placeholder="Cedula" id="cedulaEstudianteCredenciales" />
+                        </div>
+                        <div class="input-group input-group-outline mb-3">
+                          <input type="password" class="form-control" placeholder="Contraseña" id="passwordEstudianteCredenciales" />
+                        </div>
+                        <button type="button" class="btn bg-gradient-primary w-100 my-4 mb-2"
+                          onclick="iniciarSesion('estudiante', 'credenciales')">
+                          Iniciar sesión
+                        </button>
+                      </form>
+                    </div>
+                  </div>
+
+                  <!-- Formulario de inicio de sesión por correo -->
+                  <div class="card z-index-0 fadeIn3 fadeInBottom">
+                    <div class="card-body">
+                      <form role="form" class="text-start" id="formEstudianteCorreo">
+                        <div class="input-group input-group-outline mb-3">
+                          <input type="email" class="form-control" placeholder="Correo" id="correoEstudianteCorreo" />
+                        </div>
+                        <div class="input-group input-group-outline mb-3">
+                          <input type="password" class="form-control" placeholder="Contraseña" id="passwordEstudianteCorreo" />
+                        </div>
+                        <button type="button" class="btn bg-gradient-primary w-100 my-4 mb-2"
+                          onclick="iniciarSesion('estudiante', 'correo')">
+                          Iniciar sesión
+                        </button>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Sección de Director -->
+                <div id="director-section" class="content-section" style="display: none;">
+                  <h2 style="text-align: center;">Director</h2>
+
+                  <!-- Selector de método de inicio de sesión -->
+                  <div id="metodoInicioSesionDirector">
+                    <label for="selectorMetodoDirector">Seleccione el método de inicio de sesión:</label>
+                    <select id="selectorMetodoDirector" onchange="cambiarMetodo('director')">
+                      <option value=""></option>
+                      <option value="credenciales">Credenciales</option>
+                      <option value="correo">Correo</option>
+                    </select>
+                  </div>
+
+                  <!-- Formulario de inicio de sesión por credenciales -->
+                  <div class="card z-index-0 fadeIn3 fadeInBottom">
+                    <div class="card-body">
+                      <form role="form" class="text-start" id="formDirectorCredenciales">
+                        <div class="input-group input-group-outline my-3">
+                          <input type="text" class="form-control" placeholder="Codigo" id="codigoDirectorCredenciales" />
+                        </div>
+                        <div class="input-group input-group-outline my-3">
+                          <input type="text" class="form-control" placeholder="Cedula" id="cedulaDirectorCredenciales" />
+                        </div>
+                        <div class="input-group input-group-outline mb-3">
+                          <input type="password" class="form-control" placeholder="Contraseña" id="passwordDirectorCredenciales" />
+                        </div>
+                        <button type="button" class="btn bg-gradient-primary w-100 my-4 mb-2";
+                          onclick="iniciarSesion('director', 'credenciales')">
+                          <a style="color: white;" href="Paginas/InicioDir.html">Iniciar sesión</a>        
+                        </button>
+                      </form>
+                    </div>
+                  </div>
+
+                  <!-- Formulario de inicio de sesión por correo -->
+                  <div class="card z-index-0 fadeIn3 fadeInBottom">
+                    <div class="card-body">
+                      <form role="form" class="text-start" id="formDirectorCorreo">
+                        <div class="input-group input-group-outline mb-3">
+                          <input type="email" class="form-control" placeholder="Correo" id="correoDirectorCorreo" />
+                        </div>
+                        <div class="input-group input-group-outline mb-3">
+                          <input type="password" class="form-control" placeholder="Contraseña" id="passwordDirectorCorreo" />
+                        </div>
+                        <button type="button" class="btn bg-gradient-primary w-100 my-4 mb-2"
+                          onclick="iniciarSesion('director', 'correo')" >
+                          <a style="color: white;" href="Paginas/InicioDir.html">Iniciar sesión</a>
+                        </button>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Sección de Empresa -->
+                <div id="empresa-section" class="content-section" style="display: none">
+                  <h2 style="text-align: center;">Empresa</h2>
+                  <!-- Formulario de inicio de sesión por correo -->
+                  <div class="card z-index-0 fadeIn3 fadeInBottom">
+                    <div class="card-body">
+                      <!-- Formulario por correo -->
+                      <form role="form" class="text-start" id="formEmpresaCorreo">
+                        <div class="input-group input-group-outline mb-3">
+                          <input type="email" class="form-control" placeholder="Correo" id="correoEmpresaCorreo" />
+                        </div>
+                        <div class="input-group input-group-outline mb-3">
+                          <input type="password" class="form-control" placeholder="Contraseña" id="passwordEmpresaCorreo" />
+                        </div>
+                        <button type="button" class="btn bg-gradient-primary w-100 my-4 mb-2"
+                          onclick="iniciarSesion('empresa', 'correo')">
+                          Iniciar sesión
+                        </button>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Sección de Tutor -->
+                <div id="tutor-section" class="content-section" style="display: none">
+                  <h2 style="text-align: center;">Tutor</h2>
+                  <!-- Formulario de inicio de sesión por correo -->
+                  <div class="card z-index-0 fadeIn3 fadeInBottom">
+                    <div class="card-body">
+                      <!-- Formulario por correo -->
+                      <form role="form" class="text-start" id="formTutorCorreo">
+                        <div class="input-group input-group-outline mb-3">
+                          <input type="email" class="form-control" placeholder="Correo" id="correoTutorCorreo" />
+                        </div>
+                        <div class="input-group input-group-outline mb-3">
+                          <input type="password" class="form-control" placeholder="Contraseña" id="passwordTutorCorreo" />
+                        </div>
+                        <button type="button" class="btn bg-gradient-primary w-100 my-4 mb-2"
+                          onclick="iniciarSesion('tutor', 'correo')">
+                          Iniciar sesión
+                        </button>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Sección de Coordinador -->
+                <div id="coordinador-section" class="content-section" style="display: none">
+                  <h2 style="text-align: center;">Coordinador</h2>
+                  <!-- Formulario de inicio de sesión por correo -->
+                  <div class="card z-index-0 fadeIn3 fadeInBottom">
+                    <div class="card-body">
+                      <!-- Formulario por correo -->
+                      <form role="form" class="text-start" id="formCoordinadorCorreo">
+                        <div class="input-group input-group-outline mb-3">
+                          <input type="email" class="form-control" placeholder="Correo" id="correoCoordinadorCorreo" />
+                        </div>
+                        <div class="input-group input-group-outline mb-3">
+                          <input type="password" class="form-control" placeholder="Contraseña" id="passwordCoordinadorCorreo" />
+                        </div>
+                        <button type="button" class="btn bg-gradient-primary w-100 my-4 mb-2"
+                          onclick="iniciarSesion('coordinador', 'correo')">
+                          Iniciar sesión
+                        </button>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Sección de Comité Curricular -->
+                <div id="comite-curricular-section" class="content-section" style="display: none">
+                  <h2 style="text-align: center;">Comité Curricular</h2>
+
+                  <!-- Formulario de inicio de sesión por correo -->
+                  <div class="card z-index-0 fadeIn3 fadeInBottom">
+                    <div class="card-body">
+                      <!-- Formulario por correo -->
+                      <form role="form" class="text-start" id="formComiteCorreo">
+                        <div class="input-group input-group-outline mb-3">
+                          <input type="email" class="form-control" placeholder="Correo" id="correoComiteCorreo" />
+                        </div>
+                        <div class="input-group input-group-outline mb-3">
+                          <input type="password" class="form-control" placeholder="Contraseña" id="passwordComiteCorreo" />
+                        </div>
+                        <button type="button" class="btn bg-gradient-primary w-100 my-4 mb-2"
+                          onclick="iniciarSesion('comite-curricular', 'correo')">
+                          Iniciar sesión
+                        </button>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <!--   Core JS Files   -->
+  <script src="/assets/js/core/popper.min.js"></script>
+  <script src="/assets/js/core/bootstrap.min.js"></script>
+  <script src="/assets/js/plugins/perfect-scrollbar.min.js"></script>
+  <script src="/assets/js/plugins/smooth-scrollbar.min.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      var backgroundImages = [
+        "/assets/img/bg1.jpg",
+        "/assets/img/bg2.jpg",
+        "/assets/img/19.jpg",
+      ];
+
+      var currentIndex = 0;
+      var intervalTime = 15000;
+
+      function changeBackground() {
+        document.querySelector(".background-images").style.backgroundImage =
+          "url(" + backgroundImages[currentIndex] + ")";
+        currentIndex = (currentIndex + 1) % backgroundImages.length;
+      }
+
+      changeBackground();
+
+      setInterval(changeBackground, intervalTime);
+    });
+  </script>
+</body>
+
+</html>
