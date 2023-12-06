@@ -219,7 +219,7 @@
                   <!-- Formulario de inicio de sesión por credenciales -->
                   <div class="card z-index-0 fadeIn3 fadeInBottom">
                     <div class="card-body">
-                      <form role="form" class="text-start" id="formDirectorCredenciales">
+                      <form role="form" class="text-start" id="formDirectorCredenciales" onsubmit="return iniciarSesion('director', 'credenciales')">
                         <div class="input-group input-group-outline my-3">
                           <input type="text" class="form-control" placeholder="Codigo" id="codigoDirectorCredenciales" />
                         </div>
@@ -229,9 +229,8 @@
                         <div class="input-group input-group-outline mb-3">
                           <input type="password" class="form-control" placeholder="Contraseña" id="passwordDirectorCredenciales" />
                         </div>
-                        <button type="button" class="btn bg-gradient-primary w-100 my-4 mb-2";
-                          onclick="iniciarSesion('director', 'credenciales')">
-                          <a style="color: white;" href="Paginas/InicioDir.html">Iniciar sesión</a>        
+                        <button type="submit" class="btn bg-gradient-primary w-100 my-4 mb-2">
+                          <a style="color: white;">Iniciar sesión</a>        
                         </button>
                       </form>
                     </div>
@@ -249,7 +248,7 @@
                         </div>
                         <button type="button" class="btn bg-gradient-primary w-100 my-4 mb-2"
                           onclick="iniciarSesion('director', 'correo')" >
-                          <a style="color: white;" href="Paginas/InicioDir.html">Iniciar sesión</a>
+                          <a style="color: white;">Iniciar sesión</a>
                         </button>
                       </form>
                     </div>
@@ -360,7 +359,8 @@
   <script src="assets/js/core/bootstrap.min.js"></script>
   <script src="assets/js/plugins/perfect-scrollbar.min.js"></script>
   <script src="assets/js/plugins/smooth-scrollbar.min.js"></script>
-  <script src="API/main.js"></script>
+  <script src="./API/urlBackend.js"></script>
+  <script src="./API/login.js"></script>
   <script>
     document.addEventListener("DOMContentLoaded", function () {
       var backgroundImages = [
