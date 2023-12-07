@@ -32,7 +32,7 @@ async function loginUser(loginDTO) {
         console.log(data)
         if(data.rolId===2){
             localStorage.setItem("Data", JSON.stringify(data))
-          window.location.href="./Paginas/inicioDir.html"
+          window.location.href="../Paginas/inicioDir.html"
         }else{
           alert("usuario no autorizado")
         }
@@ -72,7 +72,7 @@ async function loginUser(loginDTO) {
             console.log(data)
             if(data.rolId===2){
                 localStorage.setItem("Data", JSON.stringify(data))
-              window.location.href="./Paginas/inicioDir.html"
+              window.location.href="../Paginas/inicioDir.html"
             }else{
               alert("usuario no autorizado")
             }
