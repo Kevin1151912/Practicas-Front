@@ -16,9 +16,9 @@
 
             var infoLink = document.querySelector('.navbar-nav a[href="#section-info"]');
             infoLink.addEventListener('click', (event) => {
-            event.preventDefault();
-            window.location.reload();
-        });
+                event.preventDefault();
+                window.location.reload();
+            });
 
             links.forEach(function (link) {
                 link.addEventListener('click', function (event) {
@@ -113,15 +113,7 @@
                         <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                             <i class="material-icons opacity-10">ballot</i>
                         </div>
-                        <span class="nav-link-text ms-1">Coordinadores</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link link text-white " href="#section-usuarios">
-                        <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                            <i class="material-icons opacity-10">list</i>
-                        </div>
-                        <span class="nav-link-text ms-1">Listar Usuarios</span>
+                        <span class="nav-link-text ms-1">Proyectos</span>
                     </a>
                 </li>
                 <li class="nav-item mt-3">
@@ -138,7 +130,15 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link link text-white " href="#">
+                    <a class="nav-link link text-white " href="#section-usuarios">
+                        <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                            <i class="material-icons opacity-10">list</i>
+                        </div>
+                        <span class="nav-link-text ms-1">Listar Usuarios</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link link text-white " href="#section-add">
                         <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                             <i class="material-icons opacity-10">person_add</i>
                         </div>
@@ -192,6 +192,9 @@
                                         <tr>
                                             <th
                                                 class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                                Id</th>
+                                            <th
+                                                class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                                 Nombre</th>
                                             <th
                                                 class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
@@ -217,250 +220,7 @@
                                             <th class="text-secondary opacity-7"></th>
                                         </tr>
                                     </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>
-                                                <h6 class="mb-0 text-sm">John Michael</h6>
-                                            </td>
-                                            <td>
-                                                <p class="text-xs text-secondary mb-0">john@creative-tim.com</p>
-                                            </td>
-                                            <td class="align-middle text-center text-sm">
-                                                <span class="mb-0 text-secondary text-xs">Empresa</span>
-                                            </td>
-                                            <td class="align-middle text-center">
-                                                <span class="text-secondary text-xs font-weight-bold">23/04/18</span>
-                                            </td>
-                                            <td class="align-middle">
-                                                <h6 class="mb-0 text-secondary text-xs">9742984</h6>
-                                            </td>
-                                            <td class="align-middle text-align">
-                                                <span class="mb-0 text-secondary text-xs">Javier Lopez</span>
-                                            </td>
-                                            <td class="align-middle">
-                                                <h6 class="mb-0 text-center text-xs text-secondary">Postulacion a
-                                                    Practicas</h6>
-                                            </td>
-                                            <td class="align-middle text-center text-sm">
-                                                <span class="badge badge-sm bg-gradient-success">Aceptado</span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <h6 class="mb-0 text-sm">John Michael</h6>
-                                            </td>
-                                            <td>
-                                                <p class="text-xs text-secondary mb-0">john@creative-tim.com</p>
-                                            </td>
-                                            <td class="align-middle text-center text-sm">
-                                                <span class="mb-0 text-secondary text-xs">Empresa</span>
-                                            </td>
-                                            <td class="align-middle text-center">
-                                                <span class="text-secondary text-xs font-weight-bold">23/04/18</span>
-                                            </td>
-                                            <td class="align-middle">
-                                                <h6 class="mb-0 text-secondary text-xs">9742984</h6>
-                                            </td>
-                                            <td class="align-middle text-align">
-                                                <span class="mb-0 text-secondary text-xs">Javier Lopez</span>
-                                            </td>
-                                            <td class="align-middle">
-                                                <h6 class="mb-0 text-center text-xs text-secondary">Postulacion a
-                                                    Practicas</h6>
-                                            </td>
-                                            <td class="align-middle text-center text-sm">
-                                                <span class="badge badge-sm bg-gradient-success">Aceptado</span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <h6 class="mb-0 text-sm">John Michael</h6>
-                                            </td>
-                                            <td>
-                                                <p class="text-xs text-secondary mb-0">john@creative-tim.com</p>
-                                            </td>
-                                            <td class="align-middle text-center text-sm">
-                                                <span class="mb-0 text-secondary text-xs">Empresa</span>
-                                            </td>
-                                            <td class="align-middle text-center">
-                                                <span class="text-secondary text-xs font-weight-bold">23/04/18</span>
-                                            </td>
-                                            <td class="align-middle">
-                                                <h6 class="mb-0 text-secondary text-xs">9742984</h6>
-                                            </td>
-                                            <td class="align-middle text-align">
-                                                <span class="mb-0 text-secondary text-xs">Javier Lopez</span>
-                                            </td>
-                                            <td class="align-middle">
-                                                <h6 class="mb-0 text-center text-xs text-secondary">Postulacion a
-                                                    Practicas</h6>
-                                            </td>
-                                            <td class="align-middle text-center text-sm">
-                                                <span class="badge badge-sm bg-gradient-danger">Pendiente</span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <h6 class="mb-0 text-sm">John Michael</h6>
-                                            </td>
-                                            <td>
-                                                <p class="text-xs text-secondary mb-0">john@creative-tim.com</p>
-                                            </td>
-                                            <td class="align-middle text-center text-sm">
-                                                <span class="mb-0 text-secondary text-xs">Empresa</span>
-                                            </td>
-                                            <td class="align-middle text-center">
-                                                <span class="text-secondary text-xs font-weight-bold">23/04/18</span>
-                                            </td>
-                                            <td class="align-middle">
-                                                <h6 class="mb-0 text-secondary text-xs">9742984</h6>
-                                            </td>
-                                            <td class="align-middle text-align">
-                                                <span class="mb-0 text-secondary text-xs">Javier Lopez</span>
-                                            </td>
-                                            <td class="align-middle">
-                                                <h6 class="mb-0 text-center text-xs text-secondary">Postulacion a
-                                                    Practicas</h6>
-                                            </td>
-                                            <td class="align-middle text-center text-sm">
-                                                <span class="badge badge-sm bg-gradient-success">Aceptado</span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <h6 class="mb-0 text-sm">John Michael</h6>
-                                            </td>
-                                            <td>
-                                                <p class="text-xs text-secondary mb-0">john@creative-tim.com</p>
-                                            </td>
-                                            <td class="align-middle text-center text-sm">
-                                                <span class="mb-0 text-secondary text-xs">Empresa</span>
-                                            </td>
-                                            <td class="align-middle text-center">
-                                                <span class="text-secondary text-xs font-weight-bold">23/04/18</span>
-                                            </td>
-                                            <td class="align-middle">
-                                                <h6 class="mb-0 text-secondary text-xs">9742984</h6>
-                                            </td>
-                                            <td class="align-middle text-align">
-                                                <span class="mb-0 text-secondary text-xs">Javier Lopez</span>
-                                            </td>
-                                            <td class="align-middle">
-                                                <h6 class="mb-0 text-center text-xs text-secondary">Postulacion a
-                                                    Practicas</h6>
-                                            </td>
-                                            <td class="align-middle text-center text-sm">
-                                                <span class="badge badge-sm bg-gradient-danger">Pendiente</span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <h6 class="mb-0 text-sm">John Michael</h6>
-                                            </td>
-                                            <td>
-                                                <p class="text-xs text-secondary mb-0">john@creative-tim.com</p>
-                                            </td>
-                                            <td class="align-middle text-center text-sm">
-                                                <span class="mb-0 text-secondary text-xs">Empresa</span>
-                                            </td>
-                                            <td class="align-middle text-center">
-                                                <span class="text-secondary text-xs font-weight-bold">23/04/18</span>
-                                            </td>
-                                            <td class="align-middle">
-                                                <h6 class="mb-0 text-secondary text-xs">9742984</h6>
-                                            </td>
-                                            <td class="align-middle text-align">
-                                                <span class="mb-0 text-secondary text-xs">Javier Lopez</span>
-                                            </td>
-                                            <td class="align-middle">
-                                                <h6 class="mb-0 text-center text-xs text-secondary">Postulacion a
-                                                    Practicas</h6>
-                                            </td>
-                                            <td class="align-middle text-center text-sm">
-                                                <span class="badge badge-sm bg-gradient-danger">Pendiente</span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <h6 class="mb-0 text-sm">John Michael</h6>
-                                            </td>
-                                            <td>
-                                                <p class="text-xs text-secondary mb-0">john@creative-tim.com</p>
-                                            </td>
-                                            <td class="align-middle text-center text-sm">
-                                                <span class="mb-0 text-secondary text-xs">Empresa</span>
-                                            </td>
-                                            <td class="align-middle text-center">
-                                                <span class="text-secondary text-xs font-weight-bold">23/04/18</span>
-                                            </td>
-                                            <td class="align-middle">
-                                                <h6 class="mb-0 text-secondary text-xs">9742984</h6>
-                                            </td>
-                                            <td class="align-middle text-align">
-                                                <span class="mb-0 text-secondary text-xs">Javier Lopez</span>
-                                            </td>
-                                            <td class="align-middle">
-                                                <h6 class="mb-0 text-center text-xs text-secondary">Postulacion a
-                                                    Practicas</h6>
-                                            </td>
-                                            <td class="align-middle text-center text-sm">
-                                                <span class="badge badge-sm bg-gradient-success">Aceptado</span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <h6 class="mb-0 text-sm">John Michael</h6>
-                                            </td>
-                                            <td>
-                                                <p class="text-xs text-secondary mb-0">john@creative-tim.com</p>
-                                            </td>
-                                            <td class="align-middle text-center text-sm">
-                                                <span class="mb-0 text-secondary text-xs">Empresa</span>
-                                            </td>
-                                            <td class="align-middle text-center">
-                                                <span class="text-secondary text-xs font-weight-bold">23/04/18</span>
-                                            </td>
-                                            <td class="align-middle">
-                                                <h6 class="mb-0 text-secondary text-xs">9742984</h6>
-                                            </td>
-                                            <td class="align-middle text-align">
-                                                <span class="mb-0 text-secondary text-xs">Javier Lopez</span>
-                                            </td>
-                                            <td class="align-middle">
-                                                <h6 class="mb-0 text-center text-xs text-secondary">Postulacion a
-                                                    Practicas</h6>
-                                            </td>
-                                            <td class="align-middle text-center text-sm">
-                                                <span class="badge badge-sm bg-gradient-success">Aceptado</span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <h6 class="mb-0 text-sm">John Michael</h6>
-                                            </td>
-                                            <td>
-                                                <p class="text-xs text-secondary mb-0">john@creative-tim.com</p>
-                                            </td>
-                                            <td class="align-middle text-center text-sm">
-                                                <span class="mb-0 text-secondary text-xs">Empresa</span>
-                                            </td>
-                                            <td class="align-middle text-center">
-                                                <span class="text-secondary text-xs font-weight-bold">23/04/18</span>
-                                            </td>
-                                            <td class="align-middle">
-                                                <h6 class="mb-0 text-secondary text-xs">9742984</h6>
-                                            </td>
-                                            <td class="align-middle text-align">
-                                                <span class="mb-0 text-secondary text-xs">Javier Lopez</span>
-                                            </td>
-                                            <td class="align-middle">
-                                                <h6 class="mb-0 text-center text-xs text-secondary">Postulacion a
-                                                    Practicas</h6>
-                                            </td>
-                                            <td class="align-middle text-center text-sm">
-                                                <span class="badge badge-sm bg-gradient-danger">Pendiente</span>
-                                            </td>
-                                        </tr>
+                                    <tbody id="tablaEmpresas">
                                     </tbody>
                                 </table>
                             </div>
@@ -481,6 +241,9 @@
                                 <table class="table align-items-center text-center mb-0">
                                     <thead>
                                         <tr>
+                                            <!-- <th
+                                                class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                                Id</th> -->
                                             <th
                                                 class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                                 Nombre</th>
@@ -511,239 +274,7 @@
                                             <th class="text-secondary opacity-7"></th>
                                         </tr>
                                     </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>
-                                                <h6 class="mb-0 text-sm">John Michael</h6>
-                                            </td>
-                                            <td>
-                                                <p class="text-xs text-secondary mb-0">john@creative-tim.com</p>
-                                            </td>
-                                            <td class="align-middle text-center text-sm">
-                                                <span class="mb-0 text-secondary text-xs">Estudiante</span>
-                                            </td>
-                                            <td class="align-middle text-center">
-                                                <span class="text-secondary text-xs font-weight-bold">23/04/18</span>
-                                            </td>
-                                            <td class="align-middle">
-                                                <h6 class="mb-0 text-secondary text-xs">9742984</h6>
-                                            </td>
-                                            <td class="align-middle text-capitalize">
-                                                <span class="mb-0 text-secondary text-xs">1093268321</span>
-                                            </td>
-                                            <td class="align-middle">
-                                                <h6 class="mb-0 text-center text-xs text-secondary">10</h6>
-                                            </td>
-                                            <td class="align-middle">
-                                                <h6 class="mb-0 text-center text-xs text-secondary">150</h6>
-                                            </td>
-                                            <td class="align-middle text-center text-sm">
-                                                <span class="badge badge-sm bg-gradient-success">Aceptado</span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <h6 class="mb-0 text-sm">John Michael</h6>
-                                            </td>
-                                            <td>
-                                                <p class="text-xs text-secondary mb-0">john@creative-tim.com</p>
-                                            </td>
-                                            <td class="align-middle text-center text-sm">
-                                                <span class="mb-0 text-secondary text-xs">Estudiante</span>
-                                            </td>
-                                            <td class="align-middle text-center">
-                                                <span class="text-secondary text-xs font-weight-bold">23/04/18</span>
-                                            </td>
-                                            <td class="align-middle">
-                                                <h6 class="mb-0 text-secondary text-xs">9742984</h6>
-                                            </td>
-                                            <td class="align-middle text-capitalize">
-                                                <span class="mb-0 text-secondary text-xs">1093268321</span>
-                                            </td>
-                                            <td class="align-middle">
-                                                <h6 class="mb-0 text-center text-xs text-secondary">10</h6>
-                                            </td>
-                                            <td class="align-middle">
-                                                <h6 class="mb-0 text-center text-xs text-secondary">150</h6>
-                                            </td>
-                                            <td class="align-middle text-center text-sm">
-                                                <span class="badge badge-sm bg-gradient-success">Aceptado</span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <h6 class="mb-0 text-sm">John Michael</h6>
-                                            </td>
-                                            <td>
-                                                <p class="text-xs text-secondary mb-0">john@creative-tim.com</p>
-                                            </td>
-                                            <td class="align-middle text-center text-sm">
-                                                <span class="mb-0 text-secondary text-xs">Estudiante</span>
-                                            </td>
-                                            <td class="align-middle text-center">
-                                                <span class="text-secondary text-xs font-weight-bold">23/04/18</span>
-                                            </td>
-                                            <td class="align-middle">
-                                                <h6 class="mb-0 text-secondary text-xs">9742984</h6>
-                                            </td>
-                                            <td class="align-middle text-capitalize">
-                                                <span class="mb-0 text-secondary text-xs">1093268321</span>
-                                            </td>
-                                            <td class="align-middle">
-                                                <h6 class="mb-0 text-center text-xs text-secondary">10</h6>
-                                            </td>
-                                            <td class="align-middle">
-                                                <h6 class="mb-0 text-center text-xs text-secondary">150</h6>
-                                            </td>
-                                            <td class="align-middle text-center text-sm">
-                                                <span class="badge badge-sm bg-gradient-danger">Pendiente</span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <h6 class="mb-0 text-sm">John Michael</h6>
-                                            </td>
-                                            <td>
-                                                <p class="text-xs text-secondary mb-0">john@creative-tim.com</p>
-                                            </td>
-                                            <td class="align-middle text-center text-sm">
-                                                <span class="mb-0 text-secondary text-xs">Estudiante</span>
-                                            </td>
-                                            <td class="align-middle text-center">
-                                                <span class="text-secondary text-xs font-weight-bold">23/04/18</span>
-                                            </td>
-                                            <td class="align-middle">
-                                                <h6 class="mb-0 text-secondary text-xs">9742984</h6>
-                                            </td>
-                                            <td class="align-middle text-capitalize">
-                                                <span class="mb-0 text-secondary text-xs">1093268321</span>
-                                            </td>
-                                            <td class="align-middle">
-                                                <h6 class="mb-0 text-center text-xs text-secondary">10</h6>
-                                            </td>
-                                            <td class="align-middle">
-                                                <h6 class="mb-0 text-center text-xs text-secondary">150</h6>
-                                            </td>
-                                            <td class="align-middle text-center text-sm">
-                                                <span class="badge badge-sm bg-gradient-danger">Pendiente</span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <h6 class="mb-0 text-sm">John Michael</h6>
-                                            </td>
-                                            <td>
-                                                <p class="text-xs text-secondary mb-0">john@creative-tim.com</p>
-                                            </td>
-                                            <td class="align-middle text-center text-sm">
-                                                <span class="mb-0 text-secondary text-xs">Estudiante</span>
-                                            </td>
-                                            <td class="align-middle text-center">
-                                                <span class="text-secondary text-xs font-weight-bold">23/04/18</span>
-                                            </td>
-                                            <td class="align-middle">
-                                                <h6 class="mb-0 text-secondary text-xs">9742984</h6>
-                                            </td>
-                                            <td class="align-middle text-capitalize">
-                                                <span class="mb-0 text-secondary text-xs">1093268321</span>
-                                            </td>
-                                            <td class="align-middle">
-                                                <h6 class="mb-0 text-center text-xs text-secondary">10</h6>
-                                            </td>
-                                            <td class="align-middle">
-                                                <h6 class="mb-0 text-center text-xs text-secondary">150</h6>
-                                            </td>
-                                            <td class="align-middle text-center text-sm">
-                                                <span class="badge badge-sm bg-gradient-success">Aceptado</span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <h6 class="mb-0 text-sm">John Michael</h6>
-                                            </td>
-                                            <td>
-                                                <p class="text-xs text-secondary mb-0">john@creative-tim.com</p>
-                                            </td>
-                                            <td class="align-middle text-center text-sm">
-                                                <span class="mb-0 text-secondary text-xs">Estudiante</span>
-                                            </td>
-                                            <td class="align-middle text-center">
-                                                <span class="text-secondary text-xs font-weight-bold">23/04/18</span>
-                                            </td>
-                                            <td class="align-middle">
-                                                <h6 class="mb-0 text-secondary text-xs">9742984</h6>
-                                            </td>
-                                            <td class="align-middle text-capitalize">
-                                                <span class="mb-0 text-secondary text-xs">1093268321</span>
-                                            </td>
-                                            <td class="align-middle">
-                                                <h6 class="mb-0 text-center text-xs text-secondary">10</h6>
-                                            </td>
-                                            <td class="align-middle">
-                                                <h6 class="mb-0 text-center text-xs text-secondary">150</h6>
-                                            </td>
-                                            <td class="align-middle text-center text-sm">
-                                                <span class="badge badge-sm bg-gradient-success">Aceptado</span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <h6 class="mb-0 text-sm">John Michael</h6>
-                                            </td>
-                                            <td>
-                                                <p class="text-xs text-secondary mb-0">john@creative-tim.com</p>
-                                            </td>
-                                            <td class="align-middle text-center text-sm">
-                                                <span class="mb-0 text-secondary text-xs">Estudiante</span>
-                                            </td>
-                                            <td class="align-middle text-center">
-                                                <span class="text-secondary text-xs font-weight-bold">23/04/18</span>
-                                            </td>
-                                            <td class="align-middle">
-                                                <h6 class="mb-0 text-secondary text-xs">9742984</h6>
-                                            </td>
-                                            <td class="align-middle text-capitalize">
-                                                <span class="mb-0 text-secondary text-xs">1093268321</span>
-                                            </td>
-                                            <td class="align-middle">
-                                                <h6 class="mb-0 text-center text-xs text-secondary">10</h6>
-                                            </td>
-                                            <td class="align-middle">
-                                                <h6 class="mb-0 text-center text-xs text-secondary">150</h6>
-                                            </td>
-                                            <td class="align-middle text-center text-sm">
-                                                <span class="badge badge-sm bg-gradient-danger">Pendiente</span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <h6 class="mb-0 text-sm">John Michael</h6>
-                                            </td>
-                                            <td>
-                                                <p class="text-xs text-secondary mb-0">john@creative-tim.com</p>
-                                            </td>
-                                            <td class="align-middle text-center text-sm">
-                                                <span class="mb-0 text-secondary text-xs">Estudiante</span>
-                                            </td>
-                                            <td class="align-middle text-center">
-                                                <span class="text-secondary text-xs font-weight-bold">23/04/18</span>
-                                            </td>
-                                            <td class="align-middle">
-                                                <h6 class="mb-0 text-secondary text-xs">9742984</h6>
-                                            </td>
-                                            <td class="align-middle text-capitalize">
-                                                <span class="mb-0 text-secondary text-xs">1093268321</span>
-                                            </td>
-                                            <td class="align-middle">
-                                                <h6 class="mb-0 text-center text-xs text-secondary">10</h6>
-                                            </td>
-                                            <td class="align-middle">
-                                                <h6 class="mb-0 text-center text-xs text-secondary">150</h6>
-                                            </td>
-                                            <td class="align-middle text-center text-sm">
-                                                <span class="badge badge-sm bg-gradient-danger">Pendiente</span>
-                                            </td>
-                                        </tr>
+                                    <tbody id="tablaEstudiantes">
                                     </tbody>
                                 </table>
                             </div>
@@ -794,239 +325,7 @@
                                             <th class="text-secondary opacity-7"></th>
                                         </tr>
                                     </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>
-                                                <h6 class="mb-0 text-sm">John Michael</h6>
-                                            </td>
-                                            <td>
-                                                <p class="text-xs text-secondary mb-0">john@creative-tim.com</p>
-                                            </td>
-                                            <td class="align-middle text-center text-sm">
-                                                <span class="mb-0 text-secondary text-xs">Estudiante</span>
-                                            </td>
-                                            <td class="align-middle text-center">
-                                                <span class="text-secondary text-xs font-weight-bold">23/04/18</span>
-                                            </td>
-                                            <td class="align-middle">
-                                                <h6 class="mb-0 text-secondary text-xs">9742984</h6>
-                                            </td>
-                                            <td class="align-middle text-capitalize">
-                                                <span class="mb-0 text-secondary text-xs">1093268321</span>
-                                            </td>
-                                            <td class="align-middle">
-                                                <h6 class="mb-0 text-center text-xs text-secondary">10</h6>
-                                            </td>
-                                            <td class="align-middle">
-                                                <h6 class="mb-0 text-center text-xs text-secondary">150</h6>
-                                            </td>
-                                            <td class="align-middle text-center text-sm">
-                                                <span class="badge badge-sm bg-gradient-success">Aceptado</span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <h6 class="mb-0 text-sm">John Michael</h6>
-                                            </td>
-                                            <td>
-                                                <p class="text-xs text-secondary mb-0">john@creative-tim.com</p>
-                                            </td>
-                                            <td class="align-middle text-center text-sm">
-                                                <span class="mb-0 text-secondary text-xs">Estudiante</span>
-                                            </td>
-                                            <td class="align-middle text-center">
-                                                <span class="text-secondary text-xs font-weight-bold">23/04/18</span>
-                                            </td>
-                                            <td class="align-middle">
-                                                <h6 class="mb-0 text-secondary text-xs">9742984</h6>
-                                            </td>
-                                            <td class="align-middle text-capitalize">
-                                                <span class="mb-0 text-secondary text-xs">1093268321</span>
-                                            </td>
-                                            <td class="align-middle">
-                                                <h6 class="mb-0 text-center text-xs text-secondary">10</h6>
-                                            </td>
-                                            <td class="align-middle">
-                                                <h6 class="mb-0 text-center text-xs text-secondary">150</h6>
-                                            </td>
-                                            <td class="align-middle text-center text-sm">
-                                                <span class="badge badge-sm bg-gradient-success">Aceptado</span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <h6 class="mb-0 text-sm">John Michael</h6>
-                                            </td>
-                                            <td>
-                                                <p class="text-xs text-secondary mb-0">john@creative-tim.com</p>
-                                            </td>
-                                            <td class="align-middle text-center text-sm">
-                                                <span class="mb-0 text-secondary text-xs">Estudiante</span>
-                                            </td>
-                                            <td class="align-middle text-center">
-                                                <span class="text-secondary text-xs font-weight-bold">23/04/18</span>
-                                            </td>
-                                            <td class="align-middle">
-                                                <h6 class="mb-0 text-secondary text-xs">9742984</h6>
-                                            </td>
-                                            <td class="align-middle text-capitalize">
-                                                <span class="mb-0 text-secondary text-xs">1093268321</span>
-                                            </td>
-                                            <td class="align-middle">
-                                                <h6 class="mb-0 text-center text-xs text-secondary">10</h6>
-                                            </td>
-                                            <td class="align-middle">
-                                                <h6 class="mb-0 text-center text-xs text-secondary">150</h6>
-                                            </td>
-                                            <td class="align-middle text-center text-sm">
-                                                <span class="badge badge-sm bg-gradient-success">Aceptado</span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <h6 class="mb-0 text-sm">John Michael</h6>
-                                            </td>
-                                            <td>
-                                                <p class="text-xs text-secondary mb-0">john@creative-tim.com</p>
-                                            </td>
-                                            <td class="align-middle text-center text-sm">
-                                                <span class="mb-0 text-secondary text-xs">Estudiante</span>
-                                            </td>
-                                            <td class="align-middle text-center">
-                                                <span class="text-secondary text-xs font-weight-bold">23/04/18</span>
-                                            </td>
-                                            <td class="align-middle">
-                                                <h6 class="mb-0 text-secondary text-xs">9742984</h6>
-                                            </td>
-                                            <td class="align-middle text-capitalize">
-                                                <span class="mb-0 text-secondary text-xs">1093268321</span>
-                                            </td>
-                                            <td class="align-middle">
-                                                <h6 class="mb-0 text-center text-xs text-secondary">10</h6>
-                                            </td>
-                                            <td class="align-middle">
-                                                <h6 class="mb-0 text-center text-xs text-secondary">150</h6>
-                                            </td>
-                                            <td class="align-middle text-center text-sm">
-                                                <span class="badge badge-sm bg-gradient-success">Aceptado</span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <h6 class="mb-0 text-sm">John Michael</h6>
-                                            </td>
-                                            <td>
-                                                <p class="text-xs text-secondary mb-0">john@creative-tim.com</p>
-                                            </td>
-                                            <td class="align-middle text-center text-sm">
-                                                <span class="mb-0 text-secondary text-xs">Estudiante</span>
-                                            </td>
-                                            <td class="align-middle text-center">
-                                                <span class="text-secondary text-xs font-weight-bold">23/04/18</span>
-                                            </td>
-                                            <td class="align-middle">
-                                                <h6 class="mb-0 text-secondary text-xs">9742984</h6>
-                                            </td>
-                                            <td class="align-middle text-capitalize">
-                                                <span class="mb-0 text-secondary text-xs">1093268321</span>
-                                            </td>
-                                            <td class="align-middle">
-                                                <h6 class="mb-0 text-center text-xs text-secondary">10</h6>
-                                            </td>
-                                            <td class="align-middle">
-                                                <h6 class="mb-0 text-center text-xs text-secondary">150</h6>
-                                            </td>
-                                            <td class="align-middle text-center text-sm">
-                                                <span class="badge badge-sm bg-gradient-success">Aceptado</span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <h6 class="mb-0 text-sm">John Michael</h6>
-                                            </td>
-                                            <td>
-                                                <p class="text-xs text-secondary mb-0">john@creative-tim.com</p>
-                                            </td>
-                                            <td class="align-middle text-center text-sm">
-                                                <span class="mb-0 text-secondary text-xs">Estudiante</span>
-                                            </td>
-                                            <td class="align-middle text-center">
-                                                <span class="text-secondary text-xs font-weight-bold">23/04/18</span>
-                                            </td>
-                                            <td class="align-middle">
-                                                <h6 class="mb-0 text-secondary text-xs">9742984</h6>
-                                            </td>
-                                            <td class="align-middle text-capitalize">
-                                                <span class="mb-0 text-secondary text-xs">1093268321</span>
-                                            </td>
-                                            <td class="align-middle">
-                                                <h6 class="mb-0 text-center text-xs text-secondary">10</h6>
-                                            </td>
-                                            <td class="align-middle">
-                                                <h6 class="mb-0 text-center text-xs text-secondary">150</h6>
-                                            </td>
-                                            <td class="align-middle text-center text-sm">
-                                                <span class="badge badge-sm bg-gradient-success">Aceptado</span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <h6 class="mb-0 text-sm">John Michael</h6>
-                                            </td>
-                                            <td>
-                                                <p class="text-xs text-secondary mb-0">john@creative-tim.com</p>
-                                            </td>
-                                            <td class="align-middle text-center text-sm">
-                                                <span class="mb-0 text-secondary text-xs">Estudiante</span>
-                                            </td>
-                                            <td class="align-middle text-center">
-                                                <span class="text-secondary text-xs font-weight-bold">23/04/18</span>
-                                            </td>
-                                            <td class="align-middle">
-                                                <h6 class="mb-0 text-secondary text-xs">9742984</h6>
-                                            </td>
-                                            <td class="align-middle text-capitalize">
-                                                <span class="mb-0 text-secondary text-xs">1093268321</span>
-                                            </td>
-                                            <td class="align-middle">
-                                                <h6 class="mb-0 text-center text-xs text-secondary">10</h6>
-                                            </td>
-                                            <td class="align-middle">
-                                                <h6 class="mb-0 text-center text-xs text-secondary">150</h6>
-                                            </td>
-                                            <td class="align-middle text-center text-sm">
-                                                <span class="badge badge-sm bg-gradient-success">Aceptado</span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <h6 class="mb-0 text-sm">John Michael</h6>
-                                            </td>
-                                            <td>
-                                                <p class="text-xs text-secondary mb-0">john@creative-tim.com</p>
-                                            </td>
-                                            <td class="align-middle text-center text-sm">
-                                                <span class="mb-0 text-secondary text-xs">Estudiante</span>
-                                            </td>
-                                            <td class="align-middle text-center">
-                                                <span class="text-secondary text-xs font-weight-bold">23/04/18</span>
-                                            </td>
-                                            <td class="align-middle">
-                                                <h6 class="mb-0 text-secondary text-xs">9742984</h6>
-                                            </td>
-                                            <td class="align-middle text-capitalize">
-                                                <span class="mb-0 text-secondary text-xs">1093268321</span>
-                                            </td>
-                                            <td class="align-middle">
-                                                <h6 class="mb-0 text-center text-xs text-secondary">10</h6>
-                                            </td>
-                                            <td class="align-middle">
-                                                <h6 class="mb-0 text-center text-xs text-secondary">150</h6>
-                                            </td>
-                                            <td class="align-middle text-center text-sm">
-                                                <span class="badge badge-sm bg-gradient-success">Aceptado</span>
-                                            </td>
-                                        </tr>
+                                    <tbody id="listaPracticantes">
                                     </tbody>
                                 </table>
                             </div>
@@ -1065,177 +364,7 @@
                                             <th class="text-secondary opacity-7"></th>
                                         </tr>
                                     </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>
-                                                <h6 class="mb-0 text-sm">John Michael</h6>
-                                            </td>
-                                            <td>
-                                                <p class="text-xs text-secondary mb-0">john@creative-tim.com</p>
-                                            </td>
-                                            <td class="align-middle text-center text-sm">
-                                                <span class="mb-0 text-secondary text-xs">Tutor</span>
-                                            </td>
-                                            <td class="align-middle text-center">
-                                                <span class="text-secondary text-xs font-weight-bold">23/04/18</span>
-                                            </td>
-                                            <td class="align-middle">
-                                                <h6 class="mb-0 text-secondary text-xs">9742984</h6>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <h6 class="mb-0 text-sm">John Michael</h6>
-                                            </td>
-                                            <td>
-                                                <p class="text-xs text-secondary mb-0">john@creative-tim.com</p>
-                                            </td>
-                                            <td class="align-middle text-center text-sm">
-                                                <span class="mb-0 text-secondary text-xs">Tutor</span>
-                                            </td>
-                                            <td class="align-middle text-center">
-                                                <span class="text-secondary text-xs font-weight-bold">23/04/18</span>
-                                            </td>
-                                            <td class="align-middle">
-                                                <h6 class="mb-0 text-secondary text-xs">9742984</h6>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <h6 class="mb-0 text-sm">John Michael</h6>
-                                            </td>
-                                            <td>
-                                                <p class="text-xs text-secondary mb-0">john@creative-tim.com</p>
-                                            </td>
-                                            <td class="align-middle text-center text-sm">
-                                                <span class="mb-0 text-secondary text-xs">Tutor</span>
-                                            </td>
-                                            <td class="align-middle text-center">
-                                                <span class="text-secondary text-xs font-weight-bold">23/04/18</span>
-                                            </td>
-                                            <td class="align-middle">
-                                                <h6 class="mb-0 text-secondary text-xs">9742984</h6>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <h6 class="mb-0 text-sm">John Michael</h6>
-                                            </td>
-                                            <td>
-                                                <p class="text-xs text-secondary mb-0">john@creative-tim.com</p>
-                                            </td>
-                                            <td class="align-middle text-center text-sm">
-                                                <span class="mb-0 text-secondary text-xs">Tutor</span>
-                                            </td>
-                                            <td class="align-middle text-center">
-                                                <span class="text-secondary text-xs font-weight-bold">23/04/18</span>
-                                            </td>
-                                            <td class="align-middle">
-                                                <h6 class="mb-0 text-secondary text-xs">9742984</h6>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <h6 class="mb-0 text-sm">John Michael</h6>
-                                            </td>
-                                            <td>
-                                                <p class="text-xs text-secondary mb-0">john@creative-tim.com</p>
-                                            </td>
-                                            <td class="align-middle text-center text-sm">
-                                                <span class="mb-0 text-secondary text-xs">Tutor</span>
-                                            </td>
-                                            <td class="align-middle text-center">
-                                                <span class="text-secondary text-xs font-weight-bold">23/04/18</span>
-                                            </td>
-                                            <td class="align-middle">
-                                                <h6 class="mb-0 text-secondary text-xs">9742984</h6>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <h6 class="mb-0 text-sm">John Michael</h6>
-                                            </td>
-                                            <td>
-                                                <p class="text-xs text-secondary mb-0">john@creative-tim.com</p>
-                                            </td>
-                                            <td class="align-middle text-center text-sm">
-                                                <span class="mb-0 text-secondary text-xs">Tutor</span>
-                                            </td>
-                                            <td class="align-middle text-center">
-                                                <span class="text-secondary text-xs font-weight-bold">23/04/18</span>
-                                            </td>
-                                            <td class="align-middle">
-                                                <h6 class="mb-0 text-secondary text-xs">9742984</h6>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <h6 class="mb-0 text-sm">John Michael</h6>
-                                            </td>
-                                            <td>
-                                                <p class="text-xs text-secondary mb-0">john@creative-tim.com</p>
-                                            </td>
-                                            <td class="align-middle text-center text-sm">
-                                                <span class="mb-0 text-secondary text-xs">Tutor</span>
-                                            </td>
-                                            <td class="align-middle text-center">
-                                                <span class="text-secondary text-xs font-weight-bold">23/04/18</span>
-                                            </td>
-                                            <td class="align-middle">
-                                                <h6 class="mb-0 text-secondary text-xs">9742984</h6>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <h6 class="mb-0 text-sm">John Michael</h6>
-                                            </td>
-                                            <td>
-                                                <p class="text-xs text-secondary mb-0">john@creative-tim.com</p>
-                                            </td>
-                                            <td class="align-middle text-center text-sm">
-                                                <span class="mb-0 text-secondary text-xs">Tutor</span>
-                                            </td>
-                                            <td class="align-middle text-center">
-                                                <span class="text-secondary text-xs font-weight-bold">23/04/18</span>
-                                            </td>
-                                            <td class="align-middle">
-                                                <h6 class="mb-0 text-secondary text-xs">9742984</h6>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <h6 class="mb-0 text-sm">John Michael</h6>
-                                            </td>
-                                            <td>
-                                                <p class="text-xs text-secondary mb-0">john@creative-tim.com</p>
-                                            </td>
-                                            <td class="align-middle text-center text-sm">
-                                                <span class="mb-0 text-secondary text-xs">Tutor</span>
-                                            </td>
-                                            <td class="align-middle text-center">
-                                                <span class="text-secondary text-xs font-weight-bold">23/04/18</span>
-                                            </td>
-                                            <td class="align-middle">
-                                                <h6 class="mb-0 text-secondary text-xs">9742984</h6>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <h6 class="mb-0 text-sm">John Michael</h6>
-                                            </td>
-                                            <td>
-                                                <p class="text-xs text-secondary mb-0">john@creative-tim.com</p>
-                                            </td>
-                                            <td class="align-middle text-center text-sm">
-                                                <span class="mb-0 text-secondary text-xs">Tutor</span>
-                                            </td>
-                                            <td class="align-middle text-center">
-                                                <span class="text-secondary text-xs font-weight-bold">23/04/18</span>
-                                            </td>
-                                            <td class="align-middle">
-                                                <h6 class="mb-0 text-secondary text-xs">9742984</h6>
-                                            </td>
-                                        </tr>
+                                    <tbody id="tablaTutores">
                                     </tbody>
                                 </table>
                             </div>
@@ -1243,12 +372,12 @@
                     </div>
                 </div>
             </div>
-            <div class="row" style="display: none;" id="section-coordinadores">
+            <div class="row" style="display: none;" id="section-usuarios">
                 <div class="col-12">
                     <div class="card my-4">
                         <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
                             <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
-                                <h6 class="text-white text-capitalize ps-3">Lista Coordinadores</h6>
+                                <h6 class="text-white text-capitalize ps-3">Lista Usuarios</h6>
                             </div>
                         </div>
                         <div class="card-body px-0 pb-2">
@@ -1268,216 +397,49 @@
                                             <th
                                                 class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                                 Fecha Registro</th>
-                                            <th
-                                                class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                                Codigo</th>
-                                            <th
-                                                class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
-                                                Cedula</th>
                                             <th class="text-secondary opacity-7"></th>
                                         </tr>
                                     </thead>
-                                    <tbody>
+                                    <tbody id="tablaUsuarios">
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row" style="display: none;" id="section-coordinadores">
+                <div class="col-12">
+                    <div class="card my-4">
+                        <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
+                            <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
+                                <h6 class="text-white text-capitalize ps-3">Lista Proyectos</h6>
+                            </div>
+                        </div>
+                        <div class="card-body px-0 pb-2">
+                            <div class="table-responsive p-0">
+                                <table class="table align-items-center text-center mb-0">
+                                    <thead>
                                         <tr>
-                                            <td>
-                                                <h6 class="mb-0 text-sm">John Michael</h6>
-                                            </td>
-                                            <td>
-                                                <p class="text-xs text-secondary mb-0">john@creative-tim.com</p>
-                                            </td>
-                                            <td class="align-middle text-center text-sm">
-                                                <span class="mb-0 text-secondary text-xs">Coordinador</span>
-                                            </td>
-                                            <td class="align-middle text-center">
-                                                <span class="text-secondary text-xs font-weight-bold">23/04/18</span>
-                                            </td>
-                                            <td class="align-middle">
-                                                <h6 class="mb-0 text-secondary text-xs">9742984</h6>
-                                            </td>
-                                            <td class="align-middle">
-                                                <h6 class="mb-0 text-secondary text-xs">1092734281</h6>
-                                            </td>
+                                            <th
+                                                class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                                Empresa Id</th>
+                                            <th
+                                                class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                                Tutor Id</th>
+                                            <th
+                                                class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                                Titulo</th>
+                                            <th
+                                                class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                                Ruta</th>
+                                            <th
+                                                class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                                Estado Postulacion</th>
+                                            <th class="text-secondary opacity-6"></th>
                                         </tr>
-                                        <tr>
-                                            <td>
-                                                <h6 class="mb-0 text-sm">John Michael</h6>
-                                            </td>
-                                            <td>
-                                                <p class="text-xs text-secondary mb-0">john@creative-tim.com</p>
-                                            </td>
-                                            <td class="align-middle text-center text-sm">
-                                                <span class="mb-0 text-secondary text-xs">Coordinador</span>
-                                            </td>
-                                            <td class="align-middle text-center">
-                                                <span class="text-secondary text-xs font-weight-bold">23/04/18</span>
-                                            </td>
-                                            <td class="align-middle">
-                                                <h6 class="mb-0 text-secondary text-xs">9742984</h6>
-                                            </td>
-                                            <td class="align-middle">
-                                                <h6 class="mb-0 text-secondary text-xs">1092734281</h6>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <h6 class="mb-0 text-sm">John Michael</h6>
-                                            </td>
-                                            <td>
-                                                <p class="text-xs text-secondary mb-0">john@creative-tim.com</p>
-                                            </td>
-                                            <td class="align-middle text-center text-sm">
-                                                <span class="mb-0 text-secondary text-xs">Coordinador</span>
-                                            </td>
-                                            <td class="align-middle text-center">
-                                                <span class="text-secondary text-xs font-weight-bold">23/04/18</span>
-                                            </td>
-                                            <td class="align-middle">
-                                                <h6 class="mb-0 text-secondary text-xs">9742984</h6>
-                                            </td>
-                                            <td class="align-middle">
-                                                <h6 class="mb-0 text-secondary text-xs">1092734281</h6>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <h6 class="mb-0 text-sm">John Michael</h6>
-                                            </td>
-                                            <td>
-                                                <p class="text-xs text-secondary mb-0">john@creative-tim.com</p>
-                                            </td>
-                                            <td class="align-middle text-center text-sm">
-                                                <span class="mb-0 text-secondary text-xs">Coordinador</span>
-                                            </td>
-                                            <td class="align-middle text-center">
-                                                <span class="text-secondary text-xs font-weight-bold">23/04/18</span>
-                                            </td>
-                                            <td class="align-middle">
-                                                <h6 class="mb-0 text-secondary text-xs">9742984</h6>
-                                            </td>
-                                            <td class="align-middle">
-                                                <h6 class="mb-0 text-secondary text-xs">1092734281</h6>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <h6 class="mb-0 text-sm">John Michael</h6>
-                                            </td>
-                                            <td>
-                                                <p class="text-xs text-secondary mb-0">john@creative-tim.com</p>
-                                            </td>
-                                            <td class="align-middle text-center text-sm">
-                                                <span class="mb-0 text-secondary text-xs">Coordinador</span>
-                                            </td>
-                                            <td class="align-middle text-center">
-                                                <span class="text-secondary text-xs font-weight-bold">23/04/18</span>
-                                            </td>
-                                            <td class="align-middle">
-                                                <h6 class="mb-0 text-secondary text-xs">9742984</h6>
-                                            </td>
-                                            <td class="align-middle">
-                                                <h6 class="mb-0 text-secondary text-xs">1092734281</h6>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <h6 class="mb-0 text-sm">John Michael</h6>
-                                            </td>
-                                            <td>
-                                                <p class="text-xs text-secondary mb-0">john@creative-tim.com</p>
-                                            </td>
-                                            <td class="align-middle text-center text-sm">
-                                                <span class="mb-0 text-secondary text-xs">Coordinador</span>
-                                            </td>
-                                            <td class="align-middle text-center">
-                                                <span class="text-secondary text-xs font-weight-bold">23/04/18</span>
-                                            </td>
-                                            <td class="align-middle">
-                                                <h6 class="mb-0 text-secondary text-xs">9742984</h6>
-                                            </td>
-                                            <td class="align-middle">
-                                                <h6 class="mb-0 text-secondary text-xs">1092734281</h6>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <h6 class="mb-0 text-sm">John Michael</h6>
-                                            </td>
-                                            <td>
-                                                <p class="text-xs text-secondary mb-0">john@creative-tim.com</p>
-                                            </td>
-                                            <td class="align-middle text-center text-sm">
-                                                <span class="mb-0 text-secondary text-xs">Coordinador</span>
-                                            </td>
-                                            <td class="align-middle text-center">
-                                                <span class="text-secondary text-xs font-weight-bold">23/04/18</span>
-                                            </td>
-                                            <td class="align-middle">
-                                                <h6 class="mb-0 text-secondary text-xs">9742984</h6>
-                                            </td>
-                                            <td class="align-middle">
-                                                <h6 class="mb-0 text-secondary text-xs">1092734281</h6>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <h6 class="mb-0 text-sm">John Michael</h6>
-                                            </td>
-                                            <td>
-                                                <p class="text-xs text-secondary mb-0">john@creative-tim.com</p>
-                                            </td>
-                                            <td class="align-middle text-center text-sm">
-                                                <span class="mb-0 text-secondary text-xs">Coordinador</span>
-                                            </td>
-                                            <td class="align-middle text-center">
-                                                <span class="text-secondary text-xs font-weight-bold">23/04/18</span>
-                                            </td>
-                                            <td class="align-middle">
-                                                <h6 class="mb-0 text-secondary text-xs">9742984</h6>
-                                            </td>
-                                            <td class="align-middle">
-                                                <h6 class="mb-0 text-secondary text-xs">1092734281</h6>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <h6 class="mb-0 text-sm">John Michael</h6>
-                                            </td>
-                                            <td>
-                                                <p class="text-xs text-secondary mb-0">john@creative-tim.com</p>
-                                            </td>
-                                            <td class="align-middle text-center text-sm">
-                                                <span class="mb-0 text-secondary text-xs">Coordinador</span>
-                                            </td>
-                                            <td class="align-middle text-center">
-                                                <span class="text-secondary text-xs font-weight-bold">23/04/18</span>
-                                            </td>
-                                            <td class="align-middle">
-                                                <h6 class="mb-0 text-secondary text-xs">9742984</h6>
-                                            </td>
-                                            <td class="align-middle">
-                                                <h6 class="mb-0 text-secondary text-xs">1092734281</h6>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <h6 class="mb-0 text-sm">John Michael</h6>
-                                            </td>
-                                            <td>
-                                                <p class="text-xs text-secondary mb-0">john@creative-tim.com</p>
-                                            </td>
-                                            <td class="align-middle text-center text-sm">
-                                                <span class="mb-0 text-secondary text-xs">Coordinador</span>
-                                            </td>
-                                            <td class="align-middle text-center">
-                                                <span class="text-secondary text-xs font-weight-bold">23/04/18</span>
-                                            </td>
-                                            <td class="align-middle">
-                                                <h6 class="mb-0 text-secondary text-xs">9742984</h6>
-                                            </td>
-                                            <td class="align-middle">
-                                                <h6 class="mb-0 text-secondary text-xs">1092734281</h6>
-                                            </td>
-                                        </tr>
+                                    </thead>
+                                    <tbody id="tablaProyectos">
                                     </tbody>
                                 </table>
                             </div>
@@ -1509,7 +471,7 @@
                                         <div class="card-header pb-0 p-3">
                                             <div class="row">
                                                 <div class="col-md-8 d-flex">
-                                                    <h6 class="mb-0 text-center">Profile Information</h6>
+                                                    <h6 class="mb-0 text-center" id="">Informacion de Usuario</h6>
                                                 </div>
                                                 <div class="col-md-4 text-end">
                                                     <a href="javascript:;">
@@ -1524,20 +486,25 @@
                                             <hr class="horizontal gray-light my-4">
                                             <div style="columns: 2; justify-content: center;">
                                                 <ul class="list-group" style="gap: 15px; margin-left: 25%;">
-                                                    <li class="list-group-item border-0 ps-0 pt-0 text-sm"><strong class="text-dark">Nombre:</strong>
-                                                        <span id="nombreUsuario"></span>
+                                                    <li class="list-group-item border-0 ps-0 pt-0 text-sm"><strong
+                                                            class="text-dark">Nombre:</strong>
+                                                        <span id="nombreUsuarioDir"></span>
                                                     </li>
-                                                    <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Correo:</strong>
-                                                        <span id="correoUsuario"></span>
+                                                    <li class="list-group-item border-0 ps-0 text-sm"><strong
+                                                            class="text-dark">Correo:</strong>
+                                                        <span id="correoUsuarioDir"></span>
                                                     </li>
-                                                    <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Rol:</strong>
-                                                        <span id="rolUsuario"></span>
+                                                    <li class="list-group-item border-0 ps-0 text-sm"><strong
+                                                            class="text-dark">Rol:</strong>
+                                                        <span id="rolUsuarioDir"></span>
                                                     </li>
-                                                    <li class="list-group-item border-0 ps-0 pt-0 text-sm"><strong class="text-dark">Codigo:</strong>
-                                                        <span id="codigoUsuario"></span>
+                                                    <li class="list-group-item border-0 ps-0 pt-0 text-sm"><strong
+                                                            class="text-dark">Codigo:</strong>
+                                                        <span id="codigoUsuarioDir"></span>
                                                     </li>
-                                                    <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Cedula:</strong>
-                                                        <span id="cedulaUsuario"></span>
+                                                    <li class="list-group-item border-0 ps-0 text-sm"><strong
+                                                            class="text-dark">Cedula:</strong>
+                                                        <span id="cedulaUsuarioDir"></span>
                                                     </li>
                                                 </ul>
                                             </div>
@@ -1549,6 +516,76 @@
                     </div>
                 </div>
             </div>
+            <div class="row" style="display: none;" id="section-add">
+                <div class="col-12 mt-3 text-center">
+                    <h2>Selecciona una opción para agregar:</h2>
+                    <hr><hr>
+                </div>  
+             
+                <div style="columns: 3; display: block; align-content: space-between;">
+                    <div class="row-md-5 mb-5" style="max-width: 700px;">
+                        <div class="card">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">Agregar Usuario</h5>
+                                <p class="card-text">Añade nuevos usuarios al sistema con diferentes roles y permisos.</p>
+                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalUsuario">
+                                    Agregar
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                
+                    <div class="row-md-5 mb-5" style="max-width: 700px;">
+                        <div class="card">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">Agregar Estudiante</h5>
+                                <p class="card-text">Registra a nuevos estudiantes en la plataforma educativa.</p>
+                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalEstudiante">
+                                    Agregar
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row-md-5 mb-5" style="max-width: 700px;">
+                        <div class="card">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">Agregar Director</h5>
+                                <p class="card-text">Incorpora nuevos directores al sistema académico.</p>
+                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalDirector">
+                                    Agregar
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>       
+                <div style="columns: 2; display: block; align-content: space-between; align-items: center; ">
+                    <div class="row-md-5 mb-5" style="max-width: 700px;">
+                        <div class="card">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">Agregar Tutor</h5>
+                                <p class="card-text">Añade nuevos tutores a la plataforma para brindar apoyo académico.</p>
+                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalTutor">
+                                    Agregar
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                
+                    <div class="row-md-5 mb-5" style="max-width: 700px;">
+                        <div class="card">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">Agregar Empresa</h5>
+                                <p class="card-text">Registra nuevas empresas asociadas para colaboraciones académicas.</p>
+                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalEmpresa">
+                                    Agregar
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>         
+            </div>
+            
             <footer class="footer py-4 align-items">
                 <div class="container-fluid">
                     <div class="row align-items-center justify-content-lg-between">
@@ -1565,8 +602,125 @@
                         </div>
                     </div>
             </footer>
+            
         </div>
     </main>
+
+    <!-- Modal docs-->
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Documentos</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <table class="table align-items-center text-center mb-0 table-responsive">
+                        <thead>
+                            <tr>
+                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                    Titulo</th>
+                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                    Ruta</th>
+                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                    Accion</th>
+
+
+                            </tr>
+                        </thead>
+                        <tbody id="tablaDocumento">
+
+
+                        </tbody>
+                    </table>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Understood</button>
+                </div>
+            </div>
+             
+        </div>
+          
+    </div>
+
+    <!-- Modal user -->
+    <div class="modal fade" id="modalUsuario" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Agregar Usuario</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form role="form" class="text-start" id="formUsuarios">
+                        <div class="input-group input-group-outline my-3">
+                            <input type="text" class="form-control" placeholder="Nombre" id="nombre" name="nombre" required>
+                        </div>
+                        <div class="input-group input-group-outline my-3">
+                            <input type="email" class="form-control" placeholder="Correo" id="correo" name="correo" required>
+                        </div>
+                        <div class="input-group input-group-outline my-3">
+                            <input type="password" class="form-control" placeholder="Contraseña" id="contraseña" name="contraseña" required>
+                        </div>
+                        <div class="input-group input-group-outline my-3">
+                            <input type="text" class="form-control" placeholder="Rol ID" id="rolId" name="rolId" required>
+                        </div>
+                        <div class="input-group input-group-outline mb-3">
+                            <input type="date" class="form-control" placeholder="Fecha de Registro" id="fechaRegistro" name="fechaRegistro" required>
+                        </div>
+                        <button type="button" class="btn bg-gradient-primary w-100 my-4 mb-2" onclick="guardarUsuario()">
+                            Guardar Usuario
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal estudiante -->
+    <div class="modal fade" id="modalEstudiante" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Agregar Estudiante</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form role="form" class="text-start" id="formDatosEstudiante">
+                        <div class="input-group input-group-outline my-3">
+                            <input type="text" class="form-control" placeholder="Código" id="codigo" name="codigo" required>
+                        </div>
+                        <div class="input-group input-group-outline my-3">
+                            <input type="text" class="form-control" placeholder="Cédula" id="cedula" name="cedula" required>
+                        </div>
+                        <div class="input-group input-group-outline my-3">
+                            <input type="text" class="form-control" placeholder="Usuario ID" id="usuarioId" name="usuarioId" required>
+                        </div>
+                        <div class="input-group input-group-outline my-3">
+                            <select class="form-control" id="estadoPostulacion" name="estadoPostulacion" required>
+                                <option value="" disabled selected>Selecciona el estado</option>
+                                <option value="true">Activo</option>
+                                <option value="false">Inactivo</option>
+                            </select>
+                        </div>
+                        <div class="input-group input-group-outline my-3">
+                            <input type="text" class="form-control" placeholder="Semestre" id="semestre" name="semestre" required>
+                        </div>
+                        <div class="input-group input-group-outline mb-3">
+                            <input type="text" class="form-control" placeholder="Créditos Aprobados" id="creditoAprobado" name="creditoAprobado" required>
+                        </div>
+                        <button type="button" class="btn bg-gradient-primary w-100 my-4 mb-2" onclick="guardarEstudiante()">
+                            Guardar Estudiante
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
 
     <div class="fixed-plugin">
         <a class="fixed-plugin-button text-dark position-fixed px-3 py-2">
@@ -1641,8 +795,10 @@
         </div>
     </div>
     <script src="../assets/js/core/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="../API/main.js"></script>
     <script src="../assets/js/core/bootstrap.min.js"></script>
+    <script src="./../API/Director/director.js"></script>
     <script src="../assets/js/plugins/perfect-scrollbar.min.js"></script>
     <script src="/assets/js/plugins/smooth-scrollbar.min.js"></script>
     <script src="/assets/js/plugins/chartjs.min.js"></script>

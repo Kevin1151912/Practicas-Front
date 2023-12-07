@@ -219,7 +219,7 @@
                   <!-- Formulario de inicio de sesión por credenciales -->
                   <div class="card z-index-0 fadeIn3 fadeInBottom">
                     <div class="card-body">
-                      <form role="form" class="text-start" id="formDirectorCredenciales" onsubmit="return iniciarSesion('director', 'credenciales')">
+                      <form role="form" class="text-start" id="formDirectorCredenciales" onsubmit="return iniciarSesionCredenciales('director', 'credenciales')">
                         <div class="input-group input-group-outline my-3">
                           <input type="text" class="form-control" placeholder="Codigo" id="codigoDirectorCredenciales" />
                         </div>
@@ -239,16 +239,15 @@
                   <!-- Formulario de inicio de sesión por correo -->
                   <div class="card z-index-0 fadeIn3 fadeInBottom">
                     <div class="card-body">
-                      <form role="form" class="text-start" id="formDirectorCorreo">
+                      <form role="form" class="text-start" id="formDirectorCorreo" onsubmit="return iniciarSesionCorreo('director', 'credenciales')">
                         <div class="input-group input-group-outline mb-3">
                           <input type="email" class="form-control" placeholder="Correo" id="correoDirectorCorreo" />
                         </div>
                         <div class="input-group input-group-outline mb-3">
                           <input type="password" class="form-control" placeholder="Contraseña" id="passwordDirectorCorreo" />
                         </div>
-                        <button type="button" class="btn bg-gradient-primary w-100 my-4 mb-2"
-                          onclick="iniciarSesion('director', 'correo')" >
-                          <a style="color: white;">Iniciar sesión</a>
+                        <button type="submit" class="btn bg-gradient-primary w-100 my-4 mb-2">
+                          <a style="color: white;">Iniciar sesión</a>        
                         </button>
                       </form>
                     </div>
