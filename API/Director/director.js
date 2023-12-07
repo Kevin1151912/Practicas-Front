@@ -67,9 +67,6 @@ function mostrarListadoEmpresas() {
                 <h6 class="mb-0 text-sm">${empresa.usuario.nombre}</h6>
             </td>    
             <td>
-                <h6 class="mb-0 text-sm">${empresa.usuario.nombre}</h6>
-            </td>
-            <td>
                 <p class="text-xs text-secondary mb-0">${empresa.usuario.correo}</p>
             </td>
             <td class="align-middle text-center text-sm">
