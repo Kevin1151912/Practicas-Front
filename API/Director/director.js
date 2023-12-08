@@ -668,60 +668,55 @@ function cargarListaProytectos() {
 }
 
 
-$(document).ready(function() {
-    // Función para revertir los cambios
-    function revertirCambios() {
-        // Reemplazar los inputs con los valores originales
-        nombreSpan.html(nombreOriginal);
-        correoSpan.html(correoOriginal);
-        rolSpan.html(rolOriginal);
-        codigoSpan.html(codigoOriginal);
-        cedulaSpan.html(cedulaOriginal);
-
-        // Eliminar el botón Guardar y el botón Revertir
-        guardarBtn.remove();
-    }
-
-    // Obtener los elementos span que contienen los datos
-    var nombreSpan = $('#nombreUsuarioDir');
-    var correoSpan = $('#correoUsuarioDir');
-    var rolSpan = $('#rolUsuarioDir');
-    var codigoSpan = $('#codigoUsuarioDir');
-    var cedulaSpan = $('#cedulaUsuarioDir');
-
-    // Guardar los valores originales
-    var nombreOriginal = nombreSpan.text();
-    var correoOriginal = correoSpan.text();
-    var rolOriginal = rolSpan.text();
-    var codigoOriginal = codigoSpan.text();
-    var cedulaOriginal = cedulaSpan.text();
+$(document).ready(function () {
+    // Variable para almacenar el estado actual de la edición
+    var enEdicion = false;
 
     // Manejar el clic en el ícono de editar
-    $('.fas.fa-user-edit').click(function() {
-        // Revertir los cambios si el botón Revertir existe
-        if ($('#revertirBtn').length) {
+    $('.fas.fa-user-edit').click(function () {
+        if (!enEdicion) {
+            // Si no está en modo de edición, cambiar a modo de edición
+            habilitarEdicion();
+        } else {
+            // Si ya está en modo de edición, revertir los cambios
             revertirCambios();
-            return;
         }
+    });
+
+    // Función para cambiar a modo de edición
+    function habilitarEdicion() {
+        // Obtener los elementos span que contienen los datos
+        var nombreSpan = $('#nombreUsuarioDir');
+        var correoSpan = $('#correoUsuarioDir');
+        var rolSpan = $('#rolUsuarioDir');
+        var codigoSpan = $('#codigoUsuarioDir');
+        var cedulaSpan = $('#cedulaUsuarioDir');
+
+        // Almacenar los valores originales en los elementos data para revertir luego
+        nombreSpan.data('original', nombreSpan.text());
+        correoSpan.data('original', correoSpan.text());
+        rolSpan.data('original', rolSpan.text());
+        codigoSpan.data('original', codigoSpan.text());
+        cedulaSpan.data('original', cedulaSpan.text());
 
         // Reemplazar los elementos span con inputs
-        nombreSpan.html('<input type="text" id="inputNombre" value="' + nombreOriginal + '">');
-        correoSpan.html('<input type="text" id="inputCorreo" value="' + correoOriginal + '">');
-        rolSpan.html('<input type="text" id="inputRol" value="' + rolOriginal + '">');
-        codigoSpan.html('<input type="text" id="inputCodigo" value="' + codigoOriginal + '">');
-        cedulaSpan.html('<input type="text" id="inputCedula" value="' + cedulaOriginal + '">');
+        nombreSpan.html('<input type="text" id="inputNombre" value="' + nombreSpan.text() + '">');
+        correoSpan.html('<input type="text" id="inputCorreo" value="' + correoSpan.text() + '">');
+        rolSpan.html('<input type="text" id="inputRol" value="' + rolSpan.text() + '">');
+        codigoSpan.html('<input type="text" id="inputCodigo" value="' + codigoSpan.text() + '">');
+        cedulaSpan.html('<input type="text" id="inputCedula" value="' + cedulaSpan.text() + '">');
 
         // Crear un nuevo botón Guardar
         var guardarBtn = $('<button class="btn btn-primary" id="guardarBtn">Guardar</button>');
 
-        // Crear un nuevo botón Revertir
-        var revertirBtn = $('<button class="btn btn-secondary" id="revertirBtn">Revertir</button>');
+        // Insertar el botón Guardar después de la lista
+        $('.list-group').after(guardarBtn);
 
-        // Insertar los botones después de la lista
-        $('.list-group').after(guardarBtn).after(revertirBtn);
+        // Cambiar el estado a enEdicion
+        enEdicion = true;
 
         // Manejar el clic en el botón Guardar
-        guardarBtn.click(function() {
+        guardarBtn.click(function () {
             // Obtener los nuevos valores de los inputs
             var nuevoNombre = $('#inputNombre').val();
             var nuevoCorreo = $('#inputCorreo').val();
@@ -743,12 +738,41 @@ $(document).ready(function() {
             codigoSpan.html(nuevoCodigo);
             cedulaSpan.html(nuevaCedula);
 
-            // Eliminar el botón Guardar y el botón Revertir
+            // Eliminar el botón Guardar
             guardarBtn.remove();
-            revertirBtn.remove();
-        });
 
-        // Manejar el clic en el botón Revertir
-        revertirBtn.click(revertirCambios);
-    });
+            // Cambiar el estado a no enEdicion
+            enEdicion = false;
+        });
+    }
+
+    // Función para revertir los cambios
+    function revertirCambios() {
+        // Obtener los elementos span que contienen los datos
+        var nombreSpan = $('#nombreUsuarioDir');
+        var correoSpan = $('#correoUsuarioDir');
+        var rolSpan = $('#rolUsuarioDir');
+        var codigoSpan = $('#codigoUsuarioDir');
+        var cedulaSpan = $('#cedulaUsuarioDir');
+
+        // Obtener los valores originales de los elementos data
+        var originalNombre = nombreSpan.data('original');
+        var originalCorreo = correoSpan.data('original');
+        var originalRol = rolSpan.data('original');
+        var originalCodigo = codigoSpan.data('original');
+        var originalCedula = cedulaSpan.data('original');
+
+        // Mostrar los valores originales en los span
+        nombreSpan.html(originalNombre);
+        correoSpan.html(originalCorreo);
+        rolSpan.html(originalRol);
+        codigoSpan.html(originalCodigo);
+        cedulaSpan.html(originalCedula);
+
+        // Eliminar el botón Guardar
+        $('#guardarBtn').remove();
+
+        // Cambiar el estado a no enEdicion
+        enEdicion = false;
+    }
 });
