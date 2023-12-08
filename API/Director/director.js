@@ -119,10 +119,12 @@ function documentosEmpresa(id){
                 <p class="text-xs text-secondary mb-0">${documento.ruta}</p>
             </td>
             
-            <td class="align-middle text-center text-sm" >
-            <svg xmlns="http://www.w3.org/2000/svg" class="text-primary" width="16" height="16" fill="currentColor" class="bi bi-cloud-arrow-down-fill" viewBox="0 0 16 16">
-            <path d="M8 2a5.53 5.53 0 0 0-3.594 1.342c-.766.66-1.321 1.52-1.464 2.383C1.266 6.095 0 7.555 0 9.318 0 11.366 1.708 13 3.781 13h8.906C14.502 13 16 11.57 16 9.773c0-1.636-1.242-2.969-2.834-3.194C12.923 3.999 10.69 2 8 2m2.354 6.854-2 2a.5.5 0 0 1-.708 0l-2-2a.5.5 0 1 1 .708-.708L7.5 9.293V5.5a.5.5 0 0 1 1 0v3.793l1.146-1.147a.5.5 0 0 1 .708.708z"/>
-          </svg>
+            <td class="align-middle text-center text-sm"  >
+           <button onclick="downloadDocumento('${documento.ruta}')">
+           <svg xmlns="http://www.w3.org/2000/svg" class="text-primary" width="16" height="16" fill="currentColor" class="bi bi-cloud-arrow-down-fill" viewBox="0 0 16 16">
+           <path d="M8 2a5.53 5.53 0 0 0-3.594 1.342c-.766.66-1.321 1.52-1.464 2.383C1.266 6.095 0 7.555 0 9.318 0 11.366 1.708 13 3.781 13h8.906C14.502 13 16 11.57 16 9.773c0-1.636-1.242-2.969-2.834-3.194C12.923 3.999 10.69 2 8 2m2.354 6.854-2 2a.5.5 0 0 1-.708 0l-2-2a.5.5 0 1 1 .708-.708L7.5 9.293V5.5a.5.5 0 0 1 1 0v3.793l1.146-1.147a.5.5 0 0 1 .708.708z"/>
+         </svg>
+           </button>
             </td>
         </tr>`
             }
@@ -132,7 +134,7 @@ function documentosEmpresa(id){
     })
     .catch(err=>{
         console.log(err)
-    })
+    })
 }
 
 async function findDocuementoByIdEmpresa(id){
@@ -148,78 +150,24 @@ async function findListEstudiantes(){
     })
     return result
 }
+
 mostrarListadoEstudiantes()
-function mostrarListadoEstudiantes(){
-    findListEstudiantes()
-    .then(res=>res.json())
-    .then(data=>{
-        console.log(data)
-        let body=""
-        for (const estudiante of data) {
-            let color="success"
-            let mensaje="Aceptado"
-            if(estudiante.estado===false){
-                 color="danger"
-                 mensaje="Pendiente"
-            }
-            body+=` <tr>
-            // <td>
-            // <h6 class="mb-0 text-sm">${estudiante.id}
-            // </h6>
-            // </td>
-            </td>
-            <td>
-                <h6 class="mb-0 text-sm">${estudiante.usuario.nombre}</h6>
-            </td>
-            <td>
-                <p class="text-xs text-secondary mb-0">${estudiante.usuario.correo}</p>
-            </td>
-            <td class="align-middle text-center text-sm">
-                <span class="mb-0 text-secondary text-xs">Estudiante</span>
-            </td>
-            <td class="align-middle text-center">
-                <span class="text-secondary text-xs font-weight-bold">${estudiante.usuario.fechaRegistro.split("T")[0]}</span>
-            </td>
-            <td class="align-middle">
-                <h6 class="mb-0 text-secondary text-xs">${estudiante.codigo}</h6>
-            </td>
-            <td class="align-middle text-capitalize">
-                <span class="mb-0 text-secondary text-xs">${estudiante.cedula}</span>
-            </td>
-            <td class="align-middle">
-                <h6 class="mb-0 text-center text-xs text-secondary">${estudiante.semestre}</h6>
-            </td>
-            <td class="align-middle">
-                <h6 class="mb-0 text-center text-xs text-secondary">${estudiante.creditoAprobado}</h6>
-            </td>
-            <td class="align-middle text-center text-sm">
-                <span class="badge badge-sm bg-gradient-${color}">${mensaje}</span>
-            </td>
-        </tr>`
-        }
-        document.getElementById("tablaEstudiantes").innerHTML=body;
 
-    })
-    .catch(e=>{
-        console.log(e)
-    })
-}
-
-function mostrarListadoEstudiantes(){
+function mostrarListadoEstudiantes() {
     findListEstudiantes()
-    .then(res=>res.json())
-    .then(data=>{
-        console.log(data)
-        let body=""
-        let bodyPracticantes=""
-        for (const estudiante of data) {
-            let color="success"
-            let mensaje="Aceptado"
-            if(estudiante.estado===false){
-                 color="danger"
-                 mensaje="Pendiente"
-            }else{
-                bodyPracticantes+=` <tr>
+        .then(res => res.json())
+        .then(data => {
+            console.log(data)
+            let body = ""
+            let bodyPracticantes = ""
+            for (const estudiante of data) {
+                let color = "success"
+                let mensaje = "Aceptado"
+                if (estudiante.estado === false) {
+                    color = "danger"
+                    mensaje = "Rechazado"
+                } else {
+                    bodyPracticantes += ` <tr>
                 <td>
                     <h6 class="mb-0 text-sm">${estudiante.usuario.nombre}</h6>
                 </td>
@@ -248,8 +196,8 @@ function mostrarListadoEstudiantes(){
                     <span class="badge badge-sm bg-gradient-${color}">${mensaje}</span>
                 </td>
             </tr>`
-            }
-            body+=` <tr>
+                }
+                body += ` <tr>
             <td>
                 <h6 class="mb-0 text-sm">${estudiante.usuario.nombre}</h6>
             </td>
@@ -278,13 +226,13 @@ function mostrarListadoEstudiantes(){
                 <span class="badge badge-sm bg-gradient-${color}">${mensaje}</span>
             </td>
         </tr>`
-        }
-        document.getElementById("tablaEstudiantes").innerHTML=body; 
-        document.getElementById("listaPracticantes").innerHTML=body;
-    })
-    .catch(e=>{
-        console.log(e)
-    })
+            }
+            document.getElementById("tablaEstudiantes").innerHTML = body;
+            document.getElementById("listaPracticantes").innerHTML = bodyPracticantes;
+        })
+        .catch(e => {
+            console.log(e)
+        })
 }
 
 async function findListTutores(){
@@ -472,3 +420,32 @@ function guardarEstudiante() {
 
     $('#modalEstudiante').modal('hide');
 }
+
+function downloadDocumento(key){
+   
+    downloadPdfDocumentoEmpresa(key)
+       .then((res) => res.blob())
+       .then((blob) => {
+         if (blob.size === 0) {
+           alert("No hay documento");
+         } else {
+           const url = URL.createObjectURL(blob);
+           const a = document.createElement("a");
+           a.href = url;
+           a.download = "documento_"+key;
+           document.body.appendChild(a);
+           a.click();
+         }
+       })
+       .catch((e) => {
+         console.log(e);
+       });
+ }
+ 
+ async function downloadPdfDocumentoEmpresa(key){
+     const result=await fetch(urlBackend+"docEmpresa/download?key="+key,{
+         method:'GET'
+     })
+     return result;
+ }
+
