@@ -23,6 +23,7 @@ function cargarInformacion(){
    .then(res=>res.json())
    .then(data=>{
     console.log(data)
+    localStorage.setItem("director",JSON.stringify(data))
     document.getElementById("codigoUsuarioDir").innerHTML=data.codigo 
     document.getElementById("cedulaUsuarioDir").innerHTML=data.cedula
 
@@ -550,7 +551,7 @@ function downloadDocumento(key){
 
  async function uploaDocumentoEmpresa(id) {
     const { value: { file, title } } = await Swal.fire({
-        title: "Upload Image",
+        title: "Subir Documento",
         html:
             '<input type="file" id="file" accept="*" aria-label="Upload your profile picture" class="input">' +
             '<input type="text" id="title" class="swal2-input" placeholder="Titulo">',
@@ -724,12 +725,40 @@ $(document).ready(function () {
             var nuevoCodigo = $('#inputCodigo').val();
             var nuevaCedula = $('#inputCedula').val();
 
-            // Mostrar los nuevos valores en la consola
-            console.log('Nuevo Nombre:', nuevoNombre);
-            console.log('Nuevo Correo:', nuevoCorreo);
-            console.log('Nuevo Rol:', nuevoRol);
-            console.log('Nuevo Código:', nuevoCodigo);
-            console.log('Nueva Cédula:', nuevaCedula);
+            let idUsuario=JSON.parse(localStorage.getItem("Data")).id
+            let contraseña=JSON.parse(localStorage.getItem("Data")).contraseña
+            let idDirector=JSON.parse(localStorage.getItem("director")).id
+            const usuario={
+                id:idUsuario,
+                nombre: nuevoNombre,
+                correo:nuevoCorreo,
+                contraseña
+            }
+            const director={
+                id:idDirector,
+                codigo:nuevoCodigo,
+                cedula:nuevaCedula
+            }
+            console.log(usuario)
+            actulizarUsuario(usuario)
+            .then(res=>res.json())
+            .then(data=>{
+                console.log(data)
+                alert("Informacion actualizada")
+                localStorage.setItem("Data",JSON.stringify(data))
+            })
+            .catch(e=>{
+                console.log(e)
+            })
+            actulizarDirector(director)
+            .then(res=>res.json())
+            .then(data=>{
+                console.log(data)
+                localStorage.setItem("director",JSON.stringify(data))
+            })
+            .catch(e=>{
+                console.log(e)
+            })
 
             // Reemplazar los inputs con los nuevos valores
             nombreSpan.html(nuevoNombre);
@@ -776,3 +805,27 @@ $(document).ready(function () {
         enEdicion = false;
     }
 });
+
+async function actulizarUsuario(usuario){
+
+    const result=await fetch(urlBackend+"usuario/actualizar/"+usuario.id,{
+        method:'PUT',
+        body:JSON.stringify(usuario),
+        headers:{
+            "Content-type":"application/json"
+        }
+    })
+    return result;
+}
+
+async function actulizarDirector(director){
+
+    const result=await fetch(urlBackend+"director/actualizar/"+director.id,{
+        method:'PUT',
+        body:JSON.stringify(director),
+        headers:{
+            "Content-type":"application/json"
+        }
+    })
+    return result;
+}
