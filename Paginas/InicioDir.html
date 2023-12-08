@@ -150,7 +150,7 @@
                         <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                             <i class="material-icons opacity-10">person_add</i>
                         </div>
-                        <span class="nav-link-text ms-1">Usuarios</span>
+                        <span class="nav-link-text ms-1">Agregar</span>
                     </a>
                 </li>
             </ul>
@@ -200,7 +200,7 @@
                                         <tr>
                                             <th
                                                 class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                                Id</th>
+                                                Id Usuario</th>
                                             <th
                                                 class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                                 Nombre</th>
@@ -249,9 +249,9 @@
                                 <table class="table align-items-center text-center mb-0">
                                     <thead>
                                         <tr>
-                                            <!-- <th
+                                            <th
                                                 class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                                Id</th> -->
+                                                Id Usuario</th>
                                             <th
                                                 class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                                 Nombre</th>
@@ -305,6 +305,9 @@
                                         <tr>
                                             <th
                                                 class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                                Id Usuario</th>
+                                            <th
+                                                class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                                 Nombre</th>
                                             <th
                                                 class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
@@ -356,6 +359,9 @@
                                         <tr>
                                             <th
                                                 class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                                ID</th>
+                                            <th
+                                                class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                                 Nombre</th>
                                             <th
                                                 class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
@@ -399,15 +405,24 @@
                                             <th
                                                 class="text-up  percase text-secondary text-xxs font-weight-bolder opacity-7">
                                                 Tutor</th>
+                                                <th
+                                                class="text-up  percase text-secondary text-xxs font-weight-bolder opacity-7">
+                                                Cedula</th>
                                             <th
                                                 class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                                 Estado Postulacio</th>
+                                                <th
+                                                class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                                Documentos</th>
+                                                <th
+                                                class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                                Cargar</th>
                                             <th class="text-secondary opacity-7"></th>
                                         </tr>
                                     </thead>
                                     <tbody id="listaProyectos">
                                     </tbody>
-                                </table>
+                                </table>
                             </div>
                         </div>
                     </div>
@@ -426,6 +441,9 @@
                                 <table class="table align-items-center text-center mb-0">
                                     <thead>
                                         <tr>
+                                            <th
+                                                class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                                Id</th>
                                             <th
                                                 class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                                 Nombre</th>
@@ -600,13 +618,25 @@
                         </div>
                     </div>
                 </div>       
-                <div style="columns: 2; display: block; align-content: space-between; align-items: center; ">
+                <div style="columns: 3; display: block; align-content: space-between; align-items: center; ">
                     <div class="row-md-5 mb-5" style="max-width: 700px;">
                         <div class="card">
                             <div class="card-body text-center">
                                 <h5 class="card-title">Agregar Tutor</h5>
                                 <p class="card-text">Añade nuevos tutores a la plataforma para brindar apoyo académico.</p>
                                 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalTutor">
+                                    Agregar
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row-md-5 mb-5" style="max-width: 700px;">
+                        <div class="card">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">Agregar Proyecto</h5>
+                                <p class="card-text">Registra nuevos proyectos asociados por la empresa para la elaboracion de practicas.</p>
+                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalproyecto">
                                     Agregar
                                 </button>
                             </div>
@@ -779,21 +809,8 @@
                         <div class="input-group input-group-outline my-3">
                             <input type="text" class="form-control" placeholder="Usuario ID" id="usuarioId" name="usuarioId" required>
                         </div>
-                        <div class="input-group input-group-outline my-3">
-                            <select class="form-control" id="estadoPostulacion" name="estadoPostulacion" required>
-                                <option value="" disabled selected>Selecciona el estado</option>
-                                <option value="true">Activo</option>
-                                <option value="false">Inactivo</option>
-                            </select>
-                        </div>
-                        <div class="input-group input-group-outline my-3">
-                            <input type="text" class="form-control" placeholder="Semestre" id="semestre" name="semestre" required>
-                        </div>
-                        <div class="input-group input-group-outline mb-3">
-                            <input type="text" class="form-control" placeholder="Créditos Aprobados" id="creditoAprobado" name="creditoAprobado" required>
-                        </div>
-                        <button type="button" class="btn bg-gradient-primary w-100 my-4 mb-2" onclick="guardarEstudiante()">
-                            Guardar Estudiante
+                        <button type="button" class="btn bg-gradient-primary w-100 my-4 mb-2" onclick="guardarDirector()">
+                            Guardar Director
                         </button>
                     </form>
                 </div>
@@ -802,10 +819,95 @@
     </div>
 
     <!-- Modal tutor -->
-    <div class="modal fade" id="modalDirector" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"></div>
+    <div class="modal fade" id="modalTutor" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Agregar Tutor</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form role="form" class="text-start" id="formDatosTutor">
+                        <div class="input-group input-group-outline my-3">
+                            <input type="text" class="form-control" placeholder="Cédula" id="cedula" name="cedula" required>
+                        </div>
+                        <div class="input-group input-group-outline my-3">
+                            <input type="text" class="form-control" placeholder="Usuario ID" id="usuarioId" name="usuarioId" required>
+                        </div>
+                        <button type="button" class="btn bg-gradient-primary w-100 my-4 mb-2" onclick="guardarTutor()">
+                            Guardar Tutor
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Modal empresa -->
-    <div class="modal fade" id="modalDirector" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"></div>
+    <div class="modal fade" id="modalEmpresa" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Agregar Empresa</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form role="form" class="text-start" id="formDatosEmpresa">
+                        <div class="input-group input-group-outline my-3">
+                            <input type="text" class="form-control" placeholder="NIT" id="nit" name="nit" required>
+                        </div>
+                        <div class="input-group input-group-outline my-3">
+                            <input type="text" class="form-control" placeholder="Representante" id="representante" name="representante" required>
+                        </div>
+                        <div class="input-group input-group-outline my-3">
+                            <input type="text" class="form-control" placeholder="Convenio" id="convenio" name="convenio" required>
+                        </div>
+                        <div class="input-group input-group-outline my-3">
+                            <select class="form-control" id="estadoPostulacion" name="estado" required>
+                                <option value="" disabled selected>Selecciona el estado</option>
+                                <option value="true">Activo</option>
+                                <option value="false">Inactivo</option>
+                            </select>
+                        </div>
+                        <div class="input-group input-group-outline my-3">
+                            <input type="text" class="form-control" placeholder="usuario Id" id="usuarioId" name="usuarioId" required>
+                        </div>
+                        <button type="button" class="btn bg-gradient-primary w-100 my-4 mb-2" onclick="guardarEmpresa()">
+                            Guardar Empresa
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal proyecto --> 
+    <div class="modal fade" id="modalproyecto" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Agregar Empresa</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form role="form" class="text-start" id="formDatosEmpresa">
+                        <div class="input-group input-group-outline my-3">
+                            <input type="text" class="form-control" placeholder="Empresa Id" id="nit" name="nit" required>
+                        </div>
+                        <div class="input-group input-group-outline my-3">
+                            <input type="text" class="form-control" placeholder="Tutor Id" id="representante" name="representante" required>
+                        </div>
+                        <div class="input-group input-group-outline my-3">
+                            <input type="text" class="form-control" placeholder="Estado Postulacion" id="convenio" name="convenio" required>
+                        </div>
+                        <button type="button" class="btn bg-gradient-primary w-100 my-4 mb-2" onclick="guardarEmpresa()">
+                            Guardar Empresa
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <div class="fixed-plugin">
         <a class="fixed-plugin-button text-dark position-fixed px-3 py-2">
@@ -879,6 +981,7 @@
             </div>
         </div>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="../assets/js/core/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="../API/main.js"></script>
