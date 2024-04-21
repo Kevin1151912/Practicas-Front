@@ -58,6 +58,83 @@
     <!-- Nepcha Analytics (nepcha.com) -->
     <!-- Nepcha is a easy-to-use web analytics. No cookies and fully compliant with GDPR, CCPA and PECR. -->
     <script defer data-site="YOUR_DOMAIN_HERE" src="https://api.nepcha.com/js/nepcha-analytics.js"></script>
+    <style>
+        .input-animate {
+            transition: border-color 0.3s ease, transform 0.2s ease;
+            border-color: #ced4da;
+            /* Color de borde predeterminado */
+        }
+
+        .input-animate:focus {
+            border-color: #ff69b4;
+            /* Cambia el color del borde al enfocar */
+            transform: scale(1.02);
+            /* Aumenta ligeramente el tamaño al enfocar */
+        }
+
+        .btn-animate {
+  position: relative;
+  overflow: hidden;
+  border-radius: 50px; /* Bordes redondeados */
+  font-size: 1.2rem; /* Tamaño de fuente */
+  font-weight: bold; /* Negrita */
+  text-transform: uppercase; /* Mayúsculas */
+  padding: 15px; /* Espaciado interno */
+}
+
+.btn-kevin{
+    background-color: #f348a0;
+}
+
+.btn-kevin:hover{
+    background-color: #f348a0;
+}
+
+.btn-text {
+    color: white;
+  margin-right: 10px; /* Espaciado entre el texto y el icono */
+}
+
+.btn-text:hover {
+    color: white;
+  margin-right: 10px; /* Espaciado entre el texto y el icono */
+}
+
+.btn-icon {
+  animation: bounce 2s infinite; /* Animación del icono */
+}
+
+.rainbow-bg::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(35deg, #ff0000, #fc0255, #ff00d4, #9900ff, #4c00ff, #0004ff, #006eff); /* Gradiente de colores */
+  animation: rainbow 5s linear infinite; /* Animación de cambio de colores */
+  border-radius: 40%; /* Borde circular */
+  z-index: -1; /* Colocar detrás del contenido del botón */
+}
+
+@keyframes rainbow {
+  0% {
+    transform: rotate(0deg); /* Inicio del gradiente */
+  }
+  100% {
+    transform: rotate(360deg); /* Fin del gradiente */
+  }
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0); /* Posición inicial y final */
+  }
+  50% {
+    transform: translateY(-10px); /* Posición intermedia */
+  }
+}
+    </style>
 </head>
 
 <body class="g-sidenav-show bg-gray-200">
@@ -405,16 +482,16 @@
                                             <th
                                                 class="text-up  percase text-secondary text-xxs font-weight-bolder opacity-7">
                                                 Tutor</th>
-                                                <th
+                                            <th
                                                 class="text-up  percase text-secondary text-xxs font-weight-bolder opacity-7">
                                                 Cedula</th>
                                             <th
                                                 class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                                 Estado Postulacio</th>
-                                                <th
+                                            <th
                                                 class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                                 Documentos</th>
-                                                <th
+                                            <th
                                                 class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                                 Cargar</th>
                                             <th class="text-secondary opacity-7"></th>
@@ -422,7 +499,8 @@
                                     </thead>
                                     <tbody id="listaProyectos">
                                     </tbody>
-                                </table>
+                                            
+                                </table>
                             </div>
                         </div>
                     </div>
@@ -578,11 +656,12 @@
             <div class="row" style="display: none;" id="section-add">
                 <div class="col-12 mt-3 text-center">
                     <h2>Selecciona una opción para agregar:</h2>
-                    <hr><hr>
-                </div>  
-             
-                <div style="columns: 3; display: block; align-content: space-between;">
-                    <div class="row-md-5 mb-5" style="max-width: 700px;">
+                    <hr>
+                    <hr>
+                </div>
+
+                <div style="columns: 2; display: block; align-content: space-between;">
+                    <!-- <div class="row-md-5 mb-5" style="max-width: 700px;">
                         <div class="card">
                             <div class="card-body text-center">
                                 <h5 class="card-title">Agregar Usuario</h5>
@@ -592,14 +671,17 @@
                                 </button>
                             </div>
                         </div>
-                    </div>
-                
+                    </div> -->
+
+                    <!-- Botón para abrir el modal -->
+
                     <div class="row-md-5 mb-5" style="max-width: 700px;">
                         <div class="card">
                             <div class="card-body text-center">
                                 <h5 class="card-title">Agregar Estudiante</h5>
                                 <p class="card-text">Registra a nuevos estudiantes en la plataforma educativa.</p>
-                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalEstudiante">
+                                <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                    data-bs-target="#modalEstudiante">
                                     Agregar
                                 </button>
                             </div>
@@ -611,20 +693,23 @@
                             <div class="card-body text-center">
                                 <h5 class="card-title">Agregar Director</h5>
                                 <p class="card-text">Incorpora nuevos directores al sistema académico.</p>
-                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalDirector">
+                                <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                    data-bs-target="#modalDirector">
                                     Agregar
                                 </button>
                             </div>
                         </div>
                     </div>
-                </div>       
+                </div>
                 <div style="columns: 3; display: block; align-content: space-between; align-items: center; ">
                     <div class="row-md-5 mb-5" style="max-width: 700px;">
                         <div class="card">
                             <div class="card-body text-center">
                                 <h5 class="card-title">Agregar Tutor</h5>
-                                <p class="card-text">Añade nuevos tutores a la plataforma para brindar apoyo académico.</p>
-                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalTutor">
+                                <p class="card-text">Añade nuevos tutores a la plataforma para brindar apoyo académico.
+                                </p>
+                                <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                    data-bs-target="#modalTutor">
                                     Agregar
                                 </button>
                             </div>
@@ -635,28 +720,31 @@
                         <div class="card">
                             <div class="card-body text-center">
                                 <h5 class="card-title">Agregar Proyecto</h5>
-                                <p class="card-text">Registra nuevos proyectos asociados por la empresa para la elaboracion de practicas.</p>
-                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalproyecto">
+                                <p class="card-text">Registra nuevos proyectos asociados por la empresa para las practicas.</p>
+                                <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                    data-bs-target="#modalproyecto">
                                     Agregar
                                 </button>
                             </div>
                         </div>
                     </div>
-                
+
                     <div class="row-md-5 mb-5" style="max-width: 700px;">
                         <div class="card">
                             <div class="card-body text-center">
                                 <h5 class="card-title">Agregar Empresa</h5>
-                                <p class="card-text">Registra nuevas empresas asociadas para colaboraciones académicas.</p>
-                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalEmpresa">
+                                <p class="card-text">Registra nuevas empresas asociadas para colaboraciones académicas.
+                                </p>
+                                <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                    data-bs-target="#modalEmpresa">
                                     Agregar
                                 </button>
                             </div>
                         </div>
                     </div>
-                </div>         
+                </div>
             </div>
-            
+
             <footer class="footer py-4 align-items">
                 <div class="container-fluid">
                     <div class="row align-items-center justify-content-lg-between">
@@ -664,8 +752,9 @@
                             <div class="copyright text-center text-sm text-muted text-lg-start">
                                 ©
                                 <script>
+                                    let mes = new Date().getMonth() + 1;
                                     document.write(new Date().getDate() + "-")
-                                    document.write(new Date().getMonth() + "-")
+                                    document.write(mes + "-")
                                     document.write(new Date().getFullYear())
                                 </script>,
                                 División de Practicas de Sistemas UFPS.
@@ -673,7 +762,7 @@
                         </div>
                     </div>
             </footer>
-            
+
         </div>
     </main>
 
@@ -716,7 +805,7 @@
     </div>
 
     <!-- Modal user -->
-    <div class="modal fade" id="modalUsuario" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <!-- <div class="modal fade" id="modalUsuario" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -726,91 +815,118 @@
                 <div class="modal-body">
                     <form role="form" class="text-start" id="formUsuarios">
                         <div class="input-group input-group-outline my-3">
-                            <input type="text" class="form-control" placeholder="Nombre" id="nombre" name="nombre" required>
+                            <input type="text" class="form-control" placeholder="Nombre" id="nombre" name="nombre"
+                                required>
                         </div>
                         <div class="input-group input-group-outline my-3">
-                            <input type="email" class="form-control" placeholder="Correo" id="correo" name="correo" required>
+                            <input type="email" class="form-control" placeholder="Correo" id="correo" name="correo"
+                                required>
                         </div>
                         <div class="input-group input-group-outline my-3">
-                            <input type="password" class="form-control" placeholder="Contraseña" id="contraseña" name="contraseña" required>
+                            <input type="password" class="form-control" placeholder="Contraseña" id="contraseña"
+                                name="contraseña" required>
                         </div>
                         <div class="input-group input-group-outline my-3">
-                            <input type="text" class="form-control" placeholder="Rol ID" id="rolId" name="rolId" required>
+                            <input type="text" class="form-control" placeholder="Rol ID" id="rolId" name="rolId"
+                                required>
                         </div>
                         <div class="input-group input-group-outline mb-3">
-                            <input type="date" class="form-control" placeholder="Fecha de Registro" id="fechaRegistro" name="fechaRegistro" required>
+                            <input type="date" class="form-control" placeholder="Fecha de Registro" id="fechaRegistro"
+                                name="fechaRegistro" required>
                         </div>
-                        <button type="button" class="btn bg-gradient-primary w-100 my-4 mb-2" onclick="guardarUsuario()">
+                        <button type="button" class="btn bg-gradient-primary w-100 my-4 mb-2"
+                            onclick="guardarUsuario()">
                             Guardar Usuario
                         </button>
                     </form>
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
 
     <!-- Modal estudiante -->
     <div class="modal fade" id="modalEstudiante" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Agregar Estudiante</h5>
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content rounded-3 border-0" style="background: white;">
+                <div class="modal-header border-0">
+                    <h4 class="modal-title fw-bold text-primary" id="exampleModalLabel">Agregar Estudiante</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     <form role="form" class="text-start" id="formDatosEstudiante">
                         <div class="input-group input-group-outline my-3">
-                            <input type="text" class="form-control" placeholder="Código" id="codigo" name="codigo" required>
+                            <input type="text" class="form-control form-control-lg input-animate" placeholder="Nombre"
+                                id="nombre" name="nombre" required>
                         </div>
                         <div class="input-group input-group-outline my-3">
-                            <input type="text" class="form-control" placeholder="Cédula" id="cedula" name="cedula" required>
+                            <input type="email" class="form-control form-control-lg input-animate" placeholder="Correo"
+                                id="correo" name="correo" required>
                         </div>
                         <div class="input-group input-group-outline my-3">
-                            <input type="text" class="form-control" placeholder="Usuario ID" id="usuarioId" name="usuarioId" required>
+                            <input type="password" class="form-control form-control-lg input-animate"
+                                placeholder="Contraseña" id="contraseña" name="contraseña" required>
                         </div>
                         <div class="input-group input-group-outline my-3">
-                            <select class="form-control" id="estadoPostulacion" name="estadoPostulacion" required>
-                                <option value="" disabled selected>Selecciona el estado</option>
-                                <option value="true">Activo</option>
-                                <option value="false">Inactivo</option>
-                            </select>
+                            <input type="text" class="form-control form-control-lg input-animate" placeholder="Código"
+                                id="codigo" name="codigo" required>
                         </div>
                         <div class="input-group input-group-outline my-3">
-                            <input type="text" class="form-control" placeholder="Semestre" id="semestre" name="semestre" required>
+                            <input type="text" class="form-control form-control-lg input-animate" placeholder="Cédula"
+                                id="cedula" name="cedula" required>
+                        </div>
+                        <div class="input-group input-group-outline my-3">
+                            <input type="text" class="form-control form-control-lg input-animate" placeholder="Semestre"
+                                id="semestre" name="semestre" required>
                         </div>
                         <div class="input-group input-group-outline mb-3">
-                            <input type="text" class="form-control" placeholder="Créditos Aprobados" id="creditoAprobado" name="creditoAprobado" required>
+                            <input type="text" class="form-control form-control-lg input-animate"
+                                placeholder="Créditos Aprobados" id="creditoAprobado" name="creditoAprobado" required>
                         </div>
-                        <button type="button" class="btn bg-gradient-primary w-100 my-4 mb-2" onclick="guardarEstudiante()">
-                            Guardar Estudiante
-                        </button>
+                        <button type="button" class="btn-kevin btn btn-lg btn-gradient-primary w-100 my-4 mb-2 btn-animate rainbow-bg" onclick="guardarEstudiante()">
+                            <span class="btn-text">Guardar Estudiante</span>
+                            <span class="btn-icon">&#128640;</span>
+                          </button>
                     </form>
                 </div>
             </div>
         </div>
     </div>
 
+
     <!-- Modal director -->
     <div class="modal fade" id="modalDirector" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Agregar Director</h5>
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content rounded-3 border-0" style="background: white;">
+                <div class="modal-header border-0">
+                    <h4 class="modal-title fw-bold text-primary" id="exampleModalLabel">Agregar Director</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     <form role="form" class="text-start" id="formDatosDirector">
                         <div class="input-group input-group-outline my-3">
-                            <input type="text" class="form-control" placeholder="Código" id="codigo" name="codigo" required>
+                            <input type="text" class="form-control form-control-lg input-animate" placeholder="Nombre"
+                                id="nombre" name="nombre" required>
                         </div>
                         <div class="input-group input-group-outline my-3">
-                            <input type="text" class="form-control" placeholder="Cédula" id="cedula" name="cedula" required>
+                            <input type="email" class="form-control form-control-lg input-animate" placeholder="Correo"
+                                id="correo" name="correo" required>
                         </div>
                         <div class="input-group input-group-outline my-3">
-                            <input type="text" class="form-control" placeholder="Usuario ID" id="usuarioId" name="usuarioId" required>
+                            <input type="password" class="form-control form-control-lg input-animate"
+                                placeholder="Contraseña" id="contraseña" name="contraseña" required>
                         </div>
-                        <button type="button" class="btn bg-gradient-primary w-100 my-4 mb-2" onclick="guardarDirector()">
-                            Guardar Director
+                        <div class="input-group input-group-outline my-3">
+                            <input type="text" class="form-control form-control-lg input-animate" placeholder="Código"
+                                id="codigo" name="codigo" required>
+                        </div>
+                        <div class="input-group input-group-outline my-3">
+                            <input type="text" class="form-control form-control-lg input-animate" placeholder="Cédula"
+                                id="cedula" name="cedula" required>
+                        </div>
+                        <button type="button" class="btn-kevin btn btn-lg btn-gradient-primary w-100 my-4 mb-2 btn-animate rainbow-bg"
+                            onclick="guardarDirector()">
+                            <span class="btn-text">Guardar Director</span>
+                            <span class="btn-icon">&#128640;</span>
                         </button>
                     </form>
                 </div>
@@ -829,10 +945,20 @@
                 <div class="modal-body">
                     <form role="form" class="text-start" id="formDatosTutor">
                         <div class="input-group input-group-outline my-3">
-                            <input type="text" class="form-control" placeholder="Cédula" id="cedula" name="cedula" required>
+                            <input type="text" class="form-control form-control-lg input-animate" placeholder="Nombre"
+                                id="nombre" name="nombre" required>
                         </div>
                         <div class="input-group input-group-outline my-3">
-                            <input type="text" class="form-control" placeholder="Usuario ID" id="usuarioId" name="usuarioId" required>
+                            <input type="email" class="form-control form-control-lg input-animate" placeholder="Correo"
+                                id="correo" name="correo" required>
+                        </div>
+                        <div class="input-group input-group-outline my-3">
+                            <input type="password" class="form-control form-control-lg input-animate"
+                                placeholder="Contraseña" id="contraseña" name="contraseña" required>
+                        </div>
+                        <div class="input-group input-group-outline my-3">
+                            <input type="text" class="form-control" placeholder="Cédula" id="cedula" name="cedula"
+                                required>
                         </div>
                         <button type="button" class="btn bg-gradient-primary w-100 my-4 mb-2" onclick="guardarTutor()">
                             Guardar Tutor
@@ -857,10 +983,12 @@
                             <input type="text" class="form-control" placeholder="NIT" id="nit" name="nit" required>
                         </div>
                         <div class="input-group input-group-outline my-3">
-                            <input type="text" class="form-control" placeholder="Representante" id="representante" name="representante" required>
+                            <input type="text" class="form-control" placeholder="Representante" id="representante"
+                                name="representante" required>
                         </div>
                         <div class="input-group input-group-outline my-3">
-                            <input type="text" class="form-control" placeholder="Convenio" id="convenio" name="convenio" required>
+                            <input type="text" class="form-control" placeholder="Convenio" id="convenio" name="convenio"
+                                required>
                         </div>
                         <div class="input-group input-group-outline my-3">
                             <select class="form-control" id="estadoPostulacion" name="estado" required>
@@ -870,9 +998,11 @@
                             </select>
                         </div>
                         <div class="input-group input-group-outline my-3">
-                            <input type="text" class="form-control" placeholder="usuario Id" id="usuarioId" name="usuarioId" required>
+                            <input type="text" class="form-control" placeholder="usuario Id" id="usuarioId"
+                                name="usuarioId" required>
                         </div>
-                        <button type="button" class="btn bg-gradient-primary w-100 my-4 mb-2" onclick="guardarEmpresa()">
+                        <button type="button" class="btn bg-gradient-primary w-100 my-4 mb-2"
+                            onclick="guardarEmpresa()">
                             Guardar Empresa
                         </button>
                     </form>
@@ -881,7 +1011,7 @@
         </div>
     </div>
 
-    <!-- Modal proyecto --> 
+    <!-- Modal proyecto -->
     <div class="modal fade" id="modalproyecto" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -892,18 +1022,122 @@
                 <div class="modal-body">
                     <form role="form" class="text-start" id="formDatosEmpresa">
                         <div class="input-group input-group-outline my-3">
-                            <input type="text" class="form-control" placeholder="Empresa Id" id="nit" name="nit" required>
+                            <input type="text" class="form-control" placeholder="Empresa Id" id="nit" name="nit"
+                                required>
                         </div>
                         <div class="input-group input-group-outline my-3">
-                            <input type="text" class="form-control" placeholder="Tutor Id" id="representante" name="representante" required>
+                            <input type="text" class="form-control" placeholder="Tutor Id" id="representante"
+                                name="representante" required>
                         </div>
                         <div class="input-group input-group-outline my-3">
-                            <input type="text" class="form-control" placeholder="Estado Postulacion" id="convenio" name="convenio" required>
+                            <input type="text" class="form-control" placeholder="Estado Postulacion" id="convenio"
+                                name="convenio" required>
                         </div>
-                        <button type="button" class="btn bg-gradient-primary w-100 my-4 mb-2" onclick="guardarEmpresa()">
+                        <button type="button" class="btn bg-gradient-primary w-100 my-4 mb-2"
+                            onclick="guardarEmpresa()">
                             Guardar Empresa
                         </button>
                     </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal guardarE -->
+    <div class="modal fade" id="guardandoModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-sm">
+            <div class="modal-content rounded-3 border-0"
+                style="background: linear-gradient(50deg, #f85fae, #ff0084); box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);">
+                <div class="modal-header border-0">
+                    <h5 class="modal-title fw-bold text-white" id="exampleModalLabel">¡Guardando Estudiante!</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                        aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="text-center">
+                        <div class="spinner-border text-white mb-3" role="status"></div>
+                        <p class="mb-0 text-white">El estudiante ingresado esta siendo guardado!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal guardarD -->
+    <div class="modal fade" id="guardandoModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-sm">
+            <div class="modal-content rounded-3 border-0"
+                style="background: linear-gradient(50deg, #f85fae, #ff0084); box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);">
+                <div class="modal-header border-0">
+                    <h5 class="modal-title fw-bold text-white" id="exampleModalLabel">¡Guardando Director!</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                        aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="text-center">
+                        <div class="spinner-border text-white mb-3" role="status"></div>
+                        <p class="mb-0 text-white">El director ingresado esta siendo guardado!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal guardarT -->
+    <div class="modal fade" id="guardandoModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-sm">
+            <div class="modal-content rounded-3 border-0"
+                style="background: linear-gradient(50deg, #f85fae, #ff0084); box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);">
+                <div class="modal-header border-0">
+                    <h5 class="modal-title fw-bold text-white" id="exampleModalLabel">¡Guardando Tutor!</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                        aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="text-center">
+                        <div class="spinner-border text-white mb-3" role="status"></div>
+                        <p class="mb-0 text-white">El tutor ingresado esta siendo guardado!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal guardarP -->
+    <div class="modal fade" id="guardandoModal3" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-sm">
+            <div class="modal-content rounded-3 border-0"
+                style="background: linear-gradient(50deg, #f85fae, #ff0084); box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);">
+                <div class="modal-header border-0">
+                    <h5 class="modal-title fw-bold text-white" id="exampleModalLabel">¡Guardando Proyecto!</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                        aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="text-center">
+                        <div class="spinner-border text-white mb-3" role="status"></div>
+                        <p class="mb-0 text-white">El proyecto ingresado esta siendo guardado!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal guardarEm -->
+    <div class="modal fade" id="guardandoModal4" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-sm">
+            <div class="modal-content rounded-3 border-0"
+                style="background: linear-gradient(50deg, #f85fae, #ff0084); box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);">
+                <div class="modal-header border-0">
+                    <h5 class="modal-title fw-bold text-white" id="exampleModalLabel">¡Guardando Empresa!</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                        aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="text-center">
+                        <div class="spinner-border text-white mb-3" role="status"></div>
+                        <p class="mb-0 text-white">La empresa ingresada esta siendo guardada!</p>
+                    </div>
                 </div>
             </div>
         </div>

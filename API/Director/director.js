@@ -403,19 +403,35 @@ function guardarUsuario() {
 function guardarEstudiante() {
     console.log('Guardando estudiante...');
 
+    $('#guardandoModal').modal('show'); // Mostrar el modal de "Guardando..."
+
     var formData = new FormData(document.getElementById('formDatosEstudiante'));
 
-    var estadoSelect = document.getElementById('estadoPostulacion');
-    var estadoValue = estadoSelect.options[estadoSelect.selectedIndex].value;
+    // Extraer los datos del usuario del formulario
+    var usuario = {
+        nombre: formData.get('nombre'),
+        correo: formData.get('correo'),
+        contraseña: formData.get('contraseña'),
+        rolId: 1, // Establecer rolId automáticamente en 1
+        fechaRegistro: new Date().toISOString() // Obtener la fecha actual
+    };
 
-    formData.append('estadoPostulacion', estadoValue);
+    // Extraer los datos del estudiante del formulario
+    var estudiante = {
+        codigo: formData.get('codigo'),
+        cedula: formData.get('cedula'),
+        usuario: usuario, // Incluir el objeto usuario en los datos del estudiante
+        estado: false, // Establecer el estado de postulación en falso
+        semestre: formData.get('semestre'),
+        creditoAprobado: formData.get('creditoAprobado')
+    };
 
-    fetch('https://practicasapi-production.up.railway.app/estudiante/guardar', {
+    fetch('https://practicasapi-production.up.railway.app/datos-estudiante/guardar', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify(Object.fromEntries(formData.entries()))
+        body: JSON.stringify(estudiante)
     })
     .then(response => {
         console.log('Respuesta del backend:', response);
@@ -426,9 +442,17 @@ function guardarEstudiante() {
     })
     .then(data => {
         console.log('Estudiante guardado con éxito', data);
+        // Ocultar el modal de "Guardando..."
+        $('#guardandoModal').modal('hide');
+        // Recargar la página después de 1 segundo
+        setTimeout(function() {
+            window.location.reload();
+        }, 1000);
     })
     .catch(error => {
         console.error('Error al guardar el estudiante:', error);
+        // Ocultar el modal de "Guardando..." en caso de error
+        $('#guardandoModal').modal('hide');
     });
 
     $('#modalEstudiante').modal('hide');
@@ -437,59 +461,110 @@ function guardarEstudiante() {
 function guardarDirector() {
     console.log('Guardando director...');
 
+    $('#guardandoModal1').modal('show'); // Mostrar el modal de "Guardando..."
+
     var formData = new FormData(document.getElementById('formDatosDirector'));
 
-    fetch('https://practicasapi-production.up.railway.app/director/guardar', {
+    // Extraer los datos del usuario del formulario
+    var usuario = {
+        nombre: formData.get('nombre'),
+        correo: formData.get('correo'),
+        contraseña: formData.get('contraseña'),
+        rolId: 2, // Establecer rolId automáticamente en 1
+        fechaRegistro: new Date().toISOString() // Obtener la fecha actual
+    };
+
+    // Extraer los datos del estudiante del formulario
+    var director = {
+        codigo: formData.get('codigo'),
+        cedula: formData.get('cedula'),
+        usuario: usuario, // Incluir el objeto usuario en los datos del director
+    };
+
+    fetch('https://practicasapi-production.up.railway.app/datos-director/guardar', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify(Object.fromEntries(formData.entries()))
+        body: JSON.stringify(director)
     })
     .then(response => {
         console.log('Respuesta del backend:', response);
         if (!response.ok) {
-            throw new Error('Error al guardar el estudiante');
+            throw new Error('Error al guardar el director');
         }
         return response.json();
     })
     .then(data => {
         console.log('Director guardado con éxito', data);
+        // Ocultar el modal de "Guardando..."
+        $('#guardandoModal').modal('hide');
+        // Recargar la página después de 1 segundo
+        setTimeout(function() {
+            window.location.reload();
+        }, 1000);
     })
     .catch(error => {
-        console.error('Error al guardar el director:', error);
+        console.error('Error al guardar el estudiante:', error);
+        // Ocultar el modal de "Guardando..." en caso de error
+        $('#guardandoModal').modal('hide');
     });
 
     $('#modalDirector').modal('hide');
 }
 
 function guardarTutor() {
-    console.log('Guardando tutor...');
+    console.log('Guardando Tutor...');
+
+    $('#guardandoModal2').modal('show'); // Mostrar el modal de "Guardando..."
 
     var formData = new FormData(document.getElementById('formDatosTutor'));
 
-    fetch('https://practicasapi-production.up.railway.app/tutor/guardar', {
+    // Extraer los datos del usuario del formulario
+    var usuario = {
+        nombre: formData.get('nombre'),
+        correo: formData.get('correo'),
+        contraseña: formData.get('contraseña'),
+        rolId: 3, // Establecer rolId automáticamente en 1
+        fechaRegistro: new Date().toISOString() // Obtener la fecha actual
+    };
+
+    // Extraer los datos del estudiante del formulario
+    var tutor = {
+        cedula: formData.get('cedula'),
+        usuario: usuario, // Incluir el objeto usuario en los datos del director
+    };
+
+    fetch('https://practicasapi-production.up.railway.app/datos-tutor/guardar', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify(Object.fromEntries(formData.entries()))
+        body: JSON.stringify(tutor)
     })
     .then(response => {
         console.log('Respuesta del backend:', response);
         if (!response.ok) {
-            throw new Error('Error al guardar el tutor');
+            throw new Error('Error al guardar el director');
         }
         return response.json();
     })
     .then(data => {
-        console.log('Tutor guardado con éxito', data);
+        console.log('Director guardado con éxito', data);
+        // Ocultar el modal de "Guardando..."
+        $('#guardandoModal').modal('hide');
+        // Recargar la página después de 1 segundo
+        setTimeout(function() {
+            window.location.reload();
+        }, 1000);
     })
-    .catch(error => {   
-        console.error('Error al guardar el tutor:', error);
+    .catch(error => {
+        console.error('Error al guardar el estudiante:', error);
+        // Ocultar el modal de "Guardando..." en caso de error
+        $('#guardandoModal').modal('hide');
     });
 
-    $('#modalTutor').modal('hide');
+    $('#modalDirector').modal('hide');
 }
 
 function guardarEmpresa() {

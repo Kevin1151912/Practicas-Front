@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+
+            var sectionInfo = document.getElementById('section-info');
+            sectionInfo.style.display = 'block';
+
+            var infoLink = document.querySelector('.navbar-nav a[href="#section-info"]');
+            infoLink.classList.add('active', 'bg-gradient-primary');
+
+            var links = document.querySelectorAll('.navbar-nav a.link');
+
+            var infoLink = document.querySelector('.navbar-nav a[href="#section-info"]');
+            infoLink.addEventListener('click', (event) => {
+                event.preventDefault();
+                window.location.reload();
+            });
+
+            links.forEach(function (link) {
+                link.addEventListener('click', function (event) {
+                    event.preventDefault();
+                    var targetId = this.getAttribute('href').substring(1);
+                    document.querySelectorAll('.row').forEach(function (section) {
+                        section.style.display = 'none';
+                    });
+                    document.getElementById(targetId).style.display = 'block';
+                    links.forEach(function (link) {
+                        link.classList.remove('active', 'bg-gradient-primary');
+                    });
+                    this.classList.add('active', 'bg-gradient-primary');
+                });
+            });
+        });
+    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
+    <link rel="icon" type="image/png" href="https://divisist2.ufps.edu.co/assets/img/ufps/favicon.ico">
+    <title>Inicio Empresa</title>
+    <!--     Fonts and icons     -->
+    <link rel="stylesheet" type="text/css"
+        href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900|Roboto+Slab:400,700" />
+    <!-- Nucleo Icons -->
+    <link href="../assets/css/nucleo-icons.css" rel="stylesheet" />
+    <link href="../assets/css/nucleo-svg.css" rel="stylesheet" />
+    <!-- Font Awesome Icons -->
+    <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+    <!-- Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+    <!-- CSS Files -->
+    <link id="pagestyle" href="../assets/css/material-dashboard.css?v=3.1.0" rel="stylesheet" />
+    <!-- Nepcha Analytics (nepcha.com) -->
+    <!-- Nepcha is a easy-to-use web analytics. No cookies and fully compliant with GDPR, CCPA and PECR. -->
+    <script defer data-site="YOUR_DOMAIN_HERE" src="https://api.nepcha.com/js/nepcha-analytics.js"></script>
+</head>
+<body>
+    <aside
+        class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3   bg-gradient-dark"
+        id="sidenav-main">
+        <div class="sidenav-header">
+            <i class="fas fa-times p-3 cursor-pointer text-white opacity-5 position-absolute end-0 top-0 d-none d-xl-none"
+                aria-hidden="true" id="iconSidenav"></i>
+            <a class="navbar-brand m-0" target="_blank">
+                <img style="max-width: 1.2cm; min-height: 1.2cm; align-items: center; text-align: center; justify-content: center;"
+                    src="../assets/img/logoS.png" class="navbar-brand-img h-100" alt="main_logo">
+                <span class="ms-4 font-weight-bolder text-white">Director</span>
+            </a>
+        </div>
+        <hr class="horizontal light mt-0 mb-2">
+        <div class="collapse navbar-collapse  w-auto " id="sidenav-collapse-main">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link link text-white " href="#section-proyectos">
+                        <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                            <i class="material-icons opacity-10">ballot</i>
+                        </div>
+                        <span class="nav-link-text ms-1">Proyectos</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link link text-white " href="#section-coordinadores">
+                        <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                            <i class="material-icons opacity-10">ballot</i>
+                        </div>
+                        <span class="nav-link-text ms-1">Listar Documentos</span>
+                    </a>
+                </li>
+                <li class="nav-item mt-3">
+                    <h6 class="ps-4 ms-2 text-uppercase text-xs text-white font-weight-bolder opacity-8">Account pages
+                    </h6>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link link text-white" href="#section-info">
+                        <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                            <i class="material-icons opacity-10">contacts</i>
+                        </div>
+                        <span class="nav-link-text ms-1">Informacion Personal
+                        </span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="sidenav-footer position-absolute w-100 bottom-0 ">
+            <div class="mx-3">
+                <a class="btn bg-gradient-primary w-100" href="../index.html" type="button">Log
+                    Out</a>
+            </div>
+        </div>
+    </aside>
+    <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
+        <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl" id="navbarBlur"
+            data-scroll="true">
+            <div class="container-fluid py-4 px-2">
+                <div class="collapse navbar-collapse mt-sm-0 mt-4 me-md-0 me-sm-4" id="navbar">
+                    <ul class="navbar-nav  justify-content-end">
+                        <li class="nav-item d-xl-none ps-3 d-flex align-items-center">
+                            <a href="javascript:;" class="nav-link text-body p-0" id="iconNavbarSidenav">
+                                <div class="sidenav-toggler-inner">
+                                    <i class="sidenav-toggler-line"></i>
+                                    <i class="sidenav-toggler-line"></i>
+                                    <i class="sidenav-toggler-line"></i>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="nav-item px-3 d-flex align-items-center">
+                            <h6 class="font-weight-bolder mb-0">Empresa</h6>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div class="container-fluid py-4">
+            <div class="row" style="display: none;" id="section-proyectos">
+                <div class="col-12">
+                    <div class="card my-4">
+                        <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
+                            <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
+                                <h6 class="text-white text-capitalize ps-3">Lista Proyectos</h6>
+                            </div>
+                        </div>
+                        <div class="card-body px-0 pb-2">
+                            <div class="table-responsive p-0">
+                                <table class="table align-items-center text-center mb-0">
+                                    <thead>
+                                        <tr>
+                                            <th
+                                                class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                                Empresa</th>
+                                            <th
+                                                class="text-up  percase text-secondary text-xxs font-weight-bolder opacity-7">
+                                                Tutor</th>
+                                                <th
+                                                class="text-up  percase text-secondary text-xxs font-weight-bolder opacity-7">
+                                                Cedula</th>
+                                            <th
+                                                class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                                Estado Postulacio</th>
+                                                <th
+                                                class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                                Documentos</th>
+                                                <th
+                                                class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                                Cargar</th>
+                                            <th class="text-secondary opacity-7"></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="listaProyectos">
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row" style="display: none;" id="section-coordinadores">
+                <div class="col-12">
+                    <div class="card my-4">
+                        <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
+                            <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
+                                <h6 class="text-white text-capitalize ps-3">Documentos</h6>
+                            </div>
+                        </div>
+                        <div class="card-body px-0 pb-2">
+                            <div class="table-responsive p-0">
+                                <table class="table align-items-center text-center mb-0">
+                                    <thead>
+                                        <tr>
+                                            <th
+                                                class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                                Empresa Id</th>
+                                            <th
+                                                class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                                Tutor Id</th>
+                                            <th
+                                                class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                                Titulo</th>
+                                            <th
+                                                class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                                Ruta</th>
+                                            <th
+                                                class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                                Estado Postulacion</th>
+                                            <th class="text-secondary opacity-6"></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="tablaProyectos">
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row" style="display: none;" id="section-info">
+                <div class="col-12 container-fluid px-6 px-md-6">
+                    <div class="page-header min-height-250 border-radius-xl mt-3 bg-gradient-primary">
+                    </div>
+                    <div class="card card-body mx-3 mx-md-5 mt-n9">
+                        <div class="row gx-4 mb-2">
+                            <div class="col-auto my-auto">
+                                <div class="h-100">
+                                    <!-- <h5 class="mb-1">
+                                        Richard Davis
+                                    </h5> -->
+                                    <p class="mb-0 font-weight-normal text-sm">
+                                        Admin / Director
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="row">
+                                <div class="col-12 col-xl-12">
+                                    <div class="card card-plain h-100">
+                                        <div class="card-header pb-0 p-3">
+                                            <div class="row">
+                                                <div class="col-md-8 d-flex">
+                                                    <h6 class="mb-0 text-center" id="">Informacion de Usuario</h6>
+                                                </div>
+                                                <div class="col-md-4 text-end">
+                                                    <a href="javascript:;">
+                                                        <i class="fas fa-user-edit text-secondary text-sm"
+                                                            data-bs-toggle="tooltip" data-bs-placement="top"
+                                                            title="Edit Profile"></i>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card-body p-5">
+                                            <hr class="horizontal gray-light my-4">
+                                            <div style="columns: 2; justify-content: center;">
+                                                <ul class="list-group" style="gap: 15px; margin-left: 25%;">
+                                                    <li class="list-group-item border-0 ps-0 pt-0 text-sm"><strong
+                                                            class="text-dark">Nombre:</strong>
+                                                        <span id="nombreUsuarioDir"></span>
+                                                    </li>
+                                                    <li class="list-group-item border-0 ps-0 text-sm"><strong
+                                                            class="text-dark">Correo:</strong>
+                                                        <span id="correoUsuarioDir"></span>
+                                                    </li>
+                                                    <li class="list-group-item border-0 ps-0 text-sm"><strong
+                                                            class="text-dark">Rol:</strong>
+                                                        <span id="rolUsuarioDir"></span>
+                                                    </li>
+                                                    <li class="list-group-item border-0 ps-0 pt-0 text-sm"><strong
+                                                            class="text-dark">Codigo:</strong>
+                                                        <span id="codigoUsuarioDir"></span>
+                                                    </li>
+                                                    <li class="list-group-item border-0 ps-0 text-sm"><strong
+                                                            class="text-dark">Cedula:</strong>
+                                                        <span id="cedulaUsuarioDir"></span>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <footer class="footer py-4 align-items">
+                <div class="container-fluid">
+                    <div class="row align-items-center justify-content-lg-between">
+                        <div class="col-lg-6 mb-lg-0 mb-4">
+                            <div class="copyright text-center text-sm text-muted text-lg-start">
+                                ©
+                                <script>
+                                    let mes= new Date().getMonth() + 1;
+                                    document.write(new Date().getDate() + "-")
+                                    document.write(mes + "-")
+                                    document.write(new Date().getFullYear())
+                                </script>,
+                                División de Practicas de Sistemas UFPS.
+                            </div>
+                        </div>
+                    </div>
+            </footer>
+            
+        </div>
+    </main>
+    <!-- Modal docs-->
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Documentos</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <table class="table align-items-center text-center mb-0 table-responsive">
+                        <thead>
+                            <tr>
+                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                    Titulo</th>
+                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                    Ruta</th>
+                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                    Accion</th>
+
+
+                            </tr>
+                        </thead>
+                        <tbody id="tablaDocumento">
+
+
+                        </tbody>
+                    </table>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+             
+        </div>
+          
+    </div>
+
+    <!-- Modal proyecto --> 
+    <div class="modal fade" id="modalproyecto" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Agregar Empresa</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form role="form" class="text-start" id="formDatosEmpresa">
+                        <div class="input-group input-group-outline my-3">
+                            <input type="text" class="form-control" placeholder="Empresa Id" id="nit" name="nit" required>
+                        </div>
+                        <div class="input-group input-group-outline my-3">
+                            <input type="text" class="form-control" placeholder="Tutor Id" id="representante" name="representante" required>
+                        </div>
+                        <div class="input-group input-group-outline my-3">
+                            <input type="text" class="form-control" placeholder="Estado Postulacion" id="convenio" name="convenio" required>
+                        </div>
+                        <button type="button" class="btn bg-gradient-primary w-100 my-4 mb-2" onclick="guardarEmpresa()">
+                            Guardar Empresa
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
