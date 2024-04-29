@@ -43,7 +43,7 @@ function iniciarSesionCredir() {
       console.log(data)
       if (data.rolId === 2) {
         localStorage.setItem("Data", JSON.stringify(data))
-        window.location.href = "../Paginas/InicioDir.html"
+        window.location.href = "/Practicas-Front/Paginas/InicioDir.html"
       } else {
         alert("usuario no autorizado")
       }
@@ -74,7 +74,7 @@ function iniciarSesionCodir() {
       console.log(data)
       if (data.rolId === 2) {
         localStorage.setItem("Data", JSON.stringify(data))
-        window.location.href = "../Paginas/InicioDir.html"
+        window.location.href = "/Practicas-Front/Paginas/InicioDir.html"
       } else {
         alert("usuario no autorizado")
       }
@@ -107,7 +107,7 @@ function iniciarSesionCreEst() {
       console.log(data)
       if (data.rolId === 1) {
         localStorage.setItem("Data", JSON.stringify(data))
-        window.location.href = "../Paginas/inicioEst.html"
+        window.location.href = "/Practicas-Front/Paginas/inicioEst.html"
       } else {
         alert("usuario no autorizado")
       }
@@ -138,7 +138,7 @@ function iniciarSesionCoEst() {
       console.log(data)
       if (data.rolId === 1) {
         localStorage.setItem("Data", JSON.stringify(data))
-        window.location.href = "../Paginas/inicioEst.html"
+        window.location.href = "/Practicas-Front/Paginas/inicioEst.html"
       } else {
         alert("usuario no autorizado")
       }
@@ -169,7 +169,7 @@ function iniciarSesionCoEmp() {
       console.log(data)
       if (data.rolId === 4) {
         localStorage.setItem("Data", JSON.stringify(data))
-        window.location.href = "../Paginas/inicioEmp.html"
+        window.location.href = "/Practicas-Front/Paginas/inicioEmp.html"
       } else {
         alert("usuario no autorizado")
       }
@@ -200,7 +200,7 @@ function iniciarSesionCoTut() {
       console.log(data)
       if (data.rolId === 3) {
         localStorage.setItem("Data", JSON.stringify(data))
-        window.location.href = "../Paginas/inicioTut.html"
+        window.location.href = "/Practicas-Front/Paginas/inicioTut.html"
       } else {
         alert("usuario no autorizado")
       }
@@ -233,7 +233,7 @@ function iniciarSesionCord() {
       console.log(data)
       if (data.rolId === 6) {
         localStorage.setItem("Data", JSON.stringify(data))
-        window.location.href = "../Paginas/inicioCoordinador.html"
+        window.location.href = "/Practicas-Front/Paginas/inicioCoordinador.html"
       } else {
         alert("usuario no autorizado")
       }
