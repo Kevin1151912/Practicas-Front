@@ -119,13 +119,6 @@
                     Coordinador
                   </a>
                 </li>
-                <li class="nav-item">
-                  <a class="nav-link me-2" href="#" data-bs-toggle="collapse"
-                    data-bs-target="#comite-curricular-section" onclick="mostrarSeccion('comite-curricular-section')">
-                    <i class="fas fa-key opacity-6 text-dark me-1"></i>
-                    Comite Curricular
-                  </a>
-                </li>
               </ul>
             </div>
           </div>
@@ -165,7 +158,7 @@
                   <!-- Formulario de inicio de sesión por credenciales -->
                   <div class="card z-index-0 fadeIn3 fadeInBottom">
                     <div class="card-body">
-                      <form role="form" class="text-start" id="formEstudianteCredenciales">
+                      <form role="form" class="text-start" id="formEstudianteCredenciales" onsubmit="return iniciarSesionCreEst('estudiante', 'credenciales')">
                         <div class="input-group input-group-outline my-3">
                           <input type="text" class="form-control" placeholder="Codigo" id="codigoEstudianteCredenciales" />
                         </div>
@@ -175,9 +168,8 @@
                         <div class="input-group input-group-outline mb-3">
                           <input type="password" class="form-control" placeholder="Contraseña" id="passwordEstudianteCredenciales" />
                         </div>
-                        <button type="button" class="btn bg-gradient-primary w-100 my-4 mb-2"
-                          onclick="iniciarSesion('estudiante', 'credenciales')">
-                          Iniciar sesión
+                        <button type="submit" class="btn bg-gradient-primary w-100 my-4 mb-2">
+                          <a style="color: white;">Iniciar sesión</a>        
                         </button>
                       </form>
                     </div>
@@ -186,16 +178,15 @@
                   <!-- Formulario de inicio de sesión por correo -->
                   <div class="card z-index-0 fadeIn3 fadeInBottom">
                     <div class="card-body">
-                      <form role="form" class="text-start" id="formEstudianteCorreo">
+                      <form role="form" class="text-start" id="formEstudianteCorreo" onsubmit="return iniciarSesionCoEst('estudiante', 'credenciales')">
                         <div class="input-group input-group-outline mb-3">
                           <input type="email" class="form-control" placeholder="Correo" id="correoEstudianteCorreo" />
                         </div>
                         <div class="input-group input-group-outline mb-3">
                           <input type="password" class="form-control" placeholder="Contraseña" id="passwordEstudianteCorreo" />
                         </div>
-                        <button type="button" class="btn bg-gradient-primary w-100 my-4 mb-2"
-                          onclick="iniciarSesion('estudiante', 'correo')">
-                          Iniciar sesión
+                        <button type="submit" class="btn bg-gradient-primary w-100 my-4 mb-2">
+                          <a style="color: white;">Iniciar sesión</a>        
                         </button>
                       </form>
                     </div>
@@ -219,7 +210,7 @@
                   <!-- Formulario de inicio de sesión por credenciales -->
                   <div class="card z-index-0 fadeIn3 fadeInBottom">
                     <div class="card-body">
-                      <form role="form" class="text-start" id="formDirectorCredenciales" onsubmit="return iniciarSesionCredenciales('director', 'credenciales')">
+                      <form role="form" class="text-start" id="formDirectorCredenciales" onsubmit="return iniciarSesionCredir('director', 'credenciales')">
                         <div class="input-group input-group-outline my-3">
                           <input type="text" class="form-control" placeholder="Codigo" id="codigoDirectorCredenciales" />
                         </div>
@@ -239,7 +230,7 @@
                   <!-- Formulario de inicio de sesión por correo -->
                   <div class="card z-index-0 fadeIn3 fadeInBottom">
                     <div class="card-body">
-                      <form role="form" class="text-start" id="formDirectorCorreo" onsubmit="return iniciarSesionCorreo('director', 'credenciales')">
+                      <form role="form" class="text-start" id="formDirectorCorreo" onsubmit="return iniciarSesionCodir('director', 'credenciales')">
                         <div class="input-group input-group-outline mb-3">
                           <input type="email" class="form-control" placeholder="Correo" id="correoDirectorCorreo" />
                         </div>
@@ -261,16 +252,15 @@
                   <div class="card z-index-0 fadeIn3 fadeInBottom">
                     <div class="card-body">
                       <!-- Formulario por correo -->
-                      <form role="form" class="text-start" id="formEmpresaCorreo">
+                      <form role="form" class="text-start" id="formEmpresaCorreo" onsubmit="return iniciarSesionCoEmp()">
                         <div class="input-group input-group-outline mb-3">
                           <input type="email" class="form-control" placeholder="Correo" id="correoEmpresaCorreo" />
                         </div>
                         <div class="input-group input-group-outline mb-3">
                           <input type="password" class="form-control" placeholder="Contraseña" id="passwordEmpresaCorreo" />
                         </div>
-                        <button type="button" class="btn bg-gradient-primary w-100 my-4 mb-2"
-                          onclick="iniciarSesion('empresa', 'correo')">
-                          Iniciar sesión
+                        <button type="submit" class="btn bg-gradient-primary w-100 my-4 mb-2">
+                          <a style="color: white;">Iniciar sesión</a>        
                         </button>
                       </form>
                     </div>
@@ -284,16 +274,15 @@
                   <div class="card z-index-0 fadeIn3 fadeInBottom">
                     <div class="card-body">
                       <!-- Formulario por correo -->
-                      <form role="form" class="text-start" id="formTutorCorreo">
+                      <form role="form" class="text-start" id="formTutorCorreo" onsubmit="return iniciarSesionCoTut()">
                         <div class="input-group input-group-outline mb-3">
                           <input type="email" class="form-control" placeholder="Correo" id="correoTutorCorreo" />
                         </div>
                         <div class="input-group input-group-outline mb-3">
                           <input type="password" class="form-control" placeholder="Contraseña" id="passwordTutorCorreo" />
                         </div>
-                        <button type="button" class="btn bg-gradient-primary w-100 my-4 mb-2"
-                          onclick="iniciarSesion('tutor', 'correo')">
-                          Iniciar sesión
+                        <button type="submit" class="btn bg-gradient-primary w-100 my-4 mb-2">
+                          <a style="color: white;">Iniciar sesión</a>        
                         </button>
                       </form>
                     </div>
@@ -307,45 +296,22 @@
                   <div class="card z-index-0 fadeIn3 fadeInBottom">
                     <div class="card-body">
                       <!-- Formulario por correo -->
-                      <form role="form" class="text-start" id="formCoordinadorCorreo">
+                      <form role="form" class="text-start" id="formCoordinadorCorreo" onsubmit="return iniciarSesionCord()">
                         <div class="input-group input-group-outline mb-3">
                           <input type="email" class="form-control" placeholder="Correo" id="correoCoordinadorCorreo" />
                         </div>
                         <div class="input-group input-group-outline mb-3">
                           <input type="password" class="form-control" placeholder="Contraseña" id="passwordCoordinadorCorreo" />
                         </div>
-                        <button type="button" class="btn bg-gradient-primary w-100 my-4 mb-2"
-                          onclick="iniciarSesion('coordinador', 'correo')">
-                          Iniciar sesión
+                        <button type="submit" class="btn bg-gradient-primary w-100 my-4 mb-2">
+                          <a style="color: white;">Iniciar sesión</a>        
                         </button>
                       </form>
                     </div>
                   </div>
                 </div>
 
-                <!-- Sección de Comité Curricular -->
-                <div id="comite-curricular-section" class="content-section" style="display: none">
-                  <h2 style="text-align: center;">Comité Curricular</h2>
-
-                  <!-- Formulario de inicio de sesión por correo -->
-                  <div class="card z-index-0 fadeIn3 fadeInBottom">
-                    <div class="card-body">
-                      <!-- Formulario por correo -->
-                      <form role="form" class="text-start" id="formComiteCorreo">
-                        <div class="input-group input-group-outline mb-3">
-                          <input type="email" class="form-control" placeholder="Correo" id="correoComiteCorreo" />
-                        </div>
-                        <div class="input-group input-group-outline mb-3">
-                          <input type="password" class="form-control" placeholder="Contraseña" id="passwordComiteCorreo" />
-                        </div>
-                        <button type="button" class="btn bg-gradient-primary w-100 my-4 mb-2"
-                          onclick="iniciarSesion('comite-curricular', 'correo')">
-                          Iniciar sesión
-                        </button>
-                      </form>
-                    </div>
-                  </div>
-                </div>
+                
               </div>
             </div>
           </div>

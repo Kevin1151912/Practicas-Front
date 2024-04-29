@@ -243,7 +243,7 @@ function mostrarListadoEstudiantes() {
 }
 
 async function findListTutores(){
-    const result=await fetch(urlBackend+"obtutor/list",{
+    const result=await fetch(urlBackend+"obtutor/list-tutores",{
         method:'GET'
     })
     return result
@@ -498,7 +498,7 @@ function guardarDirector() {
     .then(data => {
         console.log('Director guardado con éxito', data);
         // Ocultar el modal de "Guardando..."
-        $('#guardandoModal').modal('hide');
+        $('#guardandoModal1').modal('hide');
         // Recargar la página después de 1 segundo
         setTimeout(function() {
             window.location.reload();
@@ -507,7 +507,7 @@ function guardarDirector() {
     .catch(error => {
         console.error('Error al guardar el estudiante:', error);
         // Ocultar el modal de "Guardando..." en caso de error
-        $('#guardandoModal').modal('hide');
+        $('#guardandoModal1').modal('hide');
     });
 
     $('#modalDirector').modal('hide');
@@ -532,10 +532,10 @@ function guardarTutor() {
     // Extraer los datos del estudiante del formulario
     var tutor = {
         cedula: formData.get('cedula'),
-        usuario: usuario, // Incluir el objeto usuario en los datos del director
+        usuario: usuario, // Incluir el objeto usuario en los datos del tutor
     };
 
-    fetch('https://practicasapi-production.up.railway.app/datos-tutor/guardar', {
+    fetch('https://practicasapi-production.up.railway.app/obtutor/guardar', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -545,39 +545,59 @@ function guardarTutor() {
     .then(response => {
         console.log('Respuesta del backend:', response);
         if (!response.ok) {
-            throw new Error('Error al guardar el director');
+            throw new Error('Error al guardar el tutor');
         }
         return response.json();
     })
     .then(data => {
-        console.log('Director guardado con éxito', data);
+        console.log('Tutor guardado con éxito', data);
         // Ocultar el modal de "Guardando..."
-        $('#guardandoModal').modal('hide');
+        $('#guardandoModal2').modal('hide');
         // Recargar la página después de 1 segundo
         setTimeout(function() {
             window.location.reload();
         }, 1000);
     })
     .catch(error => {
-        console.error('Error al guardar el estudiante:', error);
+        console.error('Error al guardar el Tutor:', error);
         // Ocultar el modal de "Guardando..." en caso de error
-        $('#guardandoModal').modal('hide');
+        $('#guardandoModal2').modal('hide');
     });
 
-    $('#modalDirector').modal('hide');
+    $('#modalTutor').modal('hide');
 }
 
 function guardarEmpresa() {
     console.log('Guardando empresa...');
 
+    $('#guardandoModal4').modal('show'); // Mostrar el modal de "Guardando..."
+
     var formData = new FormData(document.getElementById('formDatosEmpresa'));
 
-    fetch('https://practicasapi-production.up.railway.app/empresa/guardar', {
+    // Extraer los datos del usuario del formulario
+    var usuario = {
+        nombre: formData.get('nombre'),
+        correo: formData.get('correo'),
+        contraseña: formData.get('contraseña'),
+        rolId: 4, // Establecer rolId automáticamente en 4
+        fechaRegistro: new Date().toISOString() // Obtener la fecha actual
+    };
+
+    // Extraer los datos de la empresa del formulario
+    var empresa = {
+        nit: formData.get('nit'),
+        representante: formData.get('representante'),
+        convenio: formData.get('convenio'),
+        estado: false,
+        usuario: usuario, // Incluir el objeto usuario en los datos de la empresa
+    };
+
+    fetch('https://practicasapi-production.up.railway.app/datos-empresa/guardar', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify(Object.fromEntries(formData.entries()))
+        body: JSON.stringify(empresa)
     })
     .then(response => {
         console.log('Respuesta del backend:', response);
@@ -587,14 +607,115 @@ function guardarEmpresa() {
         return response.json();
     })
     .then(data => {
-        console.log('Empresa guardado con éxito', data);
+        console.log('Empresa guardada con éxito', data);
+        // Ocultar el modal de "Guardando..."
+        $('#guardandoModal4').modal('hide');
+        // Recargar la página después de 1 segundo
+        setTimeout(function() {
+            window.location.reload();
+        }, 1000);
     })
-    .catch(error => {   
-        console.error('Error al guardar el empresa:', error);
+    .catch(error => {
+        console.error('Error al guardar el estudiante:', error);
+        // Ocultar el modal de "Guardando..." en caso de error
+        $('#guardandoModal4').modal('hide');
     });
 
     $('#modalEmpresa').modal('hide');
 }
+
+function guardarProyecto() {
+    console.log('Guardando Proyecto...');
+
+    $('#guardandoModal3').modal('show'); // Mostrar el modal de "Guardando..."
+
+    var formData = new FormData(document.getElementById('formDatosProyecto'));
+
+    fetch('https://practicasapi-production.up.railway.app/proyecto/guardar', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(Object.fromEntries(formData.entries()))
+    })
+    .then(response => {
+        console.log('Respuesta del backend:', response);
+        if (!response.ok) {
+            throw new Error('Error al Proyecto el empresa');
+        }
+        return response.json();
+    })
+    .then(data => {
+        console.log('Proyecto guardado con éxito', data);
+        // Ocultar el modal de "Guardando..."
+        $('#guardandoModal3').modal('hide');
+        // Recargar la página después de 1 segundo
+        setTimeout(function() {
+            window.location.reload();
+        }, 1000);
+    })
+    .catch(error => {   
+        console.error('Error al guardar el proyecto:', error);
+        // Ocultar el modal de "Guardando..." en caso de error
+        $('#guardandoModal2').modal('hide');
+    });
+
+    $('#modalProyecto').modal('hide');
+}
+
+// Realiza la solicitud GET para obtener el JSON de las empresas
+fetch('https://practicasapi-production.up.railway.app/datos-empresa/list-empresa')
+  .then(response => response.json())
+  .then(data => {
+    // Filtra y extrae solo el "id" y el nombre del usuario de cada empresa
+    const empresas = data.map(empresa => ({
+      id: empresa.id,
+      nombreUsuario: empresa.usuario.nombre
+    }));
+
+    // Llena la lista desplegable con las opciones obtenidas
+    const selectEmpresa = document.getElementById('empresaId');
+    empresas.forEach(empresa => {
+      const option = document.createElement('option');
+      option.value = empresa.id;
+      option.textContent = `${empresa.id} - ${empresa.nombreUsuario}`;
+      selectEmpresa.appendChild(option);
+    });
+  })
+  .catch(error => console.error('Error al obtener las empresas:', error));
+
+  fetch('https://practicasapi-production.up.railway.app/obtutor/list-tutores')
+    .then(response => response.json())
+    .then(data => {
+        // Insertar los nombres en el select
+        const selectTutor = document.getElementById('tutorId');
+        data.forEach(tutor => {
+            const option = document.createElement('option');
+            option.text = `${tutor.id} - ${tutor.usuario.nombre}`;
+            option.value = tutor.id;
+            selectTutor.appendChild(option);
+        });
+    })
+    .catch(error => console.error('Error al obtener la lista de tutores:', error));
+
+
+    fetch('https://practicasapi-production.up.railway.app/datos-estudiante/list-estudiante')
+    .then(response => response.json())
+    .then(data => {
+        // Filtrar los estudiantes con estado true
+        const estudiantesActivos = data.filter(estudiante => estudiante.estado === true);
+        
+        // Insertar los nombres en el select
+        const selectEstudiante = document.getElementById('estudianteId');
+        estudiantesActivos.forEach(estudiante => {
+            const option = document.createElement('option');
+            option.text = `${estudiante.id} - ${estudiante.usuario.nombre}`;
+            option.value = estudiante.id; // Aquí guardamos solo el ID del estudiante
+            selectEstudiante.appendChild(option);
+        });
+    })
+    .catch(error => console.error('Error al obtener la lista de estudiantes:', error));
+
 
 function downloadDocumento(key){
    
@@ -708,10 +829,10 @@ function cargarListaProytectos() {
             <h6 class="mb-0 text-sm">${proyecto.empresa.usuario.nombre}</h6>
         </td>
         <td>
-            <p class="text-xs text-secondary mb-0">${proyecto.tutor.usuario.nombre} CC ${proyecto.tutor.cedula}</p>
+            <p class="text-xs text-secondary mb-0">${proyecto.tutor.usuario.nombre}</p>
         </td>
         <td>
-        <p class="text-xs text-secondary mb-0"> ${proyecto.tutor.cedula}</p>
+        <p class="text-xs text-secondary mb-0"> CC ${proyecto.tutor.cedula}</p>
     </td>
         <td class="align-middle text-center text-sm">
                 <span class="badge badge-sm bg-gradient-${color}">${mensaje}</span>
@@ -904,3 +1025,9 @@ async function actulizarDirector(director){
     })
     return result;
 }
+
+
+
+
+
+

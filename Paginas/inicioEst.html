@@ -1,161 +1,163 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-        <script>
-            document.addEventListener('DOMContentLoaded', function () {
-    
-                var sectionInfo = document.getElementById('section-info');
-                sectionInfo.style.display = 'block';
-    
-                var infoLink = document.querySelector('.navbar-nav a[href="#section-info"]');
-                infoLink.classList.add('active', 'bg-gradient-primary');
-    
-                var links = document.querySelectorAll('.navbar-nav a.link');
-    
-                var infoLink = document.querySelector('.navbar-nav a[href="#section-info"]');
-                infoLink.addEventListener('click', (event) => {
+
+<head>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+
+            var sectionInfo = document.getElementById('section-info');
+            sectionInfo.style.display = 'block';
+
+            var infoLink = document.querySelector('.navbar-nav a[href="#section-info"]');
+            infoLink.classList.add('active', 'bg-gradient-primary');
+
+            var links = document.querySelectorAll('.navbar-nav a.link');
+
+            var infoLink = document.querySelector('.navbar-nav a[href="#section-info"]');
+            infoLink.addEventListener('click', (event) => {
+                event.preventDefault();
+                window.location.reload();
+            });
+
+            links.forEach(function (link) {
+                link.addEventListener('click', function (event) {
                     event.preventDefault();
-                    window.location.reload();
-                });
-    
-                links.forEach(function (link) {
-                    link.addEventListener('click', function (event) {
-                        event.preventDefault();
-                        var targetId = this.getAttribute('href').substring(1);
-                        document.querySelectorAll('.row').forEach(function (section) {
-                            section.style.display = 'none';
-                        });
-                        document.getElementById(targetId).style.display = 'block';
-                        links.forEach(function (link) {
-                            link.classList.remove('active', 'bg-gradient-primary');
-                        });
-                        this.classList.add('active', 'bg-gradient-primary');
+                    var targetId = this.getAttribute('href').substring(1);
+                    document.querySelectorAll('.row').forEach(function (section) {
+                        section.style.display = 'none';
                     });
+                    document.getElementById(targetId).style.display = 'block';
+                    links.forEach(function (link) {
+                        link.classList.remove('active', 'bg-gradient-primary');
+                    });
+                    this.classList.add('active', 'bg-gradient-primary');
                 });
             });
-        </script>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
-        <link rel="icon" type="image/png" href="https://divisist2.ufps.edu.co/assets/img/ufps/favicon.ico">
-        <title>
-            Inicio Empresa
-        </title>
-        <!--     Fonts and icons     -->
-        <link rel="stylesheet" type="text/css"
-            href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900|Roboto+Slab:400,700" />
-        <!-- Nucleo Icons -->
-        <link href="../assets/css/nucleo-icons.css" rel="stylesheet" />
-        <link href="../assets/css/nucleo-svg.css" rel="stylesheet" />
-        <!-- Font Awesome Icons -->
-        <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
-        <!-- Material Icons -->
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
-        <!-- CSS Files -->
-        <link id="pagestyle" href="../assets/css/material-dashboard.css?v=3.1.0" rel="stylesheet" />
-        <!-- Nepcha Analytics (nepcha.com) -->
-        <!-- Nepcha is a easy-to-use web analytics. No cookies and fully compliant with GDPR, CCPA and PECR. -->
-        <script defer data-site="YOUR_DOMAIN_HERE" src="https://api.nepcha.com/js/nepcha-analytics.js"></script>
-    
-        <style>
-            .input-animate {
-                transition: border-color 0.3s ease, transform 0.2s ease;
-                border-color: #ced4da;
-                /* Color de borde predeterminado */
+        });
+    </script>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
+    <link rel="icon" type="image/png" href="https://divisist2.ufps.edu.co/assets/img/ufps/favicon.ico">
+    <title>
+        Inicio Estudiante
+    </title>
+    <!--     Fonts and icons     -->
+    <link rel="stylesheet" type="text/css"
+        href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900|Roboto+Slab:400,700" />
+    <!-- Nucleo Icons -->
+    <link href="../assets/css/nucleo-icons.css" rel="stylesheet" />
+    <link href="../assets/css/nucleo-svg.css" rel="stylesheet" />
+    <!-- Font Awesome Icons -->
+    <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+    <!-- Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+    <!-- CSS Files -->
+    <link id="pagestyle" href="../assets/css/material-dashboard.css?v=3.1.0" rel="stylesheet" />
+    <!-- Nepcha Analytics (nepcha.com) -->
+    <!-- Nepcha is a easy-to-use web analytics. No cookies and fully compliant with GDPR, CCPA and PECR. -->
+    <script defer data-site="YOUR_DOMAIN_HERE" src="https://api.nepcha.com/js/nepcha-analytics.js"></script>
+
+    <style>
+        .input-animate {
+            transition: border-color 0.3s ease, transform 0.2s ease;
+            border-color: #ced4da;
+            /* Color de borde predeterminado */
+        }
+
+        .input-animate:focus {
+            border-color: #ff69b4;
+            /* Cambia el color del borde al enfocar */
+            transform: scale(1.02);
+            /* Aumenta ligeramente el tamaño al enfocar */
+        }
+
+        .btn-animate {
+            position: relative;
+            overflow: hidden;
+            border-radius: 50px;
+            /* Bordes redondeados */
+            font-size: 1.2rem;
+            /* Tamaño de fuente */
+            font-weight: bold;
+            /* Negrita */
+            text-transform: uppercase;
+            /* Mayúsculas */
+            padding: 15px;
+            /* Espaciado interno */
+        }
+
+        .btn-kevin {
+            background-color: #f348a0;
+        }
+
+        .btn-kevin:hover {
+            background-color: #f348a0;
+        }
+
+        .btn-text {
+            color: white;
+            margin-right: 10px;
+            /* Espaciado entre el texto y el icono */
+        }
+
+        .btn-text:hover {
+            color: white;
+            margin-right: 10px;
+            /* Espaciado entre el texto y el icono */
+        }
+
+        .btn-icon {
+            animation: bounce 2s infinite;
+            /* Animación del icono */
+        }
+
+        .rainbow-bg::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(35deg, #ff0000, #fc0255, #ff00d4, #9900ff, #4c00ff, #0004ff, #006eff);
+            /* Gradiente de colores */
+            animation: rainbow 5s linear infinite;
+            /* Animación de cambio de colores */
+            border-radius: 40%;
+            /* Borde circular */
+            z-index: -1;
+            /* Colocar detrás del contenido del botón */
+        }
+
+        @keyframes rainbow {
+            0% {
+                transform: rotate(0deg);
+                /* Inicio del gradiente */
             }
-    
-            .input-animate:focus {
-                border-color: #ff69b4;
-                /* Cambia el color del borde al enfocar */
-                transform: scale(1.02);
-                /* Aumenta ligeramente el tamaño al enfocar */
+
+            100% {
+                transform: rotate(360deg);
+                /* Fin del gradiente */
             }
-    
-            .btn-animate {
-                position: relative;
-                overflow: hidden;
-                border-radius: 50px;
-                /* Bordes redondeados */
-                font-size: 1.2rem;
-                /* Tamaño de fuente */
-                font-weight: bold;
-                /* Negrita */
-                text-transform: uppercase;
-                /* Mayúsculas */
-                padding: 15px;
-                /* Espaciado interno */
+        }
+
+        @keyframes bounce {
+
+            0%,
+            100% {
+                transform: translateY(0);
+                /* Posición inicial y final */
             }
-    
-            .btn-kevin {
-                background-color: #f348a0;
+
+            50% {
+                transform: translateY(-10px);
+                /* Posición intermedia */
             }
-    
-            .btn-kevin:hover {
-                background-color: #f348a0;
-            }
-    
-            .btn-text {
-                color: white;
-                margin-right: 10px;
-                /* Espaciado entre el texto y el icono */
-            }
-    
-            .btn-text:hover {
-                color: white;
-                margin-right: 10px;
-                /* Espaciado entre el texto y el icono */
-            }
-    
-            .btn-icon {
-                animation: bounce 2s infinite;
-                /* Animación del icono */
-            }
-    
-            .rainbow-bg::before {
-                content: '';
-                position: absolute;
-                top: -50%;
-                left: -50%;
-                width: 200%;
-                height: 200%;
-                background: linear-gradient(35deg, #ff0000, #fc0255, #ff00d4, #9900ff, #4c00ff, #0004ff, #006eff);
-                /* Gradiente de colores */
-                animation: rainbow 5s linear infinite;
-                /* Animación de cambio de colores */
-                border-radius: 40%;
-                /* Borde circular */
-                z-index: -1;
-                /* Colocar detrás del contenido del botón */
-            }
-    
-            @keyframes rainbow {
-                0% {
-                    transform: rotate(0deg);
-                    /* Inicio del gradiente */
-                }
-    
-                100% {
-                    transform: rotate(360deg);
-                    /* Fin del gradiente */
-                }
-            }
-    
-            @keyframes bounce {
-    
-                0%,
-                100% {
-                    transform: translateY(0);
-                    /* Posición inicial y final */
-                }
-    
-                50% {
-                    transform: translateY(-10px);
-                    /* Posición intermedia */
-                }
-            }
-        </style>
-    </head>
+        }
+    </style>
+</head>
+
 <body>
     <aside
         class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3   bg-gradient-dark"
@@ -166,7 +168,7 @@
             <a class="navbar-brand m-0" target="_blank">
                 <img style="max-width: 1.2cm; min-height: 1.2cm; align-items: center; text-align: center; justify-content: center;"
                     src="../assets/img/logoS.png" class="navbar-brand-img h-100" alt="main_logo">
-                <span class="ms-4 font-weight-bolder text-white">Empresa</span>
+                <span class="ms-4 font-weight-bolder text-white">Estudiante</span>
             </a>
         </div>
         <hr class="horizontal light mt-0 mb-2">
@@ -177,7 +179,7 @@
                         <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                             <i class="material-icons opacity-10">ballot</i>
                         </div>
-                        <span class="nav-link-text ms-1">Proyectos</span>
+                        <span class="nav-link-text ms-1">Proyecto</span>
                     </a>
                 </li>
                 <li class="nav-item">
@@ -185,7 +187,15 @@
                         <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                             <i class="material-icons opacity-10">ballot</i>
                         </div>
-                        <span class="nav-link-text ms-1">Listar Documentos</span>
+                        <span class="nav-link-text ms-1">Documentos del Proyecto</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link link text-white " href="#section-documentos">
+                        <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                            <i class="material-icons opacity-10">ballot</i>
+                        </div>
+                        <span class="nav-link-text ms-1">Mis Documentos</span>
                     </a>
                 </li>
                 <li class="nav-item mt-3">
@@ -226,7 +236,7 @@
                             </a>
                         </li>
                         <li class="nav-item px-3 d-flex align-items-center">
-                            <h6 class="font-weight-bolder mb-0">Empresa</h6>
+                            <h6 class="font-weight-bolder mb-0">Estudiante</h6>
                         </li>
                     </ul>
                 </div>
@@ -237,12 +247,9 @@
                 <div class="col-12">
                     <div class="card my-4">
                         <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
-                            <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3" >
+                            <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
                                 <div class="d-flex justify-content-between align-items-center px-3">
-                                    <h6 class="text-white text-capitalize">Lista Proyectos</h6>
-                                    <button type="button" class="btn btn-sm btn-light text-rose" data-bs-toggle="modal" data-bs-target="#modalProyecto">
-                                        Agregar Proyecto
-                                    </button>
+                                    <h6 class="text-white text-capitalize">Proyecto</h6>
                                 </div>
                             </div>
                         </div>
@@ -262,14 +269,13 @@
                                                 Cedula</th>
                                             <th
                                                 class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                                Estado Postulacio</th>
+                                                Documentos Empresa</th>
                                             <th
                                                 class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                                Documentos</th>
+                                                Documentos Practicante</th>
                                             <th
                                                 class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                                Cargar</th>
-                                            <th class="text-secondary opacity-7"></th>
+                                                Subir Documentos</th>
                                         </tr>
                                     </thead>
                                     <tbody id="listaProyectos">
@@ -306,13 +312,44 @@
                                             <th
                                                 class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                                 Ruta</th>
-                                            <th
-                                                class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                                Estado Postulacion</th>
-                                            <th class="text-secondary opacity-6"></th>
                                         </tr>
                                     </thead>
                                     <tbody id="tablaProyectos">
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row" style="display: none;" id="section-documentos">
+                <div class="col-12">
+                    <div class="card my-4">
+                        <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
+                            <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
+                                <h6 class="text-white text-capitalize ps-3">Documentos</h6>
+                            </div>
+                        </div>
+                        <div class="card-body px-0 pb-2">
+                            <div class="table-responsive p-0">
+                                <table class="table align-items-center text-center mb-0">
+                                    <thead>
+                                        <tr>
+                                            <th
+                                                class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                                Codigo</th>
+                                            <th
+                                                class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                                Cedula</th>
+                                            <th
+                                                class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                                Titulo</th>
+                                            <th
+                                                class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                                Ruta</th>   
+                                        </tr>
+                                    </thead>
+                                    <tbody id="tablaProyectos2">
                                     </tbody>
                                 </table>
                             </div>
@@ -332,7 +369,7 @@
                                         Richard Davis
                                     </h5> -->
                                     <p class="mb-0 font-weight-normal text-sm">
-                                        Usuario / Empresa
+                                        Usuario / Estudiante
                                     </p>
                                 </div>
                             </div>
@@ -361,23 +398,31 @@
                                                 <ul class="list-group" style="gap: 15px; margin-left: 25%;">
                                                     <li class="list-group-item border-0 ps-0 pt-0 text-sm"><strong
                                                             class="text-dark">Nombre:</strong>
-                                                        <span id="nombreUsuarioEmp"></span>
+                                                        <span id="nombreUsuarioEst"></span>
                                                     </li>
                                                     <li class="list-group-item border-0 ps-0 text-sm"><strong
                                                             class="text-dark">Correo:</strong>
-                                                        <span id="correoUsuarioEmp"></span>
+                                                        <span id="correoUsuarioEst"></span>
                                                     </li>
                                                     <li class="list-group-item border-0 ps-0 text-sm"><strong
                                                             class="text-dark">Rol:</strong>
-                                                        <span id="rolUsuarioEmp"></span>
+                                                        <span id="rolUsuarioEst"></span>
                                                     </li>
-                                                    <li class="list-group-item border-0 ps-0 pt-0 text-sm"><strong
-                                                            class="text-dark">NIT:</strong>
-                                                        <span id="nitUsuarioEmp"></span>
+                                                    <li class="list-group-item border-0 ps-0 text-sm"><strong
+                                                            class="text-dark">Codigo:</strong>
+                                                        <span id="codigoUsuarioEst"></span>
                                                     </li>
                                                     <li class="list-group-item border-0 ps-0 text-sm"><strong
                                                             class="text-dark">Cedula:</strong>
-                                                        <span id="representanteUsuarioEmp"></span>
+                                                        <span id="cedulaUsuarioEst"></span>
+                                                    </li>
+                                                    <li class="list-group-item border-0 ps-0 text-sm"><strong
+                                                            class="text-dark">Semestre:</strong>
+                                                        <span id="semestreUsuarioEst"></span>
+                                                    </li>
+                                                    <li class="list-group-item border-0 ps-0 text-sm"><strong
+                                                            class="text-dark">creditosAprobados:</strong>
+                                                        <span id="creditoAprobadoUsuarioEst"></span>
                                                     </li>
                                                 </ul>
                                             </div>
@@ -389,7 +434,7 @@
                     </div>
                 </div>
             </div>
-            
+
             <footer class="footer py-4 align-items">
                 <div class="container-fluid">
                     <div class="row align-items-center justify-content-lg-between">
@@ -397,7 +442,7 @@
                             <div class="copyright text-center text-sm text-muted text-lg-start">
                                 ©
                                 <script>
-                                    let mes= new Date().getMonth() + 1;
+                                    let mes = new Date().getMonth() + 1;
                                     document.write(new Date().getDate() + "-")
                                     document.write(mes + "-")
                                     document.write(new Date().getFullYear())
@@ -407,48 +452,48 @@
                         </div>
                     </div>
             </footer>
-            
+
         </div>
     </main>
-     <!-- Modal docs-->
-     <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-     aria-labelledby="staticBackdropLabel" aria-hidden="true">
-     <div class="modal-dialog modal-lg">
-         <div class="modal-content">
-             <div class="modal-header">
-                 <h1 class="modal-title fs-5" id="staticBackdropLabel">Documentos</h1>
-                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-             </div>
-             <div class="modal-body">
-                 <table class="table align-items-center text-center mb-0 table-responsive">
-                     <thead>
-                         <tr>
-                             <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                 Titulo</th>
-                             <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                 Ruta</th>
-                             <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                 Accion</th>
+    <!-- Modal docs-->
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Documentos</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <table class="table align-items-center text-center mb-0 table-responsive">
+                        <thead>
+                            <tr>
+                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                    Titulo</th>
+                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                    Ruta</th>
+                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                    Accion</th>
 
 
-                         </tr>
-                     </thead>
-                     <tbody id="tablaDocumento">
+                            </tr>
+                        </thead>
+                        <tbody id="tablaDocumento">
 
 
-                     </tbody>
-                 </table>
-             </div>
-             <div class="modal-footer">
-                 <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Cerrar</button>
-             </div>
-         </div>
-          
-     </div>
-       
- </div>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+             
+        </div>
+          
+    </div>
 
-     <!-- Modal proyecto -->
+    <!-- Modal proyecto -->
     <div class="modal fade" id="modalProyecto" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content rounded-3 border-0" style="background: white;">
@@ -473,7 +518,8 @@
                             </select>
                         </div>
                         <div class="input-group input-group-outline my-3">
-                            <span class="form-control form-control-lg input-animate" id="estadoPostulacion" name="estadoPostulacion" required>
+                            <span class="form-control form-control-lg input-animate" id="estadoPostulacion"
+                                name="estadoPostulacion" required>
                                 false
                             </span>
                         </div>
@@ -586,7 +632,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="../API/main.js"></script>
     <script src="../assets/js/core/bootstrap.min.js"></script>
-    <script src="../API/Director/empresa.js"></script>
+    <script src="../API/Director/estudiante.js"></script>
     <script src="../assets/js/plugins/perfect-scrollbar.min.js"></script>
     <script src="../assets/js/plugins/smooth-scrollbar.min.js"></script>
     <script src="../assets/js/plugins/chartjs.min.js"></script>
@@ -851,4 +897,5 @@
     <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
     <script src="../assets/js/material-dashboard.min.js?v=3.1.0"></script>
 </body>
+
 </html>

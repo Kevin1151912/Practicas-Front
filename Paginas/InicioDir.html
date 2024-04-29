@@ -58,6 +58,7 @@
     <!-- Nepcha Analytics (nepcha.com) -->
     <!-- Nepcha is a easy-to-use web analytics. No cookies and fully compliant with GDPR, CCPA and PECR. -->
     <script defer data-site="YOUR_DOMAIN_HERE" src="https://api.nepcha.com/js/nepcha-analytics.js"></script>
+
     <style>
         .input-animate {
             transition: border-color 0.3s ease, transform 0.2s ease;
@@ -73,67 +74,87 @@
         }
 
         .btn-animate {
-  position: relative;
-  overflow: hidden;
-  border-radius: 50px; /* Bordes redondeados */
-  font-size: 1.2rem; /* Tamaño de fuente */
-  font-weight: bold; /* Negrita */
-  text-transform: uppercase; /* Mayúsculas */
-  padding: 15px; /* Espaciado interno */
-}
+            position: relative;
+            overflow: hidden;
+            border-radius: 50px;
+            /* Bordes redondeados */
+            font-size: 1.2rem;
+            /* Tamaño de fuente */
+            font-weight: bold;
+            /* Negrita */
+            text-transform: uppercase;
+            /* Mayúsculas */
+            padding: 15px;
+            /* Espaciado interno */
+        }
 
-.btn-kevin{
-    background-color: #f348a0;
-}
+        .btn-kevin {
+            background-color: #f348a0;
+        }
 
-.btn-kevin:hover{
-    background-color: #f348a0;
-}
+        .btn-kevin:hover {
+            background-color: #f348a0;
+        }
 
-.btn-text {
-    color: white;
-  margin-right: 10px; /* Espaciado entre el texto y el icono */
-}
+        .btn-text {
+            color: white;
+            margin-right: 10px;
+            /* Espaciado entre el texto y el icono */
+        }
 
-.btn-text:hover {
-    color: white;
-  margin-right: 10px; /* Espaciado entre el texto y el icono */
-}
+        .btn-text:hover {
+            color: white;
+            margin-right: 10px;
+            /* Espaciado entre el texto y el icono */
+        }
 
-.btn-icon {
-  animation: bounce 2s infinite; /* Animación del icono */
-}
+        .btn-icon {
+            animation: bounce 2s infinite;
+            /* Animación del icono */
+        }
 
-.rainbow-bg::before {
-  content: '';
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: linear-gradient(35deg, #ff0000, #fc0255, #ff00d4, #9900ff, #4c00ff, #0004ff, #006eff); /* Gradiente de colores */
-  animation: rainbow 5s linear infinite; /* Animación de cambio de colores */
-  border-radius: 40%; /* Borde circular */
-  z-index: -1; /* Colocar detrás del contenido del botón */
-}
+        .rainbow-bg::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(35deg, #ff0000, #fc0255, #ff00d4, #9900ff, #4c00ff, #0004ff, #006eff);
+            /* Gradiente de colores */
+            animation: rainbow 5s linear infinite;
+            /* Animación de cambio de colores */
+            border-radius: 40%;
+            /* Borde circular */
+            z-index: -1;
+            /* Colocar detrás del contenido del botón */
+        }
 
-@keyframes rainbow {
-  0% {
-    transform: rotate(0deg); /* Inicio del gradiente */
-  }
-  100% {
-    transform: rotate(360deg); /* Fin del gradiente */
-  }
-}
+        @keyframes rainbow {
+            0% {
+                transform: rotate(0deg);
+                /* Inicio del gradiente */
+            }
 
-@keyframes bounce {
-  0%, 100% {
-    transform: translateY(0); /* Posición inicial y final */
-  }
-  50% {
-    transform: translateY(-10px); /* Posición intermedia */
-  }
-}
+            100% {
+                transform: rotate(360deg);
+                /* Fin del gradiente */
+            }
+        }
+
+        @keyframes bounce {
+
+            0%,
+            100% {
+                transform: translateY(0);
+                /* Posición inicial y final */
+            }
+
+            50% {
+                transform: translateY(-10px);
+                /* Posición intermedia */
+            }
+        }
     </style>
 </head>
 
@@ -499,7 +520,6 @@
                                     </thead>
                                     <tbody id="listaProyectos">
                                     </tbody>
-                                            
                                 </table>
                             </div>
                         </div>
@@ -720,9 +740,10 @@
                         <div class="card">
                             <div class="card-body text-center">
                                 <h5 class="card-title">Agregar Proyecto</h5>
-                                <p class="card-text">Registra nuevos proyectos asociados por la empresa para las practicas.</p>
+                                <p class="card-text">Registra nuevos proyectos asociados por la empresa para las
+                                    practicas.</p>
                                 <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                                    data-bs-target="#modalproyecto">
+                                    data-bs-target="#modalProyecto">
                                     Agregar
                                 </button>
                             </div>
@@ -850,7 +871,7 @@
             <div class="modal-content rounded-3 border-0" style="background: white;">
                 <div class="modal-header border-0">
                     <h4 class="modal-title fw-bold text-primary" id="exampleModalLabel">Agregar Estudiante</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     <form role="form" class="text-start" id="formDatosEstudiante">
@@ -882,10 +903,12 @@
                             <input type="text" class="form-control form-control-lg input-animate"
                                 placeholder="Créditos Aprobados" id="creditoAprobado" name="creditoAprobado" required>
                         </div>
-                        <button type="button" class="btn-kevin btn btn-lg btn-gradient-primary w-100 my-4 mb-2 btn-animate rainbow-bg" onclick="guardarEstudiante()">
+                        <button type="button"
+                            class="btn-kevin btn btn-lg btn-gradient-primary w-100 my-4 mb-2 btn-animate rainbow-bg"
+                            onclick="guardarEstudiante()">
                             <span class="btn-text">Guardar Estudiante</span>
                             <span class="btn-icon">&#128640;</span>
-                          </button>
+                        </button>
                     </form>
                 </div>
             </div>
@@ -899,7 +922,7 @@
             <div class="modal-content rounded-3 border-0" style="background: white;">
                 <div class="modal-header border-0">
                     <h4 class="modal-title fw-bold text-primary" id="exampleModalLabel">Agregar Director</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     <form role="form" class="text-start" id="formDatosDirector">
@@ -923,7 +946,8 @@
                             <input type="text" class="form-control form-control-lg input-animate" placeholder="Cédula"
                                 id="cedula" name="cedula" required>
                         </div>
-                        <button type="button" class="btn-kevin btn btn-lg btn-gradient-primary w-100 my-4 mb-2 btn-animate rainbow-bg"
+                        <button type="button"
+                            class="btn-kevin btn btn-lg btn-gradient-primary w-100 my-4 mb-2 btn-animate rainbow-bg"
                             onclick="guardarDirector()">
                             <span class="btn-text">Guardar Director</span>
                             <span class="btn-icon">&#128640;</span>
@@ -936,10 +960,10 @@
 
     <!-- Modal tutor -->
     <div class="modal fade" id="modalTutor" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Agregar Tutor</h5>
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content rounded-3 border-0" style="background: white;">
+                <div class="modal-header border-0">
+                    <h5 class="modal-title fw-bold text-primary" id="exampleModalLabel">Agregar Tutor</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -957,11 +981,14 @@
                                 placeholder="Contraseña" id="contraseña" name="contraseña" required>
                         </div>
                         <div class="input-group input-group-outline my-3">
-                            <input type="text" class="form-control" placeholder="Cédula" id="cedula" name="cedula"
-                                required>
+                            <input type="text" class="form-control form-control-lg input-animate" placeholder="Cédula"
+                                id="cedula" name="cedula" required>
                         </div>
-                        <button type="button" class="btn bg-gradient-primary w-100 my-4 mb-2" onclick="guardarTutor()">
-                            Guardar Tutor
+                        <button type="button"
+                            class="btn-kevin btn btn-lg btn-gradient-primary w-100 my-4 mb-2 btn-animate rainbow-bg"
+                            onclick="guardarTutor()">
+                            <span class="btn-text">Guardar Tutor</span>
+                            <span class="btn-icon">&#128640;</span>
                         </button>
                     </form>
                 </div>
@@ -971,39 +998,43 @@
 
     <!-- Modal empresa -->
     <div class="modal fade" id="modalEmpresa" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Agregar Empresa</h5>
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content rounded-3 border-0" style="background: white;">
+                <div class="modal-header border-0">
+                    <h4 class="modal-title fw-bold text-primary" id="exampleModalLabel">Agregar Empresa</h4>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     <form role="form" class="text-start" id="formDatosEmpresa">
                         <div class="input-group input-group-outline my-3">
-                            <input type="text" class="form-control" placeholder="NIT" id="nit" name="nit" required>
+                            <input type="text" class="form-control form-control-lg input-animate" placeholder="Nombre"
+                                id="nombre" name="nombre" required>
                         </div>
                         <div class="input-group input-group-outline my-3">
-                            <input type="text" class="form-control" placeholder="Representante" id="representante"
-                                name="representante" required>
+                            <input type="email" class="form-control form-control-lg input-animate" placeholder="Correo"
+                                id="correo" name="correo" required>
                         </div>
                         <div class="input-group input-group-outline my-3">
-                            <input type="text" class="form-control" placeholder="Convenio" id="convenio" name="convenio"
-                                required>
+                            <input type="password" class="form-control form-control-lg input-animate"
+                                placeholder="Contraseña" id="contraseña" name="contraseña" required>
                         </div>
                         <div class="input-group input-group-outline my-3">
-                            <select class="form-control" id="estadoPostulacion" name="estado" required>
-                                <option value="" disabled selected>Selecciona el estado</option>
-                                <option value="true">Activo</option>
-                                <option value="false">Inactivo</option>
-                            </select>
+                            <input type="text" class="form-control form-control-lg input-animate" placeholder="NIT"
+                                id="nit" name="nit" required>
                         </div>
                         <div class="input-group input-group-outline my-3">
-                            <input type="text" class="form-control" placeholder="usuario Id" id="usuarioId"
-                                name="usuarioId" required>
+                            <input type="text" class="form-control form-control-lg input-animate"
+                                placeholder="Representante" id="representante" name="representante" required>
                         </div>
-                        <button type="button" class="btn bg-gradient-primary w-100 my-4 mb-2"
+                        <div class="input-group input-group-outline my-3">
+                            <input type="text" class="form-control form-control-lg input-animate" placeholder="Convenio"
+                                id="convenio" name="convenio" required>
+                        </div>
+                        <button type="button"
+                            class="btn-kevin btn btn-lg btn-gradient-primary w-100 my-4 mb-2 btn-animate rainbow-bg"
                             onclick="guardarEmpresa()">
-                            Guardar Empresa
+                            <span class="btn-text">Guardar Empresa</span>
+                            <span class="btn-icon">&#128640;</span>
                         </button>
                     </form>
                 </div>
@@ -1012,30 +1043,46 @@
     </div>
 
     <!-- Modal proyecto -->
-    <div class="modal fade" id="modalproyecto" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Agregar Empresa</h5>
+    <div class="modal fade" id="modalProyecto" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content rounded-3 border-0" style="background: white;">
+                <div class="modal-header border-0">
+                    <h5 class="modal-title fw-bold text-primary" id="exampleModalLabel">Agregar Proyecto</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form role="form" class="text-start" id="formDatosEmpresa">
+                    <form role="form" class="text-start" id="formDatosProyecto">
                         <div class="input-group input-group-outline my-3">
-                            <input type="text" class="form-control" placeholder="Empresa Id" id="nit" name="nit"
+                            <select class="form-control form-control-lg input-animate" id="empresaId" name="empresaId"
+                                required>
+                                <option value="" disabled selected>Selecciona la Empresa</option>
+                                <!-- Aquí puedes agregar las opciones de la lista desplegable para la empresa -->
+                            </select>
+                        </div>
+                        <div class="input-group input-group-outline my-3">
+                            <select class="form-control form-control-lg input-animate" id="tutorId" name="tutorId"
+                                required>
+                                <option value="" disabled selected>Selecciona el Tutor</option>
+                                <!-- Aquí puedes agregar las opciones de la lista desplegable para el tutor -->
+                            </select>
+                        </div>
+                        <div class="input-group input-group-outline my-3">
+                            <select class="form-control form-control-lg input-animate" id="estudianteId" name="estudianteId"
+                                required>
+                                <option value="" disabled selected>Selecciona el Practicante</option>
+                                <!-- Aquí puedes agregar las opciones de la lista desplegable para el practicante -->
+                            </select>
+                        </div>
+                        <div class="input-group input-group-outline my-3">
+                            <input type="text" class="form-control form-control-lg input-animate"
+                                placeholder="Estado Postulacion" id="estadoPostulacion" name="estadoPostulacion"
                                 required>
                         </div>
-                        <div class="input-group input-group-outline my-3">
-                            <input type="text" class="form-control" placeholder="Tutor Id" id="representante"
-                                name="representante" required>
-                        </div>
-                        <div class="input-group input-group-outline my-3">
-                            <input type="text" class="form-control" placeholder="Estado Postulacion" id="convenio"
-                                name="convenio" required>
-                        </div>
-                        <button type="button" class="btn bg-gradient-primary w-100 my-4 mb-2"
-                            onclick="guardarEmpresa()">
-                            Guardar Empresa
+                        <button type="button"
+                            class="btn-kevin btn btn-lg btn-gradient-primary w-100 my-4 mb-2 btn-animate rainbow-bg"
+                            onclick="guardarProyecto()">
+                            <span class="btn-text">Guardar Proyecto</span>
+                            <span class="btn-icon">&#128640;</span>
                         </button>
                     </form>
                 </div>
