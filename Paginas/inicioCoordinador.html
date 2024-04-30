@@ -1,161 +1,175 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-        <script>
-            document.addEventListener('DOMContentLoaded', function () {
-    
-                var sectionInfo = document.getElementById('section-info');
-                sectionInfo.style.display = 'block';
-    
-                var infoLink = document.querySelector('.navbar-nav a[href="#section-info"]');
-                infoLink.classList.add('active', 'bg-gradient-primary');
-    
-                var links = document.querySelectorAll('.navbar-nav a.link');
-    
-                var infoLink = document.querySelector('.navbar-nav a[href="#section-info"]');
-                infoLink.addEventListener('click', (event) => {
+
+<head>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+
+            var sectionInfo = document.getElementById('section-info');
+            sectionInfo.style.display = 'block';
+
+            var infoLink = document.querySelector('.navbar-nav a[href="#section-info"]');
+            infoLink.classList.add('active', 'bg-gradient-primary');
+
+            var links = document.querySelectorAll('.navbar-nav a.link');
+
+            var infoLink = document.querySelector('.navbar-nav a[href="#section-info"]');
+            infoLink.addEventListener('click', (event) => {
+                event.preventDefault();
+                window.location.reload();
+            });
+
+            links.forEach(function (link) {
+                link.addEventListener('click', function (event) {
                     event.preventDefault();
-                    window.location.reload();
-                });
-    
-                links.forEach(function (link) {
-                    link.addEventListener('click', function (event) {
-                        event.preventDefault();
-                        var targetId = this.getAttribute('href').substring(1);
-                        document.querySelectorAll('.row').forEach(function (section) {
-                            section.style.display = 'none';
-                        });
-                        document.getElementById(targetId).style.display = 'block';
-                        links.forEach(function (link) {
-                            link.classList.remove('active', 'bg-gradient-primary');
-                        });
-                        this.classList.add('active', 'bg-gradient-primary');
+                    var targetId = this.getAttribute('href').substring(1);
+                    document.querySelectorAll('.row').forEach(function (section) {
+                        section.style.display = 'none';
                     });
+                    document.getElementById(targetId).style.display = 'block';
+                    links.forEach(function (link) {
+                        link.classList.remove('active', 'bg-gradient-primary');
+                    });
+                    this.classList.add('active', 'bg-gradient-primary');
                 });
             });
-        </script>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
-        <link rel="icon" type="image/png" href="https://divisist2.ufps.edu.co/assets/img/ufps/favicon.ico">
-        <title>
-            Inicio Coordinador
-        </title>
-        <!--     Fonts and icons     -->
-        <link rel="stylesheet" type="text/css"
-            href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900|Roboto+Slab:400,700" />
-        <!-- Nucleo Icons -->
-        <link href="../assets/css/nucleo-icons.css" rel="stylesheet" />
-        <link href="../assets/css/nucleo-svg.css" rel="stylesheet" />
-        <!-- Font Awesome Icons -->
-        <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
-        <!-- Material Icons -->
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
-        <!-- CSS Files -->
-        <link id="pagestyle" href="../assets/css/material-dashboard.css?v=3.1.0" rel="stylesheet" />
-        <!-- Nepcha Analytics (nepcha.com) -->
-        <!-- Nepcha is a easy-to-use web analytics. No cookies and fully compliant with GDPR, CCPA and PECR. -->
-        <script defer data-site="YOUR_DOMAIN_HERE" src="https://api.nepcha.com/js/nepcha-analytics.js"></script>
-    
-        <style>
-            .input-animate {
-                transition: border-color 0.3s ease, transform 0.2s ease;
-                border-color: #ced4da;
-                /* Color de borde predeterminado */
+        });
+    </script>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
+    <link rel="icon" type="image/png" href="https://divisist2.ufps.edu.co/assets/img/ufps/favicon.ico">
+    <title>
+        Inicio Coordinador
+    </title>
+    <!--     Fonts and icons     -->
+    <link rel="stylesheet" type="text/css"
+        href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900|Roboto+Slab:400,700" />
+    <!-- Nucleo Icons -->
+    <link href="../assets/css/nucleo-icons.css" rel="stylesheet" />
+    <link href="../assets/css/nucleo-svg.css" rel="stylesheet" />
+    <!-- Font Awesome Icons -->
+    <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+    <!-- Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+    <!-- CSS Files -->
+    <link id="pagestyle" href="../assets/css/material-dashboard.css?v=3.1.0" rel="stylesheet" />
+    <!-- Nepcha Analytics (nepcha.com) -->
+    <!-- Nepcha is a easy-to-use web analytics. No cookies and fully compliant with GDPR, CCPA and PECR. -->
+    <script defer data-site="YOUR_DOMAIN_HERE" src="https://api.nepcha.com/js/nepcha-analytics.js"></script>
+
+    <style>
+        /* Estilo para ocultar la barra de desplazamiento vertical */
+        #tablaComentarios::-webkit-scrollbar {
+            display: none;
+        }
+
+        #tablaComentarios {
+            -ms-overflow-style: none;
+            /* IE and Edge */
+            scrollbar-width: none;
+            /* Firefox */
+        }
+
+        .input-animate {
+            transition: border-color 0.3s ease, transform 0.2s ease;
+            border-color: #ced4da;
+            /* Color de borde predeterminado */
+        }
+
+        .input-animate:focus {
+            border-color: #ff69b4;
+            /* Cambia el color del borde al enfocar */
+            transform: scale(1.02);
+            /* Aumenta ligeramente el tamaño al enfocar */
+        }
+
+        .btn-animate {
+            position: relative;
+            overflow: hidden;
+            border-radius: 50px;
+            /* Bordes redondeados */
+            font-size: 1.2rem;
+            /* Tamaño de fuente */
+            font-weight: bold;
+            /* Negrita */
+            text-transform: uppercase;
+            /* Mayúsculas */
+            padding: 15px;
+            /* Espaciado interno */
+        }
+
+        .btn-kevin {
+            background-color: #f348a0;
+        }
+
+        .btn-kevin:hover {
+            background-color: #f348a0;
+        }
+
+        .btn-text {
+            color: white;
+            margin-right: 10px;
+            /* Espaciado entre el texto y el icono */
+        }
+
+        .btn-text:hover {
+            color: white;
+            margin-right: 10px;
+            /* Espaciado entre el texto y el icono */
+        }
+
+        .btn-icon {
+            animation: bounce 2s infinite;
+            /* Animación del icono */
+        }
+
+        .rainbow-bg::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(35deg, #ff0000, #fc0255, #ff00d4, #9900ff, #4c00ff, #0004ff, #006eff);
+            /* Gradiente de colores */
+            animation: rainbow 5s linear infinite;
+            /* Animación de cambio de colores */
+            border-radius: 40%;
+            /* Borde circular */
+            z-index: -1;
+            /* Colocar detrás del contenido del botón */
+        }
+
+        @keyframes rainbow {
+            0% {
+                transform: rotate(0deg);
+                /* Inicio del gradiente */
             }
-    
-            .input-animate:focus {
-                border-color: #ff69b4;
-                /* Cambia el color del borde al enfocar */
-                transform: scale(1.02);
-                /* Aumenta ligeramente el tamaño al enfocar */
+
+            100% {
+                transform: rotate(360deg);
+                /* Fin del gradiente */
             }
-    
-            .btn-animate {
-                position: relative;
-                overflow: hidden;
-                border-radius: 50px;
-                /* Bordes redondeados */
-                font-size: 1.2rem;
-                /* Tamaño de fuente */
-                font-weight: bold;
-                /* Negrita */
-                text-transform: uppercase;
-                /* Mayúsculas */
-                padding: 15px;
-                /* Espaciado interno */
+        }
+
+        @keyframes bounce {
+
+            0%,
+            100% {
+                transform: translateY(0);
+                /* Posición inicial y final */
             }
-    
-            .btn-kevin {
-                background-color: #f348a0;
+
+            50% {
+                transform: translateY(-10px);
+                /* Posición intermedia */
             }
-    
-            .btn-kevin:hover {
-                background-color: #f348a0;
-            }
-    
-            .btn-text {
-                color: white;
-                margin-right: 10px;
-                /* Espaciado entre el texto y el icono */
-            }
-    
-            .btn-text:hover {
-                color: white;
-                margin-right: 10px;
-                /* Espaciado entre el texto y el icono */
-            }
-    
-            .btn-icon {
-                animation: bounce 2s infinite;
-                /* Animación del icono */
-            }
-    
-            .rainbow-bg::before {
-                content: '';
-                position: absolute;
-                top: -50%;
-                left: -50%;
-                width: 200%;
-                height: 200%;
-                background: linear-gradient(35deg, #ff0000, #fc0255, #ff00d4, #9900ff, #4c00ff, #0004ff, #006eff);
-                /* Gradiente de colores */
-                animation: rainbow 5s linear infinite;
-                /* Animación de cambio de colores */
-                border-radius: 40%;
-                /* Borde circular */
-                z-index: -1;
-                /* Colocar detrás del contenido del botón */
-            }
-    
-            @keyframes rainbow {
-                0% {
-                    transform: rotate(0deg);
-                    /* Inicio del gradiente */
-                }
-    
-                100% {
-                    transform: rotate(360deg);
-                    /* Fin del gradiente */
-                }
-            }
-    
-            @keyframes bounce {
-    
-                0%,
-                100% {
-                    transform: translateY(0);
-                    /* Posición inicial y final */
-                }
-    
-                50% {
-                    transform: translateY(-10px);
-                    /* Posición intermedia */
-                }
-            }
-        </style>
-    </head>
+        }
+    </style>
+</head>
+
 <body>
     <aside
         class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3   bg-gradient-dark"
@@ -237,7 +251,7 @@
                 <div class="col-12">
                     <div class="card my-4">
                         <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
-                            <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3" >
+                            <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
                                 <div class="d-flex justify-content-between align-items-center px-3">
                                     <h6 class="text-white text-capitalize">Lista Proyectos</h6>
                                 </div>
@@ -381,7 +395,7 @@
                     </div>
                 </div>
             </div>
-            
+
             <footer class="footer py-4 align-items">
                 <div class="container-fluid">
                     <div class="row align-items-center justify-content-lg-between">
@@ -389,7 +403,7 @@
                             <div class="copyright text-center text-sm text-muted text-lg-start">
                                 ©
                                 <script>
-                                    let mes= new Date().getMonth() + 1;
+                                    let mes = new Date().getMonth() + 1;
                                     document.write(new Date().getDate() + "-")
                                     document.write(mes + "-")
                                     document.write(new Date().getFullYear())
@@ -399,48 +413,116 @@
                         </div>
                     </div>
             </footer>
-            
+
         </div>
     </main>
-     <!-- Modal docs-->
-     <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-     aria-labelledby="staticBackdropLabel" aria-hidden="true">
-     <div class="modal-dialog modal-lg">
-         <div class="modal-content">
-             <div class="modal-header">
-                 <h1 class="modal-title fs-5" id="staticBackdropLabel">Documentos</h1>
-                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-             </div>
-             <div class="modal-body">
-                 <table class="table align-items-center text-center mb-0 table-responsive">
-                     <thead>
-                         <tr>
-                             <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                 Titulo</th>
-                             <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                 Ruta</th>
-                             <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                 Accion</th>
+    <!-- Modal docs-->
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Documentos</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <table class="table align-items-center text-center mb-0 table-responsive">
+                        <thead>
+                            <tr>
+                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                    Titulo</th>
+                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                    Ruta</th>
+                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                    Accion</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tablaDocumento">
 
 
-                         </tr>
-                     </thead>
-                     <tbody id="tablaDocumento">
+                        </tbody>
+                    </table>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+             
+        </div>
+          
+    </div>
 
+    <!-- Modal comentarios -->
+    <!-- Modal comentarios como tarjeta -->
+    <div class="modal fade" id="comentariosModal" tabindex="-1" aria-labelledby="comentariosModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content border-0 rounded-3 shadow-lg">
+                <div class="modal-header bg-gradient-primary text-dark rounded-top">
+                    <h6 class="modal-title" id="comentariosModalLabel" style="color: white;">Comentarios</h6>
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal" data-bs-toggle="modal"
+                        data-bs-target="#modalProyecto" id="btnAgregarComentario">Agregar Comentario</button>
+                </div>
+                <div class="modal-body bg-light rounded-bottom" id="tablaComentarios"
+                    style="overflow-y: auto; max-height: 400px;">
+                    <!-- Tu contenido de comentarios aquí -->
+                    <div class="card border-0">
+                        <div class="card-body">
+                            <h5 class="card-title text-primary mb-3">Título del comentario 1</h5>
+                            <p class="card-text text-muted">Contenido del comentario 1...</p>
+                        </div>
+                    </div>
+                    <div class="card border-0">
+                        <div class="card-body">
+                            <h5 class="card-title text-primary mb-3">Título del comentario 2</h5>
+                            <p class="card-text text-muted">Contenido del comentario 2...</p>
+                        </div>
+                    </div>
+                    <!-- Más tarjetas de comentarios si es necesario -->
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
-                     </tbody>
-                 </table>
-             </div>
-             <div class="modal-footer">
-                 <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Cerrar</button>
-             </div>
-         </div>
-          
-     </div>
-       
- </div>
+    <!-- Modal para agregar comentario -->
+    <div class="modal fade" id="modalProyecto" tabindex="-1" aria-labelledby="agregarComentarioModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content rounded-3 border-0" style="background: white;">
+                <div class="modal-header border-0">
+                    <h5 class="modal-title fw-bold text-primary" id="agregarComentarioModalLabel">Agregar Comentario
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="formularioComentario">
+                        <input type="hidden" id="proyectoIdAgregar" name="proyectoId">
+                        <div class="input-group input-group-outline my-3">
+                            <label for="tituloAgregar" class="form-label">Título</label>
+                            <input type="text" class="form-control form-control-lg input-animate" id="tituloAgregar"
+                                name="titulo">
+                        </div>
+                        <div class="input-group input-group-outline my-3">
+                            <label for="descripcionAgregar" class="form-label">Descripción</label>
+                            <textarea class="form-control form-control-lg input-animate" id="descripcionAgregar"
+                                name="descripcion" rows="3"></textarea>
+                        </div>
+                        <button type="button"
+                            class="btn-kevin btn btn-lg btn-gradient-primary w-100 my-4 mb-2 btn-animate rainbow-bg"
+                            onclick="CrearComentario2()">
+                            <span class="btn-text">Guardar Comentario</span>
+                            <span class="btn-icon">&#128640;</span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 
-     <!-- Modal proyecto -->
+    <!-- Modal proyecto -->
     <div class="modal fade" id="modalProyecto" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content rounded-3 border-0" style="background: white;">
@@ -465,7 +547,8 @@
                             </select>
                         </div>
                         <div class="input-group input-group-outline my-3">
-                            <span class="form-control form-control-lg input-animate" id="estadoPostulacion" name="estadoPostulacion" required>
+                            <span class="form-control form-control-lg input-animate" id="estadoPostulacion"
+                                name="estadoPostulacion" required>
                                 false
                             </span>
                         </div>
@@ -843,4 +926,5 @@
     <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
     <script src="../assets/js/material-dashboard.min.js?v=3.1.0"></script>
 </body>
+
 </html>
