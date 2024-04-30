@@ -191,28 +191,28 @@ async function actulizarCoordinador(coordinador) {
 
 
 
-async function findListProyectos(){
-    const result=await fetch(urlBackend+"docProyectoEmp/list-docs",{
-        method:'GET'
+async function findListProyectos() {
+    const result = await fetch(urlBackend + "docProyectoEmp/list-docs", {
+        method: 'GET'
     })
     return result
 }
 mostrarListadoProyectos()
-function mostrarListadoProyectos(){
+function mostrarListadoProyectos() {
     findListProyectos()
-    .then(res=>res.json())
-    .then(data=>{
-        console.log(data)
-        const usuario = JSON.parse(localStorage.getItem("estudiante"))
-        let body=""
-        for (const proyecto of data) {
-            let color="success"
-            let mensaje="Aceptado"
-            if(proyecto.proyecto.estadoPostulacion===false){
-                color="danger"
-                mensaje="Pendiente"
-           }
-            body+=`<tr>
+        .then(res => res.json())
+        .then(data => {
+            console.log(data)
+            const usuario = JSON.parse(localStorage.getItem("estudiante"))
+            let body = ""
+            for (const proyecto of data) {
+                let color = "success"
+                let mensaje = "Aceptado"
+                if (proyecto.proyecto.estadoPostulacion === false) {
+                    color = "danger"
+                    mensaje = "Pendiente"
+                }
+                body += `<tr>
             <td>    
                 <h6 class="mb-0 text-sm">${proyecto.proyecto.empresaId}</h6>
             </td>
@@ -226,14 +226,14 @@ function mostrarListadoProyectos(){
                 <span class="mb-0 text-secondary text-xs">${proyecto.ruta}</span>
             </td>
         </tr>`
-            
-        }
-        document.getElementById("tablaProyectos").innerHTML=body;
 
-    })
-    .catch(e=>{
-        console.log(e)
-    })
+            }
+            document.getElementById("tablaProyectos").innerHTML = body;
+
+        })
+        .catch(e => {
+            console.log(e)
+        })
 }
 
 function documentosEmpresa(id) {
@@ -369,7 +369,6 @@ async function listaDocumentoProyectos(id) {
 cargarListaProytectos()
 function cargarListaProytectos() {
     let body = ""
-    const usuario = JSON.parse(localStorage.getItem("Data"))
 
     listaProyectos()
         .then(res => res.json())
@@ -378,14 +377,15 @@ function cargarListaProytectos() {
             console.log("PROYECTOS")
             console.log(data)
             for (const proyecto of data) {
-                    console.log(proyecto)
-                    let color = "success"
-                    let mensaje = "Aceptado"
-                    if (proyecto.estadoPostulacion === false) {
-                        color = "danger"
-                        mensaje = "Pendiente"
-                    }
-                    body += `<tr>
+                console.log(proyecto)
+                
+                let color = "success"
+                let mensaje = "Aceptado"
+                if (proyecto.estadoPostulacion === false) {
+                    color = "danger"
+                    mensaje = "Pendiente"
+                }
+                body += `<tr>
                     <td>
                         <h6 class="mb-0 text-sm">${proyecto.empresa.usuario.nombre}</h6>
                     </td>
@@ -410,11 +410,19 @@ function cargarListaProytectos() {
             </svg>
                         </a>
                         </td>
+
+                        <td class="align-middle text-center text-sm">
+                        <a type="button" onclick="comentarios(${proyecto.id})" data-bs-toggle="modal" data-bs-target="#comentariosModal">
+                        <svg class="text-primary" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-info-circle-fill" viewBox="0 0 16 16">
+            <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16m.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2"/>
+            </svg>
+                        </a>
+                        </td>
                    
                 </tr>`
-                
-            
-        }
+
+
+            }
 
             document.getElementById("listaProyectos").innerHTML = body
         })
@@ -424,17 +432,108 @@ function cargarListaProytectos() {
 
 }
 
+// Función para cargar y mostrar los comentarios en el modal
+function comentarios(id) {
+    localStorage.setItem("proyectoId",id)
+    findComentarioByIdProyecto(id)
+        .then(res => res.json())
+        .then(data => {
+            const comentariosModalBody = document.querySelector("#comentariosModal .modal-body");
+            // Limpiar contenido existente para evitar duplicados
+            comentariosModalBody.innerHTML = "";
+
+            // Iterar sobre cada comentario y agregarlo al modal
+            data.forEach(comentario => {
+                const comentarioHTML = `
+                    <div class="card border-0 mb-2">
+                        <div class="card-body">
+                            <h5 class="card-title text-primary mb-3">${comentario.titulo}</h5>
+                            <p class="card-text text-muted">${comentario.descripcion}</p>
+                        </div>
+                    </div>`;
+                // Agregar el comentario al modal
+                comentariosModalBody.insertAdjacentHTML('beforeend', comentarioHTML);
+            });
+        })
+        .catch(err => {
+            console.error("Error al obtener los comentarios:", err);
+        });
+}
+
+// Función para buscar comentarios por ID de proyecto
+async function findComentarioByIdProyecto(id) {
+    const result = await fetch(urlBackend + "comentario/list-docs/" + id, {
+        method: 'GET'
+    });
+    return result;
+}
+
+// Función para buscar comentarios por ID de proyecto
+async function crearComentario(comentario) {
+    const result = await fetch(urlBackend + "comentario/guardar", {
+        method: 'POST',
+        body: JSON.stringify(comentario),
+        headers: {
+            "Content-type": "application/json"
+        }
+    });
+    return result;
+}
 
 
 
-function documentosEstudiante(id){
+
+function CrearComentario2() {
+    const usuario = JSON.parse(localStorage.getItem("coordinador"));
+    let titulo = document.getElementById("tituloAgregar").value;
+    let descripcion = document.getElementById("descripcionAgregar").value;
+    const comentario = {
+        titulo,
+        descripcion,
+        coordinadorId: usuario.id,
+        proyectoId: localStorage.getItem("proyectoId"),
+    };
+
+    console.log(comentario);
+    crearComentario(comentario)
+        .then(res => res.json())
+        .then(data => {
+            console.log(data);
+            mostrarMensaje("El comentario se guardó exitosamente. La página se actualizará en unos segundos.");
+            setTimeout(function() {
+                location.reload(); // Recargar la página después de 3 segundos
+            }, 1000);
+        })
+        .catch(err => {
+            console.log(err);
+        });
+}
+
+function mostrarMensaje(mensaje) {
+    // Aquí puedes implementar tu lógica para mostrar un mensaje, puede ser con alert, un modal, o algún elemento en tu página
+    alert(mensaje);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+function documentosEstudiante(id) {
     findDocuementoByIdEstudiante(id)
-    .then(res=>res.json())
-    .then(data=>{
-        console.log(data)
-        let body = ""
+        .then(res => res.json())
+        .then(data => {
+            console.log(data)
+            let body = ""
             for (const documento of data) {
-               
+
                 body += `<tr>
             <td>
                 <h6 class="mb-0 text-sm">${documento.titulo}</h6>
@@ -453,48 +552,48 @@ function documentosEstudiante(id){
         </tr>`
             }
 
-        
-        document.getElementById("tablaDocumento").innerHTML = body;
-    })
-    .catch(err=>{
-        console.log(err)
-    })
+
+            document.getElementById("tablaDocumento").innerHTML = body;
+        })
+        .catch(err => {
+            console.log(err)
+        })
 }
 
-async function findDocuementoByIdEstudiante(id){
-    const result=await fetch(urlBackend+"docProyectoEst/"+id,{
-        method:'GET'
+async function findDocuementoByIdEstudiante(id) {
+    const result = await fetch(urlBackend + "docProyectoEst/" + id, {
+        method: 'GET'
     })
-    return result;
+    return result;
 }
 
-function downloadDocumento(key){
-   
+function downloadDocumento(key) {
+
     downloadPdfDocumentoEstudiante(key)
-       .then((res) => res.blob())
-       .then((blob) => {
-         if (blob.size === 0) {
-           alert("No hay documento");
-         } else {
-           const url = URL.createObjectURL(blob);
-           const a = document.createElement("a");
-           a.href = url;
-           a.download = "documento_"+key;
-           document.body.appendChild(a);
-           a.click();
-         }
-       })
-       .catch((e) => {
-         console.log(e);
-       });
- }
- 
- async function downloadPdfDocumentoEstudiante(key){
-     const result=await fetch(urlBackend+"docPracticante/download?key="+key,{
-         method:'GET'
-     })
-     return result;
- }
+        .then((res) => res.blob())
+        .then((blob) => {
+            if (blob.size === 0) {
+                alert("No hay documento");
+            } else {
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement("a");
+                a.href = url;
+                a.download = "documento_" + key;
+                document.body.appendChild(a);
+                a.click();
+            }
+        })
+        .catch((e) => {
+            console.log(e);
+        });
+}
+
+async function downloadPdfDocumentoEstudiante(key) {
+    const result = await fetch(urlBackend + "docPracticante/download?key=" + key, {
+        method: 'GET'
+    })
+    return result;
+}
 
 
 
@@ -502,22 +601,22 @@ function downloadDocumento(key){
 
 
 
- async function findListProyectosEst(){
-    const result=await fetch(urlBackend+"docProyectoEst/list-docs",{
-        method:'GET'
+async function findListProyectosEst() {
+    const result = await fetch(urlBackend + "docProyectoEst/list-docs", {
+        method: 'GET'
     })
     return result
 }
 mostrarListadoProyectos2()
-function mostrarListadoProyectos2(){
+function mostrarListadoProyectos2() {
     findListProyectosEst()
-    .then(res=>res.json())
-    .then(data=>{
-        console.log(data)
-        const usuario = JSON.parse(localStorage.getItem("estudiante"))
-        let body=""
-        for (const doc of data) {
-            body+=`<tr>
+        .then(res => res.json())
+        .then(data => {
+            console.log(data)
+            const usuario = JSON.parse(localStorage.getItem("estudiante"))
+            let body = ""
+            for (const doc of data) {
+                body += `<tr>
             <td>    
                 <h6 class="mb-0 text-sm">${doc.estudiante.codigo}</h6>
             </td>
@@ -531,12 +630,12 @@ function mostrarListadoProyectos2(){
                 <span class="mb-0 text-secondary text-xs">${doc.ruta}</span>
             </td>
         </tr>`
-            
-        }
-        document.getElementById("tablaProyectos2").innerHTML=body;
 
-    })
-    .catch(e=>{
-        console.log(e)
-    })
+            }
+            document.getElementById("tablaProyectos2").innerHTML = body;
+
+        })
+        .catch(e => {
+            console.log(e)
+        })
 }
