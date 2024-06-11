@@ -46,63 +46,87 @@ async function findListEmpresas(){
     return result
 }
 mostrarListadoEmpresas()
+
+// Actualización de la función mostrarListadoEmpresas para agregar modal
 function mostrarListadoEmpresas() {
     findListEmpresas()
         .then(res => res.json())
         .then(data => {
-            console.log(data)
-            let body = ""
+            let body = "";
             for (const empresa of data) {
-                let color = "success"
-                let mensaje = "Aceptado"
-                if (empresa.estado === false) {
-                    color = "danger"
-                    mensaje = "Pendiente"
+                let color = "success";
+                let mensaje = "Aceptado";   
+                if (!empresa.estado) {
+                    color = "danger";
+                    mensaje = "Pendiente";
                 }
                 body += `<tr>
-            <td>
-            <h6 class="mb-0 text-sm">${empresa.usuario.id}
-            </h6>
-            </td>
-            <td>
-                <h6 class="mb-0 text-sm">${empresa.usuario.nombre}</h6>
-            </td>    
-            <td>
-                <p class="text-xs text-secondary mb-0">${empresa.usuario.correo}</p>
-            </td>
-            <td class="align-middle text-center text-sm">
-                <span class="mb-0 text-secondary text-xs">Empresa</span>
-            </td>
-            <td class="align-middle text-center">
-                <span class="text-secondary text-xs font-weight-bold">${empresa.usuario.fechaRegistro.split("T")[0]}</span>
-            </td>
-            <td class="align-middle">
-                <h6 class="mb-0 text-secondary text-xs">${empresa.nit}</h6>
-            </td>
-            <td class="align-middle text-align">
-                <span class="mb-0 text-secondary text-xs">${empresa.representante}</span>
-            </td>
-            <td class="align-middle">
-                <h6 class="mb-0 text-center text-xs text-secondary">${empresa.convenio}</h6>
-            </td>
-            <td class="align-middle text-center text-sm">
-                <span class="badge badge-sm bg-gradient-${color}">${mensaje}</span>
-            </td>
-            <td class="align-middle text-center text-sm" onclick="documentosEmpresa(${empresa.id})">
-           
-<svg data-bs-toggle="modal" data-bs-target="#staticBackdrop" class="text-primary" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-info-circle-fill" viewBox="0 0 16 16">
-<path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16m.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2"/>
-</svg>
-            </td>
-        </tr>`
+                    <td><h6 class="mb-0 text-sm">${empresa.usuario.id}</h6></td>
+                    <td><h6 class="mb-0 text-sm">${empresa.usuario.nombre}</h6></td>
+                    <td><p class="text-xs text-secondary mb-0">${empresa.usuario.correo}</p></td>
+                    <td class="align-middle text-center text-sm"><span class="mb-0 text-secondary text-xs">Empresa</span></td>
+                    <td class="align-middle text-center"><span class="text-secondary text-xs font-weight-bold">${empresa.usuario.fechaRegistro.split("T")[0]}</span></td>
+                    <td class="align-middle"><h6 class="mb-0 text-secondary text-xs">${empresa.nit}</h6></td>
+                    <td class="align-middle text-align"><span class="mb-0 text-secondary text-xs">${empresa.representante}</span></td>
+                    <td class="align-middle"><h6 class="mb-0 text-center text-xs text-secondary">${empresa.convenio}</h6></td>
+                    <td class="align-middle text-center text-sm"><span class="badge badge-sm bg-gradient-${color}">${mensaje}</span></td>
+                    <td class="align-middle text-center text-sm">
+                         <button class="btn btn-sm btn-primary" onclick="guardarNit('${empresa.nit}')" data-bs-toggle="modal" data-bs-target="#cambiarEstadoModal">
+                         Actualizar Estado
+                         </button>
+                    </td>
+                </tr>`;
             }
             document.getElementById("tablaEmpresas").innerHTML = body;
-
         })
         .catch(e => {
-            console.log(e)
-        })
+            console.error("Error al obtener listado de empresas:", e);
+        });
 }
+
+function guardarNit(nit) {
+    localStorage.setItem('nitEmpresa', nit);
+}
+
+async function actualizarEstadoEmpresa() {
+    const nit = localStorage.getItem('nitEmpresa');
+    const nuevoEstado = document.getElementById('estadoSelect').value === 'true';
+
+    const url = `${urlBackend}datos-empresa/${nit}/estado?nuevoEstado=${nuevoEstado}`;
+
+    try {
+        const response = await fetch(url, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        });
+
+        if (!response.ok) {
+            throw new Error('Error al actualizar el estado de la empresa');
+        }
+
+        // Cierra el modal después de la actualización exitosa
+        const modal = new bootstrap.Modal(document.getElementById('cambiarEstadoModal'));
+        modal.hide();
+
+        // Actualiza la lista de empresas después de la actualización
+        await mostrarListadoEmpresas();
+
+        // Opcional: puedes limpiar localStorage después de la actualización si ya no lo necesitas
+        localStorage.removeItem('nitEmpresa');
+    } catch (error) {
+        console.error('Error:', error); // Maneja cualquier error de la solicitud
+        throw error; // Puedes lanzar el error para manejarlo más adelante si es necesario
+    }
+}
+
+// Event listener para el formulario del modal
+document.getElementById('cambiarEstadoForm').addEventListener('submit', function(event) {
+    event.preventDefault(); // Evita que el formulario se envíe de manera tradicional
+    actualizarEstadoEmpresa(); // Llama a la función para actualizar el estado
+});
+
 
 function documentosEmpresa(id){
     findDocuementoByIdEmpresa(id)
@@ -153,8 +177,9 @@ async function findListEstudiantes(){
 }
 
 mostrarListadoEstudiantes()
+mostrarListadoPracticantes()
 
-function mostrarListadoEstudiantes() {
+function mostrarListadoPracticantes() {
     findListEstudiantes()
         .then(res => res.json())
         .then(data => {
@@ -201,7 +226,26 @@ function mostrarListadoEstudiantes() {
                 </td>
             </tr>`
                 }
-                body += ` <tr>
+            }
+            document.getElementById("listaPracticantes").innerHTML = bodyPracticantes;
+        })
+        .catch(e => {
+            console.log(e)
+        })
+}
+
+function mostrarListadoEstudiantes() {
+    findListEstudiantes()
+        .then(res => res.json())
+        .then(data => {
+            let body = "";
+            for (const estudiante of data) {
+                let color = "success";
+                let mensaje = "Aceptado";
+                if (!estudiante.estado) {
+                    color = "danger";
+                    mensaje = "Pendiente";
+                } body += ` <tr>
             <td>
                 <h6 class="mb-0 text-sm">${estudiante.usuario.id}</h6>
             </td>
@@ -232,15 +276,62 @@ function mostrarListadoEstudiantes() {
             <td class="align-middle text-center text-sm">
                 <span class="badge badge-sm bg-gradient-${color}">${mensaje}</span>
             </td>
+            <td class="align-middle text-center text-sm">
+                <button class="btn btn-sm btn-primary" onclick="guardarId('${estudiante.codigo}')" data-bs-toggle="modal" data-bs-target="#cambiarEstadoModalE">
+                    Actualizar Estado
+                </button>
+            </td>
         </tr>`
             }
             document.getElementById("tablaEstudiantes").innerHTML = body;
-            document.getElementById("listaPracticantes").innerHTML = bodyPracticantes;
         })
         .catch(e => {
-            console.log(e)
+            console.log(e);
         })
 }
+
+function guardarId(codigo) {
+    localStorage.setItem('codigoEstudiante', codigo);
+}
+
+async function actualizarEstadoEstudiante() {
+    const codigo = localStorage.getItem('codigoEstudiante');
+    const nuevoEstado = document.getElementById('estadoSelect').value === 'true';
+
+    const url = `${urlBackend}datos-estudiante/${codigo}/estado?nuevoEstado=${nuevoEstado}`;
+
+    try {
+        const response = await fetch(url, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        });
+
+        if (!response.ok) {
+            throw new Error('Error al actualizar el estado de el estudiante');
+        }
+
+        // Cierra el modal después de la actualización exitosa
+        const modal = new bootstrap.Modal(document.getElementById('cambiarEstadoModalE'));
+        modal.hide();
+
+        // Actualiza la lista de empresas después de la actualización
+        await mostrarListadoEstudiantes();
+
+        // Opcional: puedes limpiar localStorage después de la actualización si ya no lo necesitas
+        localStorage.removeItem('codigoEstudiante');
+    } catch (error) {
+        console.error('Error:', error); // Maneja cualquier error de la solicitud
+        throw error; // Puedes lanzar el error para manejarlo más adelante si es necesario
+    }
+}
+
+// Event listener para el formulario del modal
+document.getElementById('cambiarEstadoForm2').addEventListener('submit', function(event) {
+    event.preventDefault(); // Evita que el formulario se envíe de manera tradicional
+    actualizarEstadoEstudiante(); // Llama a la función para actualizar el estado
+});
 
 async function findListTutores(){
     const result=await fetch(urlBackend+"obtutor/list-tutores",{
