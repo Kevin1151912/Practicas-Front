@@ -155,6 +155,7 @@
                 /* Posición intermedia */
             }
         }
+
     </style>
 </head>
 
@@ -211,7 +212,7 @@
                         <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                             <i class="material-icons opacity-10">ballot</i>
                         </div>
-                        <span class="nav-link-text ms-1">Proyectos</span>
+                        <span class="nav-link-text ms-1">Planes de Trabajo</span>
                     </a>
                 </li>
                 <li class="nav-item">
@@ -323,7 +324,9 @@
                                             <th
                                                 class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                                 Estado</th>
-                                            <th class="text-secondary opacity-7"></th>
+                                            <th
+                                                class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                                Accion</th>
                                         </tr>
                                     </thead>
                                     <tbody id="tablaEmpresas">
@@ -377,7 +380,9 @@
                                             <th
                                                 class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                                 Estado</th>
-                                            <th class="text-secondary opacity-7"></th>
+                                            <th
+                                                class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                                Accion</th>
                                         </tr>
                                     </thead>
                                     <tbody id="tablaEstudiantes">
@@ -489,7 +494,7 @@
                     <div class="card my-4">
                         <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
                             <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
-                                <h6 class="text-white text-capitalize ps-3">Lista Proyectos</h6>
+                                <h6 class="text-white text-capitalize ps-3">Lista de Planes de Trabajos</h6>
                             </div>
                         </div>
                         <div class="card-body px-0 pb-2">
@@ -739,8 +744,8 @@
                     <div class="row-md-5 mb-5" style="max-width: 700px;">
                         <div class="card">
                             <div class="card-body text-center">
-                                <h5 class="card-title">Agregar Proyecto</h5>
-                                <p class="card-text">Registra nuevos proyectos asociados por la empresa para las
+                                <h5 class="card-title">Agregar Plan de Trabajo</h5>
+                                <p class="card-text">Registra nuevos planes de trabajo asociados por la empresa para las
                                     practicas.</p>
                                 <button type="button" class="btn btn-primary" data-bs-toggle="modal"
                                     data-bs-target="#modalProyecto">
@@ -1047,7 +1052,7 @@
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content rounded-3 border-0" style="background: white;">
                 <div class="modal-header border-0">
-                    <h5 class="modal-title fw-bold text-primary" id="exampleModalLabel">Agregar Proyecto</h5>
+                    <h5 class="modal-title fw-bold text-primary" id="exampleModalLabel">Agregar Plan de Trabajo</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -1067,8 +1072,8 @@
                             </select>
                         </div>
                         <div class="input-group input-group-outline my-3">
-                            <select class="form-control form-control-lg input-animate" id="estudianteId" name="estudianteId"
-                                required>
+                            <select class="form-control form-control-lg input-animate" id="estudianteId"
+                                name="estudianteId" required>
                                 <option value="" disabled selected>Selecciona el Practicante</option>
                                 <!-- Aquí puedes agregar las opciones de la lista desplegable para el practicante -->
                             </select>
@@ -1081,7 +1086,7 @@
                         <button type="button"
                             class="btn-kevin btn btn-lg btn-gradient-primary w-100 my-4 mb-2 btn-animate rainbow-bg"
                             onclick="guardarProyecto()">
-                            <span class="btn-text">Guardar Proyecto</span>
+                            <span class="btn-text">Guardar Plan de Trabajo</span>
                             <span class="btn-icon">&#128640;</span>
                         </button>
                     </form>
@@ -1156,14 +1161,14 @@
             <div class="modal-content rounded-3 border-0"
                 style="background: linear-gradient(50deg, #f85fae, #ff0084); box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);">
                 <div class="modal-header border-0">
-                    <h5 class="modal-title fw-bold text-white" id="exampleModalLabel">¡Guardando Proyecto!</h5>
+                    <h5 class="modal-title fw-bold text-white" id="exampleModalLabel">¡Guardando Plan de Trabajo!</h5>
                     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
                         aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     <div class="text-center">
                         <div class="spinner-border text-white mb-3" role="status"></div>
-                        <p class="mb-0 text-white">El proyecto ingresado esta siendo guardado!</p>
+                        <p class="mb-0 text-white">El plan de trabajo ingresado esta siendo guardado!</p>
                     </div>
                 </div>
             </div>
@@ -1189,6 +1194,60 @@
             </div>
         </div>
     </div>
+
+<!-- Modal para cambiar estado de empresa -->
+<div class="modal fade" id="cambiarEstadoModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <form id="cambiarEstadoForm">
+                <div class="modal-header bg-gradient-primary">
+                    <h5 class="modal-title text-white" id="exampleModalLabel">Cambiar Estado de Empresa</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="estadoSelect" class="mb-2">Estado:</label>
+                        <select class="form-select form-select-lg mb-3" id="estadoSelect" name="estado">
+                            <option value="true">Aceptado</option>
+                            <option value="false">Pendiente</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="submit" class="btn btn-success" data-bs-dismiss="modal" aria-label="Close">Confirmar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Modal para cambiar estado de estudiante -->
+<div class="modal fade" id="cambiarEstadoModalE" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <form id="cambiarEstadoForm2">
+                <div class="modal-header bg-gradient-primary">
+                    <h5 class="modal-title text-white" id="exampleModalLabel">Cambiar Estado de Estudiante</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="estadoSelect" class="mb-2">Estado:</label>
+                        <select class="form-select form-select-lg mb-3" id="estadoSelect" name="estado">
+                            <option value="true">Aceptado</option>
+                            <option value="false">Pendiente</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="submit" class="btn btn-success" data-bs-dismiss="modal" aria-label="Close">Confirmar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
 
     <div class="fixed-plugin">
         <a class="fixed-plugin-button text-dark position-fixed px-3 py-2">
