@@ -216,7 +216,7 @@ function iniciarSesionCoTut() {
 function iniciarSesionCord() {
 
   event.preventDefault();
-  // Obtener los valores de los campos de entrada
+  // Obtener los valores de los campos de entradaa
   var correo = document.getElementById('correoCoordinadorCorreo').value;
   var contraseña = document.getElementById('passwordCoordinadorCorreo').value;
   //Creo el objeto Usuario 
